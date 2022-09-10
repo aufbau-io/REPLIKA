@@ -57,14 +57,14 @@
 /* END CUSTOM SCROLLBAR */
 
 body {
-	font-family: kobe;
+	font-family: helvetica-neue;
 	background: var(--black);
 	color: var(--white);
 }
 
 /* HEADING */
 h1 {
-	font-family: 'dahlia';
+	font-family: 'kobe';
 	text-transform: uppercase;
 	font-size: 120px;
 	line-height: 100%;
