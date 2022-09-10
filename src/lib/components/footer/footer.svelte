@@ -1,6 +1,4 @@
 <script>
-	import Logo from './aufbauLogo.svelte';
-	// import FormField from '$lib/components/common/formField.svelte';
 </script>
 
 <footer>

@@ -1,30 +1,28 @@
 <script>
 	import Nav from './nav.svelte';
 	import Logo from './logo.svelte';
-	import AnimationButton from './animationsToggle.svelte';
-	import CollabTicker from './ticker.svelte';
 	// stub data out
 	const navItems = [
 		{
-			name: 'ARTISTS',
-			href: '/artists'
+			name: 'OBJECTS',
+			href: '/'
 		},
 		{
-			name: 'LABELS',
-			href: '/labels'
+			name: 'ABOUT',
+			href: '/about'
 		},
 		{
-			name: 'RECORDS',
-			href: '/records'
+			name: 'CONTACT',
+			href: '/contact'
 		}
 	];
 </script>
 
 <header>
 	<Logo />
+	<div />
+	<div />
 	<Nav {navItems} />
-	<AnimationButton />
-	<CollabTicker />
 </header>
 
 <style>

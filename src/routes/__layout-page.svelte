@@ -25,6 +25,7 @@
 
 <svelte:component this={Geometry} />
 
+<Header />
 <main>
 	<slot />
 </main>
@@ -32,6 +33,6 @@
 
 <style>
 	main {
-		min-height: calc(100vh - 60px);
+		min-height: calc(100vh - 150px);
 	}
 </style>

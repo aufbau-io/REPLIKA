@@ -1,4 +1,4 @@
-<a href="/"><h4>SILICON</h4> </a>
+<a href="/"><h4>REPLIKA</h4> </a>
 
 <style>
 	h4 {

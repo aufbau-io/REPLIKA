@@ -2,12 +2,12 @@
 	[
 	<div class="ticker-wrap">
 		<div class="ticker">
-			<div class="ticker__item">silicon /</div>
-			<div class="ticker__item">electronic music /</div>
-			<div class="ticker__item">silicon /</div>
-			<div class="ticker__item">electronic music /</div>
-			<div class="ticker__item">silicon /</div>
-			<div class="ticker__item">electronic music /</div>
+			<div class="ticker__item">replika /</div>
+			<div class="ticker__item">studio /</div>
+			<div class="ticker__item">replika /</div>
+			<div class="ticker__item">studio /</div>
+			<div class="ticker__item">replika /</div>
+			<div class="ticker__item">studio /</div>
 		</div>
 	</div>
 	]
