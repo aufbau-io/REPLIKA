@@ -1,7 +1,7 @@
-<a href="/"><h1>REPLIKA</h1> </a>
+<a href="/"><h2>REPLIKA</h2> </a>
 
 <style>
-	h1 {
+	h2 {
 		font-size: 32px;
 		letter-spacing: 0.08em;
 	}

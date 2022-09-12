@@ -71,21 +71,21 @@
 /* END CUSTOM SCROLLBAR */
 
 body {
-	font-family: nb-architekt;
+	font-family: nb-architekt, sans-serif;
 	background: var(--black);
 	color: var(--white);
 }
 
 /* HEADING */
 h1 {
-	font-family: 'nb-television';
+	font-family: nb-television-3d, sans-serif;
 	text-transform: uppercase;
 	font-size: 120px;
 	line-height: 100%;
 }
 
 h2 {
-	font-family: 'nb-television-3d';
+	font-family: nb-television, sans-serif;
 	font-size: 64px;
 	line-height: 110%;
 }
