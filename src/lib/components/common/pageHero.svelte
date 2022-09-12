@@ -19,10 +19,6 @@
 		background: #121212aa;
 	}
 
-	h1 {
-		font-family: nb-television-3d;
-	}
-
 	.item {
 		width: 100%;
 	}
