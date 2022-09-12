@@ -6,10 +6,10 @@
 /* APP */
 :root {
 	--ticker-duration: 70s;
-	--black: #232323;
-	--white: #f7f6f1;
-	--white-30: #f7f6f14d;
-	--white-50: #f7f6f180;
+	--black: #121212;
+	--white: #f0f0f0;
+	--white-30: #f0f0f04d;
+	--white-50: #f0f0f080;
 	--accent: #21bc32;
 	--accent-muted: #21bc32dd;
 	--error: #be4040;

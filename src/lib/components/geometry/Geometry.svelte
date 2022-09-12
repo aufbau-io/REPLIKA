@@ -20,7 +20,7 @@
 		camera.position.z = 1800;
 
 		scene = new THREE.Scene();
-		scene.background = new THREE.Color(0x171717);
+		scene.background = new THREE.Color(0x121212);
 
 		const light = new THREE.DirectionalLight(0xf0f0f0);
 		light.position.set(0, 1, 1);
@@ -41,8 +41,8 @@
 			canvas.height / 2,
 			canvas.width / 2
 		);
-		gradient.addColorStop(0.1, '#0a0a0a');
-		gradient.addColorStop(1, '#171717');
+		gradient.addColorStop(0.1, '#020202');
+		gradient.addColorStop(1, '#121212');
 
 		context.fillStyle = gradient;
 		context.fillRect(0, 0, canvas.width, canvas.height);
