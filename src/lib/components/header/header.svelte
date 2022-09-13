@@ -9,11 +9,11 @@
 		},
 		{
 			name: 'ABOUT',
-			href: '/about'
+			href: '/ABOUT'
 		},
 		{
 			name: 'CONTACT',
-			href: '/contact'
+			href: '/CONTACT'
 		}
 	];
 </script>

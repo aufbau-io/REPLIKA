@@ -19,7 +19,9 @@
 <main>
 	<div class="arrows">
 		<h1 on:click={turnLeft}>←</h1>
-		<h2>OBJ_0{$index}</h2>
+		<a href="/OBJECTS/0{$index}">
+			<h2>OBJ_0{$index}</h2>
+		</a>
 		<h1 on:click={turnRight}>→</h1>
 	</div>
 </main>

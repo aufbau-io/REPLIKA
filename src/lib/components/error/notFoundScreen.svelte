@@ -14,23 +14,18 @@
 	<div class="nav">
 		<a href="/" class="top-border">
 			<h2>00</h2>
-			<h1>Smoking Area</h1>
+			<h1>Objects</h1>
 			<Arrow direction="up" />
 		</a>
-		<a href="/artists">
+		<a href="/ABOUT">
 			<h2>01</h2>
-			<h1>Artists</h1>
+			<h1>About</h1>
 			<Arrow direction="left" />
 		</a>
-		<a href="/labels">
+		<a href="/CONTACT">
 			<h2>02</h2>
-			<h1>Labels</h1>
+			<h1>Contact</h1>
 			<Arrow direction="right" />
-		</a>
-		<a href="/records">
-			<h2>03</h2>
-			<h1>Records</h1>
-			<Arrow direction="down" />
 		</a>
 	</div>
 </section>
