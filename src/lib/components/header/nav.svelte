@@ -13,7 +13,7 @@
 
 <nav>
 	{#each navItems as navItem}
-		<a href={navItem.href} class:active={$page.url.pathname === navItem.href}
+		<a class="lrg" href={navItem.href} class:active={$page.url.pathname === navItem.href}
 			>[&nbsp;{navItem.name}&nbsp;]</a
 		>
 	{/each}
@@ -21,7 +21,6 @@
 
 <style>
 	nav a {
-		font-size: 16px;
 		line-height: 110%;
 		font-weight: 400;
 		letter-spacing: 0.05em;
