@@ -9,11 +9,29 @@
 			}
 		};
 	}
+
+	let activeMapping = {
+		'/about': '/about',
+		'/contact': '/contact',
+		'/objects/01': '/',
+		'/objects/02': '/',
+		'/objects/03': '/',
+		'/objects/04': '/',
+		'/objects/05': '/',
+		'/objects/06': '/',
+		'/objects/07': '/',
+		'/objects/08': '/',
+		'/objects/09': '/',
+		'/': '/'
+	};
 </script>
 
 <nav>
 	{#each navItems as navItem}
-		<a class="lrg" href={navItem.href} class:active={$page.url.pathname === navItem.href}
+		<a
+			class="lrg"
+			href={navItem.href}
+			class:active={navItem.href === activeMapping[$page.url.pathname]}
 			>[&nbsp;{navItem.name}&nbsp;]</a
 		>
 	{/each}
@@ -25,6 +43,7 @@
 		font-weight: 400;
 		letter-spacing: 0.05em;
 		padding: 10px;
+		cursor: pointer;
 	}
 
 	.active {
