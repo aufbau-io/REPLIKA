@@ -40,8 +40,8 @@
 
 	.item.flex {
 		display: flex;
-		align-items: flex-end;
-		flex-flow: column wrap;
+		justify-content: space-between;
+		flex-flow: row wrap;
 		padding: 0 40px;
 	}
 </style>
