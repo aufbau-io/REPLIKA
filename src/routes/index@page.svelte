@@ -64,7 +64,7 @@
 	}
 
 	.arrows h2:hover {
-		border: solid 10px var(--white);
+		border: solid 12px var(--white);
 		padding: calc(2rem - 12px);
 	}
 
