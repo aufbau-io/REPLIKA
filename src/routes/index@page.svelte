@@ -56,5 +56,20 @@
 
 	h2 {
 		font-size: 150px;
+		line-height: 150px;
+		height: 200px;
+		cursor: pointer;
+		font-family: nb-television, sans-serif;
+		padding: 2rem;
+	}
+
+	h2:hover {
+		border: solid 10px var(--white);
+		padding: calc(2rem - 10px);
+	}
+
+	h2:active {
+		border-color: var(--black);
+		color: var(--black);
 	}
 </style>
