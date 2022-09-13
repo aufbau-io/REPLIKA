@@ -54,7 +54,7 @@
 		font-family: nb-television-3d, sans-serif;
 	}
 
-	h2 {
+	.arrows h2 {
 		font-size: 150px;
 		line-height: 150px;
 		height: 200px;
@@ -63,13 +63,22 @@
 		padding: 2rem;
 	}
 
-	h2:hover {
+	.arrows h2:hover {
 		border: solid 10px var(--white);
-		padding: calc(2rem - 10px);
+		padding: calc(2rem - 12px);
 	}
 
-	h2:active {
+	.arrows h2:active {
 		border-color: var(--black);
 		color: var(--black);
+	}
+
+	@media only screen and (max-width: 1000px) {
+		.arrows h1 {
+			font-size: 240px;
+		}
+		.arrows h2 {
+			font-size: 120px;
+		}
 	}
 </style>
