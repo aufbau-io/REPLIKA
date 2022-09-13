@@ -17,12 +17,12 @@
 			<h1>Objects</h1>
 			<Arrow direction="up" />
 		</a>
-		<a href="/ABOUT">
+		<a href="/about">
 			<h2>01</h2>
 			<h1>About</h1>
 			<Arrow direction="left" />
 		</a>
-		<a href="/CONTACT">
+		<a href="/contact">
 			<h2>02</h2>
 			<h1>Contact</h1>
 			<Arrow direction="right" />
