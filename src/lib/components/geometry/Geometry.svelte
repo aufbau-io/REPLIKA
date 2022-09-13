@@ -52,30 +52,6 @@
 		context.fillStyle = gradient;
 		context.fillRect(0, 0, canvas.width, canvas.height);
 
-		const shadowTexture = new THREE.CanvasTexture(canvas);
-
-		const shadowMaterial = new THREE.MeshBasicMaterial({ map: shadowTexture });
-		const shadowGeo = new THREE.PlaneGeometry(300, 300, 1, 1);
-
-		let shadowMesh;
-
-		shadowMesh = new THREE.Mesh(shadowGeo, shadowMaterial);
-		shadowMesh.position.y = -250;
-		shadowMesh.rotation.x = -Math.PI / 2;
-		scene.add(shadowMesh);
-
-		shadowMesh = new THREE.Mesh(shadowGeo, shadowMaterial);
-		shadowMesh.position.y = -250;
-		shadowMesh.position.x = -400;
-		shadowMesh.rotation.x = -Math.PI / 2;
-		scene.add(shadowMesh);
-
-		shadowMesh = new THREE.Mesh(shadowGeo, shadowMaterial);
-		shadowMesh.position.y = -250;
-		shadowMesh.position.x = 400;
-		shadowMesh.rotation.x = -Math.PI / 2;
-		scene.add(shadowMesh);
-
 		const radius = 200;
 
 		const geometry1 = new THREE.IcosahedronGeometry(radius, 1);
@@ -150,12 +126,29 @@
 		let totalObjects = meshes.length;
 		let r = 450;
 
+		const shadowTexture = new THREE.CanvasTexture(canvas);
+
+		const shadowMaterial = new THREE.MeshBasicMaterial({ map: shadowTexture });
+		const shadowGeo = new THREE.PlaneGeometry(300, 300, 1, 1);
+
+		let shadowMesh;
+
 		for (let i = 0, len = totalObjects; i < len; i++) {
 			var theta = (Math.PI * 2) / totalObjects;
 			var angle = theta * i;
 
-			meshes[i].position.x = r * Math.sin(angle);
-			meshes[i].position.z = r * Math.cos(angle);
+			let x = r * Math.sin(angle);
+			let z = r * Math.cos(angle);
+
+			meshes[i].position.x = x;
+			meshes[i].position.z = z;
+
+			shadowMesh = new THREE.Mesh(shadowGeo, shadowMaterial);
+			shadowMesh.position.x = x;
+			shadowMesh.position.y = -250;
+			shadowMesh.position.z = z;
+			shadowMesh.rotation.x = -Math.PI / 2;
+			scene.add(shadowMesh);
 		}
 
 		renderer = new THREE.WebGLRenderer({ antialias: false });

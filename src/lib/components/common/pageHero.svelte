@@ -7,6 +7,9 @@
 <section>
 	<div class="item flex">
 		<h1>{name}</h1>
+		<a href="/">
+			<h1 class="clickable">X</h1>
+		</a>
 	</div>
 </section>
 
@@ -23,13 +26,22 @@
 		font-family: nb-television-2d, sans-serif;
 	}
 
+	h1.clickable {
+		cursor: pointer;
+	}
+
+	h1.clickable:hover {
+		font-family: nb-television-3d, sans-serif;
+	}
+
 	.item {
 		width: 100%;
 	}
 
 	.item.flex {
 		display: flex;
-		justify-content: flex-end;
+		align-items: flex-end;
+		flex-flow: column wrap;
 		padding: 0 40px;
 	}
 </style>
