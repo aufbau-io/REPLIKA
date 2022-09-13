@@ -7,8 +7,8 @@
 </svelte:head>
 <section>
 	<div class="message">
-		<h2>404 error.&nbsp;Oops!<br />Looks like you're lost!</h2>
-		<p class="mono">Take one of these exits to find your&nbsp;way&nbsp;back&nbsp;to&nbsp;safety.</p>
+		<h2>404 error.&nbsp;<br />Bummer.</h2>
+		<p class="mono">Take one of these exits to find your&nbsp;way&nbsp;back.</p>
 	</div>
 
 	<div class="nav">
