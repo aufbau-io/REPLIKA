@@ -201,7 +201,7 @@
 
 	function render() {
 		camera.position.x += (mouseX - camera.position.x * 4) * 0.01;
-		camera.position.y += (-mouseY - camera.position.y) * 0.002;
+		camera.position.y += (-mouseY - camera.position.y * 10) * 0.01;
 
 		camera.lookAt(scene.position);
 
