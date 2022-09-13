@@ -1,9 +1,60 @@
 <script context="module">
-	import Hero from '$lib/components/common/pageHero.svelte';
+	import { index, absoluteIndex } from '$lib/store/store.js';
+
+	function turnLeft() {
+		console.log('left');
+		absoluteIndex.update((val) => val - 1);
+	}
+
+	function turnRight() {
+		console.log('right');
+		absoluteIndex.update((val) => val + 1);
+	}
 </script>
 
 <svelte:head>
 	<title>REPLIKA STUDIO</title>
 </svelte:head>
 
-<main />
+<main>
+	<div class="arrows">
+		<h1 on:click={turnLeft}>←</h1>
+		<h2>OBJ_0{$index}</h2>
+		<h1 on:click={turnRight}>→</h1>
+	</div>
+</main>
+
+<style>
+	.geometry {
+		position: absolute;
+		top: 0;
+		left: 0;
+		overflow: hidden;
+		z-index: -10;
+		opacity: 0.8;
+	}
+
+	.arrows {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-30%);
+		width: 100vw;
+		padding: 0 4rem;
+		display: flex;
+		justify-content: space-between;
+		user-select: none;
+	}
+
+	.arrows h1 {
+		font-size: 250px;
+		cursor: pointer;
+	}
+
+	.arrows h1:hover {
+		font-family: nb-television-3d, sans-serif;
+	}
+
+	h2 {
+		font-size: 150px;
+	}
+</style>

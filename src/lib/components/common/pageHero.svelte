@@ -19,12 +19,17 @@
 		background: #121212aa;
 	}
 
+	h1 {
+		font-family: nb-television-2d, sans-serif;
+	}
+
 	.item {
 		width: 100%;
 	}
 
 	.item.flex {
 		display: flex;
-		justify-content: center;
+		justify-content: flex-end;
+		padding: 0 40px;
 	}
 </style>

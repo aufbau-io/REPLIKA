@@ -1,6 +1,11 @@
 import { writable, derived } from 'svelte/store';
 
 export const animations = writable(true);
-export const absoluteIndex = writable(1);
+export const absoluteIndex = writable(0);
 
-export const index = derived(absoluteIndex, ($absoluteIndex) => $absoluteIndex % 3);
+// javascript modulo doesn't work on negative numbers
+function mod(n, m) {
+	return ((n % m) + m) % m;
+}
+
+export const index = derived(absoluteIndex, ($absoluteIndex) => mod($absoluteIndex, 3) + 1);

@@ -1,6 +1,9 @@
 <script>
 	import { onMount } from 'svelte';
 	import * as THREE from 'three';
+	import { index } from '$lib/store/store.js';
+
+	$: $index, lookAtIndex($index);
 
 	let group;
 
@@ -185,13 +188,9 @@
 		mouseY = event.clientY - windowHalfY;
 	}
 
-	function turnLeft() {
-		console.log('hi');
-		group.rotation.y += (Math.PI * 2) / 3;
-	}
-
-	function turnRight() {
-		group.rotation.y -= (Math.PI * 2) / 3;
+	function lookAtIndex(index) {
+		console.log(index);
+		group.rotation.y = ((Math.PI * 2) / 3) * index;
 	}
 
 	function animate() {
@@ -210,10 +209,6 @@
 </script>
 
 <div bind:this={container} class:geometry={true} />
-<div class="arrows">
-	<h1 on:click={turnLeft}>←</h1>
-	<h1 on:click={turnRight}>→</h1>
-</div>
 
 <style>
 	.geometry {
@@ -223,25 +218,5 @@
 		overflow: hidden;
 		z-index: -10;
 		opacity: 0.8;
-	}
-
-	.arrows {
-		position: absolute;
-		top: 50%;
-		transform: translateY(-30%);
-		width: 100vw;
-		padding: 0 4rem;
-		display: flex;
-		justify-content: space-between;
-	}
-
-	.arrows h1 {
-		font-size: 250px;
-		cursor: pointer;
-		user-select: none;
-	}
-
-	.arrows h1:hover {
-		font-family: nb-television-3d, sans-serif;
 	}
 </style>
