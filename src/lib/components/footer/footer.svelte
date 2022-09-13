@@ -8,6 +8,7 @@
 		<div class="base">
 			<p class="sml">Copyright 2022</p>
 			<p>REPLIKA STUDIO pdx</p>
+			<a href="https://aufbau.io">ein aufbau ding</a>
 			<p class="sml">2020 SE Bush Street Portland</p>
 		</div>
 	</section>
