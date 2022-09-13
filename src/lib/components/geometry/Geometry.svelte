@@ -2,6 +2,8 @@
 	import { onMount } from 'svelte';
 	import * as THREE from 'three';
 
+	let group;
+
 	let container;
 
 	let camera, scene, renderer;
@@ -116,26 +118,42 @@
 			transparent: true
 		});
 
-		let mesh = new THREE.Mesh(geometry1, material);
+		group = new THREE.Group();
+		scene.add(group);
+
+		let mesh1 = new THREE.Mesh(geometry1, material);
 		let wireframe = new THREE.Mesh(geometry1, wireframeMaterial);
-		mesh.add(wireframe);
-		mesh.position.x = -400;
-		mesh.rotation.x = -1.87;
-		scene.add(mesh);
+		mesh1.add(wireframe);
+		mesh1.position.x = -400;
+		mesh1.rotation.x = -1.87;
+		group.add(mesh1);
 
-		mesh = new THREE.Mesh(geometry2, material);
+		let mesh2 = new THREE.Mesh(geometry2, material);
 		wireframe = new THREE.Mesh(geometry2, wireframeMaterial);
-		mesh.add(wireframe);
-		mesh.position.x = 400;
-		mesh.rotation.y = -0;
-		scene.add(mesh);
+		mesh2.add(wireframe);
+		mesh2.position.x = 400;
+		mesh2.rotation.y = -0;
+		group.add(mesh2);
 
-		mesh = new THREE.Mesh(geometry3, material);
+		let mesh3 = new THREE.Mesh(geometry3, material);
 		wireframe = new THREE.Mesh(geometry3, wireframeMaterial);
-		mesh.add(wireframe);
-		mesh.rotation.y = +1.87;
-		mesh.rotation.x = -0.87;
-		scene.add(mesh);
+		mesh3.add(wireframe);
+		mesh3.rotation.y = +1.87;
+		mesh3.rotation.x = -0.87;
+		group.add(mesh3);
+
+		let meshes = [mesh1, mesh2, mesh3];
+
+		let totalObjects = meshes.length;
+		let r = 450;
+
+		for (let i = 0, len = totalObjects; i < len; i++) {
+			var theta = (Math.PI * 2) / totalObjects;
+			var angle = theta * i;
+
+			meshes[i].position.x = r * Math.sin(angle);
+			meshes[i].position.z = r * Math.cos(angle);
+		}
 
 		renderer = new THREE.WebGLRenderer({ antialias: false });
 		renderer.setPixelRatio(window.devicePixelRatio);
@@ -167,7 +185,14 @@
 		mouseY = event.clientY - windowHalfY;
 	}
 
-	//
+	function turnLeft() {
+		console.log('hi');
+		group.rotation.y += (Math.PI * 2) / 3;
+	}
+
+	function turnRight() {
+		group.rotation.y -= (Math.PI * 2) / 3;
+	}
 
 	function animate() {
 		requestAnimationFrame(animate);
@@ -175,8 +200,8 @@
 	}
 
 	function render() {
-		camera.position.x += (mouseX - camera.position.x) * 0.05;
-		camera.position.y += (-mouseY - camera.position.y) * 0.05;
+		camera.position.x += (mouseX - camera.position.x * 4) * 0.01;
+		camera.position.y += (-mouseY - camera.position.y) * 0.002;
 
 		camera.lookAt(scene.position);
 
@@ -185,6 +210,10 @@
 </script>
 
 <div bind:this={container} class:geometry={true} />
+<div class="arrows">
+	<h1 on:click={turnLeft}>←</h1>
+	<h1 on:click={turnRight}>→</h1>
+</div>
 
 <style>
 	.geometry {
@@ -194,5 +223,25 @@
 		overflow: hidden;
 		z-index: -10;
 		opacity: 0.8;
+	}
+
+	.arrows {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-30%);
+		width: 100vw;
+		padding: 0 4rem;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.arrows h1 {
+		font-size: 250px;
+		cursor: pointer;
+		user-select: none;
+	}
+
+	.arrows h1:hover {
+		font-family: nb-television-3d, sans-serif;
 	}
 </style>
