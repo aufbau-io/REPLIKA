@@ -66,8 +66,8 @@
 	}
 
 	.arrows h2:hover {
-		border: solid 12px var(--white);
-		padding: calc(2rem - 12px);
+		border: solid 16px var(--white);
+		padding: calc(2rem - 16px);
 	}
 
 	.arrows h2:active {
