@@ -1,10 +1,11 @@
-<script context="module">
+<script>
+	import { onMount } from 'svelte';
+
 	import Hero from '$lib/components/common/pageHero.svelte';
+	import { index, absoluteIndex } from '$lib/store/store.js';
 	import { page } from '$app/stores';
+
+	absoluteIndex.update((val) => $page.params.slug - 1);
 </script>
 
-<Hero
-	index="03/03"
-	name="OBJ_{$page.params.slug}"
-	description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
-/>
+<Hero name="OBJ_{$page.params.slug}" />
