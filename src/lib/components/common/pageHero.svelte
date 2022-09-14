@@ -23,7 +23,7 @@
 	}
 
 	h1 {
-		font-family: nb-television-2d, sans-serif;
+		font-family: nb-television, sans-serif;
 	}
 
 	h1.clickable {
