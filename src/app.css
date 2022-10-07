@@ -1,4 +1,6 @@
 @tailwind base;
+@tailwind components;
+@tailwind utilities;
 /* putting custom CSS before `@tailwind utilities;` so utilities can override it */
 
 /* APP */
@@ -76,16 +78,22 @@ body {
 	color: var(--white);
 }
 
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: nb-television, sans-serif;
+}
+
 /* HEADING */
 h1 {
-	font-family: nb-television-2d, sans-serif;
 	text-transform: uppercase;
 	font-size: 120px;
 	line-height: 100%;
 }
 
 h2 {
-	font-family: nb-television, sans-serif;
 	font-size: 64px;
 	line-height: 110%;
 }

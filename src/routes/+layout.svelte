@@ -1,48 +1,58 @@
 <script>
 	import '../app.css';
 	import { onMount } from 'svelte';
+	import { screenType } from '$lib/store/store';
+	let Geometry;
 
-	let screenType;
+	import Header from '$lib/components/header/header.svelte';
+	import Footer from '$lib/components/footer/footer.svelte';
+
 	onMount(async () => {
+		const module = await import('$lib/components/geometry/Geometry.svelte');
+		Geometry = module.default;
+	});
+
+	onMount(async () => {
+		// ---------------------------------------------------------------------------
+		// HEIGHT
+		// ---------------------------------------------------------------------------
+
+		// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+		let vh = window.innerHeight * 0.01;
+		// Then we set the value in the --vh custom property to the root of the document
+		document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+		window.addEventListener('resize', () => {
+			// We execute the same script as before
+			let vh = window.innerHeight * 0.01;
+			document.documentElement.style.setProperty('--vh', `${vh}px`);
+		});
+
+		// ---------------------------------------------------------------------------
+		// SCREEN
+		// ---------------------------------------------------------------------------
 		const ua = navigator.userAgent;
 		if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
 			// tablet
-			screenType = 1;
+			screenType.set(1);
 		} else if (
 			/Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(
 				ua
 			)
 		) {
 			// phone
-			screenType = 2;
+			screenType.set(2);
 		} else {
 			//laptop
-			screenType = 3;
+			screenType.set(3);
 		}
 	});
 </script>
 
-{#if screenType == 1 || screenType == 2}
-	<div id="phoneBlock"><p class="sml">wip, use desktop</p></div>
-{:else}
+<svelte:component this={Geometry} />
+
+<Header />
+<main class="h-screen w-screen">
 	<slot />
-{/if}
-
-<style>
-	@media only screen and (max-width: 768px) {
-		#phoneBlock {
-			position: absolute;
-			top: 0;
-			left: 0;
-
-			display: flex;
-			align-items: center;
-			justify-content: center;
-
-			height: 100vh;
-			width: 100vw;
-			background: var(--black);
-			z-index: 1000;
-		}
-	}
-</style>
+</main>
+<Footer />
