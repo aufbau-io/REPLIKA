@@ -72,6 +72,7 @@
 
 		h5 {
 			font-size: 22px;
+			line-height: 22px;
 			font-weight: 700;
 		}
 
