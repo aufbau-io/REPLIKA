@@ -67,7 +67,7 @@
 		}
 
 		.base {
-			flex-flow: row nowrap;
+			flex-flow: column nowrap;
 		}
 
 		.text {
