@@ -1,7 +1,5 @@
 <script>
 	export let name;
-	export let description;
-	export let index;
 </script>
 
 <section>

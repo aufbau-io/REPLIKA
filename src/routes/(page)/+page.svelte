@@ -1,5 +1,6 @@
 <script>
 	import { index, absoluteIndex } from '$lib/store/store.js';
+	import { screenType } from '$lib/store/store';
 	absoluteIndex.update((val) => 0);
 
 	function turnLeft() {
@@ -15,18 +16,20 @@
 	let textMap = {
 		1: 'print',
 		2: 'scan',
-		3: '????'
+		3: 'dream'
 	};
 </script>
 
 <main>
-	<div class="arrows">
-		<h3 on:click={turnLeft}>←</h3>
-		<a href="/services/{textMap[$index]}">
-			<h2>{textMap[$index]}</h2>
-		</a>
-		<h3 on:click={turnRight}>→</h3>
-	</div>
+	{#if $screenType == 3}
+		<div class="arrows">
+			<h3 on:click={turnLeft}>←</h3>
+			<a href="/services/{textMap[$index]}">
+				<h2>{textMap[$index]}</h2>
+			</a>
+			<h3 on:click={turnRight}>→</h3>
+		</div>
+	{/if}
 </main>
 
 <style>
@@ -93,8 +96,6 @@
 
 	@media only screen and (max-width: 768px) {
 		.arrows {
-			opacity: 0;
-			pointer-events: none;
 		}
 
 		.arrows--mobile {
