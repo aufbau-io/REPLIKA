@@ -49,10 +49,17 @@
 	});
 </script>
 
-<svelte:component this={Geometry} />
+<!--svelte:component this={Geometry} /-->
 
 <Header />
-<main class="h-screen w-screen">
+<main class="h-screen w-screen"></main>
 	<slot />
 </main>
 <Footer />
+
+<style>
+	main {
+		height: 100vh;
+		height: calc(var(--vh, 1vh) * 100);
+	}
+</style>
