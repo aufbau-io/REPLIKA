@@ -12,6 +12,6 @@
 
 <style>
 	main {
-		padding-top: 72px;
+		padding-top: 66px;
 	}
 </style>

@@ -35,7 +35,7 @@
 		justify-content: space-between;
 		align-items: center;
 		margin: 0 40px;
-		height: 72px;
+		height: 66px;
 		border-bottom: solid 1px var(--white);
 		user-select: none;
 	}
