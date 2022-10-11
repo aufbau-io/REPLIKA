@@ -1,6 +1,7 @@
 <script>
 	import Nav from './nav.svelte';
 	import Logo from './logo.svelte';
+	import { screenType } from '$lib/store/store';
 	// stub data out
 	const navItems = [
 		{
@@ -16,9 +17,11 @@
 
 <header>
 	<Logo />
-	<div />
-	<div />
-	<Nav {navItems} />
+	{#if $screenType == 3}
+		<div />
+		<div />
+		<Nav {navItems} />
+	{/if}
 </header>
 
 <style>

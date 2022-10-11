@@ -29,6 +29,7 @@
 	footer {
 		position: absolute;
 		bottom: 0;
+		left: 0;
 		padding: 10px 20px;
 		margin: 0 40px;
 		width: calc(100vw - 80px);
@@ -54,8 +55,12 @@
 		footer {
 			background: var(--accent);
 			color: var(--black);
-			margin: 0 40px;
+			margin: 0;
 			width: 100vw;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
 		}
 		section {
 			height: calc(50vh + 2px);
