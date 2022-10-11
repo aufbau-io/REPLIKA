@@ -21,7 +21,9 @@
 		</section>
 	{/if}
 	{#if $screenType == 1 || $screenType == 2}
-		<h4 on:click={() => toggleShowFooter()}>{contactText}</h4>
+		<div class="text">
+			<h4 on:click={() => toggleShowFooter()}>{contactText}</h4>
+		</div>
 	{/if}
 </footer>
 
@@ -57,7 +59,11 @@
 			color: var(--black);
 			margin: 0;
 			width: 100vw;
+		}
 
+		.text {
+			heighr: 100%;
+			width: 100%;
 			display: flex;
 			align-items: center;
 			justify-content: center;
