@@ -18,7 +18,7 @@
 		display: flex;
 		justify-content: space-between;
 		min-height: calc(100vh - 150px);
-		padding: 40px 0;
+		padding: 20px 0;
 		background: #121212aa;
 	}
 
