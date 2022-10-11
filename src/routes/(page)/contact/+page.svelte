@@ -3,15 +3,45 @@
 </script>
 
 <main>
-	<Hero
-		index="03/03"
-		name="CONTACT"
-		description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
-	/>
+	<div class="item flex">
+		<h1>CONTACT</h1>
+		<a href="/">
+			<h1 class="clickable">X</h1>
+		</a>
+		<h1>EMAIL</h1>
+		<h1>PHONE</h1>
+	</div>
 </main>
 
 <style>
 	main {
-		padding-top: 66px;
+		padding-top: 80px;
+		display: flex;
+		justify-content: space-between;
+		min-height: calc(100vh - 150px);
+		background: #121212aa;
+	}
+
+	h1 {
+		font-family: nb-television, sans-serif;
+	}
+
+	h1.clickable {
+		cursor: pointer;
+	}
+
+	h1.clickable:hover {
+		font-family: nb-television-3d, sans-serif;
+	}
+
+	.item {
+		width: 100%;
+	}
+
+	.item.flex {
+		display: flex;
+		justify-content: space-between;
+		flex-flow: row wrap;
+		padding: 0 40px;
 	}
 </style>

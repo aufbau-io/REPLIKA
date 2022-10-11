@@ -15,12 +15,15 @@
 				{#if $screenType == 1 || $screenType == 2}
 					<p>Replikamasterworks@gmail.com</p>
 					<p>+1 (503)-756-6252</p>
-					<br /><br />
+					<br />
 				{/if}
-				<p class="sml">Copyright 2022</p>
+				<p>Copyright 2022</p>
 				<p>REPLIKA MASTERWORKS PDX</p>
 
-				<p class="xs">2020 SE Bush Street Portland</p>
+				<p>2020 SE Bush Street Portland</p>
+				{#if $screenType == 1 || $screenType == 2}
+					<br />
+				{/if}
 				<a href="https://aufbau.io">ein aufbau ding</a>
 			</div>
 		</section>
@@ -68,6 +71,7 @@
 
 		.base {
 			flex-flow: column nowrap;
+			align-items: left;
 		}
 
 		.text {
