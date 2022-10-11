@@ -29,7 +29,7 @@
 		</section>
 	{/if}
 	{#if $screenType == 1 || $screenType == 2}
-		<div class="text">
+		<div class="contactToggle">
 			<h5 on:click={() => toggleShowFooter()}>{contactText}</h5>
 		</div>
 	{/if}
@@ -71,10 +71,10 @@
 
 		.base {
 			flex-flow: column nowrap;
-			align-items: left;
+			align-items: flex-start;
 		}
 
-		.text {
+		.contactToggle {
 			height: 100%;
 			width: 100%;
 			display: flex;
