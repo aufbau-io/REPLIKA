@@ -8,8 +8,8 @@
 		<a href="/">
 			<h1 class="clickable">X</h1>
 		</a>
-		<h1>EMAIL</h1>
-		<h1>PHONE</h1>
+		<h2>EMAIL : Replikamasterworks@gmail.com</h2>
+		<h2>PHONE : +1 (503)-756-6252</h2>
 	</div>
 </main>
 
@@ -34,6 +34,10 @@
 		font-family: nb-television-3d, sans-serif;
 	}
 
+	h2 {
+		font-size: 72px;
+	}
+
 	.item {
 		width: 100%;
 	}
@@ -43,5 +47,9 @@
 		justify-content: space-between;
 		flex-flow: row wrap;
 		padding: 0 40px;
+
+		word-break: break-all;
+		word-wrap: break-word;
+		text-align: justify;
 	}
 </style>
