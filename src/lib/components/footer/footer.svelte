@@ -66,6 +66,10 @@
 			padding-bottom: 10px;
 		}
 
+		.base {
+			flex-flow: row nowrap;
+		}
+
 		.text {
 			height: 100%;
 			width: 100%;
