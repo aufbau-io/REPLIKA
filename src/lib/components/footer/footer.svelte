@@ -57,7 +57,7 @@
 		footer {
 			background: var(--accent);
 			color: var(--black);
-			padding: 20px;
+			padding: 15px 20px;
 			padding-bottom: 10px;
 		}
 
