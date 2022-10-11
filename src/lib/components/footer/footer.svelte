@@ -13,8 +13,9 @@
 		<section>
 			<div class="base">
 				{#if $screenType == 1 || $screenType == 2}
-					<h5>Replikamasterworks@gmail.com</h5>
-					<h5>+1 (503)-756-6252</h5>
+					<p>Replikamasterworks@gmail.com</p>
+					<p>+1 (503)-756-6252</p>
+					<br /><br />
 				{/if}
 				<p class="sml">Copyright 2022</p>
 				<p>REPLIKA MASTERWORKS PDX</p>
