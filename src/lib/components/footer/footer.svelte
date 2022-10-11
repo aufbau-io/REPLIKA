@@ -34,6 +34,7 @@
 		left: 0;
 		padding: 10px 20px;
 		width: 100vw;
+		max-width: 100vw;
 		border-top: solid 1px var(--white);
 		background: var(--black);
 		color: var(--shite);

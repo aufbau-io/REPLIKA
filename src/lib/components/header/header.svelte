@@ -30,6 +30,7 @@
 		top: 0;
 		left: 0;
 		width: 100vw;
+		max-width: 100vw;
 
 		display: flex;
 		justify-content: space-between;
