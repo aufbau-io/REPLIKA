@@ -29,12 +29,12 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		width: calc(100vw - 80px);
+		width: 100vw;
 
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		margin: 0 40px;
+		padding: 0 20px;
 		height: 66px;
 		border-bottom: solid 1px var(--white);
 		user-select: none;

@@ -33,8 +33,7 @@
 		bottom: 0;
 		left: 0;
 		padding: 10px 20px;
-		margin: 0 40px;
-		width: calc(100vw - 80px);
+		width: 100vw;
 		border-top: solid 1px var(--white);
 		background: var(--black);
 		color: var(--shite);
