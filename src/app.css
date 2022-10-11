@@ -199,7 +199,6 @@ a.sml {
 	/* BODY */
 	p {
 		font-size: 14px;
-		line-height: 150%;
 	}
 
 	p.lrg {
@@ -213,12 +212,10 @@ a.sml {
 	/* MONO */
 	p.lrg.mono {
 		font-size: 14px;
-		line-height: 140%;
 	}
 
 	p.sml.mono {
 		font-size: 14px;
-		line-height: 140%;
 	}
 
 	/* BUTTON */
