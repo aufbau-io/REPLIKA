@@ -22,7 +22,7 @@
 	{/if}
 	{#if $screenType == 1 || $screenType == 2}
 		<div class="text">
-			<h4 on:click={() => toggleShowFooter()}>{contactText}</h4>
+			<h5 on:click={() => toggleShowFooter()}>{contactText}</h5>
 		</div>
 	{/if}
 </footer>
