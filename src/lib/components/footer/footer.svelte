@@ -56,8 +56,6 @@
 		footer {
 			background: var(--accent);
 			color: var(--black);
-			margin: 0;
-			width: 100vw;
 		}
 
 		.text {
