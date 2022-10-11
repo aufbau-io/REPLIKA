@@ -52,7 +52,7 @@
 <!--svelte:component this={Geometry} /-->
 
 <Header />
-<main class="h-screen w-screen"></main>
+<main class="h-screen w-screen">
 	<slot />
 </main>
 <Footer />
