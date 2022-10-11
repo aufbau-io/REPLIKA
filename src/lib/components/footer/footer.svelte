@@ -58,6 +58,7 @@
 			background: var(--accent);
 			color: var(--black);
 			padding: 20px;
+			padding-bottom: 10px;
 		}
 
 		.text {
