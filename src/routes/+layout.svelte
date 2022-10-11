@@ -49,7 +49,7 @@
 	});
 </script>
 
-<!--svelte:component this={Geometry} /-->
+<svelte:component this={Geometry} />
 
 <Header />
 <main class="h-screen w-screen">
