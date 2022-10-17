@@ -20,6 +20,10 @@
 	};
 </script>
 
+<svelte:head>
+	<title>REPLIKA</title>
+</svelte:head>
+
 <main>
 	{#if $screenType == 3}
 		<div class="arrows">
