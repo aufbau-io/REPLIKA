@@ -51,15 +51,36 @@
 
 <svelte:component this={Geometry} />
 
-<Header />
-<main class="h-screen w-screen">
-	<slot />
-</main>
-<Footer />
+{#if $screenType == 1 || $screenType == 2}
+	<div id="phoneBlock"><p class="sml">wip, use desktop</p></div>
+{:else}
+	<Header />
+	<main class="h-screen w-screen">
+		<slot />
+	</main>
+	<Footer />
+{/if}
 
 <style>
 	main {
 		height: 100px;
 		height: calc(var(--vh, 1vh) * 100);
+	}
+
+	#phoneBlock {
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		height: 100vh;
+		height: calc(var(--vh, 1vh) * 100);
+
+		width: 100vw;
+		background: var(--background);
+		z-index: 1000;
 	}
 </style>

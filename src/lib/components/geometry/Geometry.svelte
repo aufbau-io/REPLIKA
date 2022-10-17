@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import * as THREE from 'three';
 	import { index } from '$lib/store/store.js';
+	import { screenType } from '$lib/store/store';
 
 	$: $index, lookAtIndex($index);
 
@@ -30,6 +31,12 @@
 		const light = new THREE.DirectionalLight(0xf0f0f0);
 		light.position.set(0, 1, 1);
 		scene.add(light);
+
+		if ($screenType == 1 || $screenType == 2) {
+			camera.position.z = 4000;
+			scene.rotation.z = Math.PI / 2;
+			light.position.set(1, 1, 0);
+		}
 
 		// shadow
 
@@ -148,7 +155,9 @@
 			shadowMesh.position.y = -250;
 			shadowMesh.position.z = z;
 			shadowMesh.rotation.x = -Math.PI / 2;
-			scene.add(shadowMesh);
+			if ($screenType == 3) {
+				scene.add(shadowMesh);
+			}
 		}
 
 		renderer = new THREE.WebGLRenderer({ antialias: false });
