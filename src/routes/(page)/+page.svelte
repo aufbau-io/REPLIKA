@@ -1,7 +1,7 @@
 <script>
 	import { index, absoluteIndex } from '$lib/store/store.js';
 	import { screenType } from '$lib/store/store';
-	absoluteIndex.update((val) => 0);
+	// absoluteIndex.update((val) => 0);
 
 	function turnLeft() {
 		console.log('left');
@@ -24,7 +24,7 @@
 	{#if $screenType == 3}
 		<div class="arrows">
 			<h3 on:click={turnLeft}>←</h3>
-			<a href="/services/{textMap[$index]}">
+			<a href="/{textMap[$index]}">
 				<h2>{textMap[$index]}</h2>
 			</a>
 			<h3 on:click={turnRight}>→</h3>

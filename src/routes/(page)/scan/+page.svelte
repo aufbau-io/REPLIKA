@@ -3,12 +3,13 @@
 
 <main>
 	<div class="item flex">
-		<h1>CONTACT</h1>
+		<h1>SCAN</h1>
 		<a href="/">
 			<h1 class="clickable">X</h1>
 		</a>
-		<a href="mailto: Replikamasterworks@gmail.com"><h2>EMAIL : Replikamasterworks@gmail.com</h2></a>
-		<h2>PHONE : +1 (503)-756-6252</h2>
+		<div class="center">
+			<a href="/"><h6>[ WIP, RETURN ]</h6></a>
+		</div>
 	</div>
 </main>
 
@@ -50,5 +51,12 @@
 		word-break: break-all;
 		word-wrap: break-word;
 		text-align: justify;
+	}
+
+	.center {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 	}
 </style>

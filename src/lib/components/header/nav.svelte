@@ -11,17 +11,10 @@
 	}
 
 	let activeMapping = {
-		'/about': '/about',
 		'/contact': '/contact',
-		'/objects/01': '/',
-		'/objects/02': '/',
-		'/objects/03': '/',
-		'/objects/04': '/',
-		'/objects/05': '/',
-		'/objects/06': '/',
-		'/objects/07': '/',
-		'/objects/08': '/',
-		'/objects/09': '/',
+		'/print': '/print',
+		'/scan': '/scan',
+		'/repeat': '/repeat',
 		'/': '/'
 	};
 </script>
