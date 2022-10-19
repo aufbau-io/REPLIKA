@@ -23,7 +23,7 @@
 	animate();
 
 	function init() {
-		camera = new THREE.PerspectiveCamera(25, window.innerWidth / window.innerHeight, 1, 10000);
+		camera = new THREE.PerspectiveCamera(22, window.innerWidth / window.innerHeight, 1, 10000);
 		camera.position.z = 1400;
 
 		scene = new THREE.Scene();
@@ -176,7 +176,7 @@
 		let meshes = [ratGroup, dreadGroup, mechaGroup];
 
 		let totalObjects = meshes.length;
-		let r = 500;
+		let r = 400;
 
 		const shadowTexture = new THREE.CanvasTexture(canvas);
 
