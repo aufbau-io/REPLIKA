@@ -98,24 +98,10 @@
 		}
 
 		.arrows h2 {
-			font-size: 140px;
+			font-size: 130px;
 		}
 	}
 
 	@media only screen and (max-width: 768px) {
-		.arrows {
-		}
-
-		.arrows--mobile {
-			position: absolute;
-			top: 25px;
-			right: 10%;
-			height: calc(100vh - 40px);
-			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-			opacity: 1;
-			pointer-events: all;
-		}
 	}
 </style>
