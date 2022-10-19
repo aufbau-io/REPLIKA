@@ -80,12 +80,12 @@
 		color: var(--white);
 		padding: 2rem;
 		text-transform: uppercase;
-		font-family: nb-television-2d, sans-serif;
+		font-family: nb-architekt, sans-serif;
 	}
 
 	.arrows h2:hover {
 		color: var(--white);
-		font-family: nb-television, nb-television-2d, sans-serif;
+		font-family: nb-television, nb-architekt, sans-serif;
 	}
 
 	.arrows h2:active {
@@ -98,7 +98,7 @@
 		}
 
 		.arrows h2 {
-			font-size: 120px;
+			font-size: 140px;
 		}
 	}
 
