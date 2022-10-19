@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import * as THREE from 'three';
+	import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 	import { index } from '$lib/store/store.js';
 	import { screenType } from '$lib/store/store';
 
@@ -22,8 +23,8 @@
 	animate();
 
 	function init() {
-		camera = new THREE.PerspectiveCamera(20, window.innerWidth / window.innerHeight, 1, 10000);
-		camera.position.z = 1800;
+		camera = new THREE.PerspectiveCamera(25, window.innerWidth / window.innerHeight, 1, 10000);
+		camera.position.z = 1400;
 
 		scene = new THREE.Scene();
 		scene.background = new THREE.Color(0x121212);
@@ -37,6 +38,10 @@
 			scene.rotation.z = Math.PI / 2;
 			light.position.set(1, 1, 0);
 		}
+
+		let gridHelper = new THREE.GridHelper(10000, 50, 0x232323, 0x232323);
+		gridHelper.position.y -= 240;
+		scene.add(gridHelper);
 
 		// shadow
 
@@ -99,9 +104,9 @@
 		// let material = new THREE.MeshBasicMaterial({ map: texture });
 
 		const wireframeMaterial = new THREE.MeshBasicMaterial({
-			color: 0x171717,
+			color: 0x606060,
 			wireframe: true,
-			transparent: true
+			transparent: false
 		});
 
 		group = new THREE.Group();
@@ -112,26 +117,66 @@
 		mesh1.add(wireframe);
 		mesh1.position.x = -400;
 		mesh1.rotation.x = -1.87;
-		group.add(mesh1);
 
 		let mesh2 = new THREE.Mesh(geometry2, material);
 		wireframe = new THREE.Mesh(geometry2, wireframeMaterial);
 		mesh2.add(wireframe);
 		mesh2.position.x = 400;
 		mesh2.rotation.y = -0;
-		group.add(mesh2);
 
-		let mesh3 = new THREE.Mesh(geometry3, material);
-		wireframe = new THREE.Mesh(geometry3, wireframeMaterial);
-		mesh3.add(wireframe);
-		mesh3.rotation.y = +1.87;
-		mesh3.rotation.x = -0.87;
-		group.add(mesh3);
+		// let mesh3 = new THREE.Mesh(geometry3, material);
+		// wireframe = new THREE.Mesh(geometry3, wireframeMaterial);
+		// mesh3.add(wireframe);
+		// mesh3.rotation.y = +1.87;
+		// mesh3.rotation.x = -0.87;
+		// group.add(mesh3);
 
-		let meshes = [mesh1, mesh2, mesh3];
+		const gltfLoader = new GLTFLoader();
+		let dreadGroup = new THREE.Group();
+		let ratGroup = new THREE.Group();
+		let mechaGroup = new THREE.Group();
+
+		gltfLoader.load('/dreadnought.glb', (glb) => {
+			let dread = glb.scene.children[0];
+			dread.rotation.x -= Math.PI / 2;
+			dread.rotation.y = Math.PI / 1.5;
+			dread.material = new THREE.MeshLambertMaterial({ color: 0x171717 });
+
+			dread.position.y -= 180;
+
+			dread.scale.set(2.5, 2.5, 2.5);
+
+			dreadGroup.add(dread);
+		});
+
+		gltfLoader.load('/rat.glb', (glb) => {
+			let rat = glb.scene.children[0];
+			rat.rotation.x -= Math.PI / 2;
+			// rat.rotation.y = Math.PI / 1.5;
+			rat.material = wireframeMaterial;
+
+			rat.scale.set(15, 15, 15);
+			ratGroup.add(rat);
+		});
+
+		gltfLoader.load('/rat.glb', (glb) => {
+			let rat = glb.scene.children[0];
+			rat.rotation.x -= Math.PI / 2;
+			// rat.rotation.y = Math.PI / 1.5;
+			rat.material = wireframeMaterial;
+
+			rat.scale.set(15, 15, 15);
+			mechaGroup.add(rat);
+		});
+
+		group.add(ratGroup);
+		group.add(dreadGroup);
+		group.add(mechaGroup);
+
+		let meshes = [ratGroup, dreadGroup, mechaGroup];
 
 		let totalObjects = meshes.length;
-		let r = 450;
+		let r = 500;
 
 		const shadowTexture = new THREE.CanvasTexture(canvas);
 
@@ -155,9 +200,9 @@
 			shadowMesh.position.y = -250;
 			shadowMesh.position.z = z;
 			shadowMesh.rotation.x = -Math.PI / 2;
-			if ($screenType == 3) {
-				scene.add(shadowMesh);
-			}
+			// if ($screenType == 3) {
+			// 	scene.add(shadowMesh);
+			// }
 		}
 
 		renderer = new THREE.WebGLRenderer({ antialias: false });
@@ -219,6 +264,6 @@
 		left: 0;
 		overflow: hidden;
 		z-index: -10;
-		opacity: 0.8;
+		opacity: 0.9;
 	}
 </style>

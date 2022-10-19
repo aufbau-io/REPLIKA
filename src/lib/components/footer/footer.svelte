@@ -45,7 +45,7 @@
 		max-width: 100vw;
 		border-top: solid 1px var(--white);
 		background: var(--black);
-		color: var(--shite);
+		color: var(--white);
 	}
 
 	p,

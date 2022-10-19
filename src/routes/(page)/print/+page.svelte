@@ -18,7 +18,7 @@
 		padding-top: 80px;
 		display: flex;
 		justify-content: space-between;
-		min-height: calc(100vh - 150px);
+		min-height: 100vh;
 		background: #121212aa;
 	}
 

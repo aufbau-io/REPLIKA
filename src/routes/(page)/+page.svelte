@@ -74,27 +74,31 @@
 	}
 
 	.arrows h2 {
-		font-size: 120px;
-		height: 200px;
+		font-size: 200px;
 		display: flex;
 		align-items: center;
-
+		color: var(--white);
 		padding: 2rem;
 		text-transform: uppercase;
+		font-family: nb-television-2d, sans-serif;
 	}
 
 	.arrows h2:hover {
-		border: solid 16px var(--white);
-		padding: calc(2rem - 16px);
+		color: var(--white);
+		font-family: nb-television, nb-television-2d, sans-serif;
 	}
 
 	.arrows h2:active {
-		border-color: var(--black);
+		color: var(--white);
 	}
 
 	@media only screen and (max-width: 1000px) {
 		.arrows {
 			top: 50%;
+		}
+
+		.arrows h2 {
+			font-size: 120px;
 		}
 	}
 
