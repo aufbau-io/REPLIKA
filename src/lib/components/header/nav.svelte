@@ -37,9 +37,10 @@
 		letter-spacing: 0.05em;
 		padding: 10px;
 		cursor: pointer;
+		opacity: 0.3;
 	}
 
 	.active {
-		color: var(--accent);
+		opacity: 1;
 	}
 </style>
