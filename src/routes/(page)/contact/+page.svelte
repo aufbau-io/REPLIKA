@@ -59,9 +59,6 @@
 		justify-content: space-between;
 		flex-flow: column nowrap;
 		padding: 0 40px;
-
-		word-break: break-all;
-		text-align: justify;
 	}
 
 	.items {
