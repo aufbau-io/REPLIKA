@@ -43,6 +43,20 @@
 		gridHelper.position.y -= 240;
 		scene.add(gridHelper);
 
+		const geometry = new THREE.PlaneGeometry(10000, 10000);
+		const mptmaterial = new THREE.MeshBasicMaterial({ color: 0xf0f0f0, side: THREE.DoubleSide });
+		const plane = new THREE.Mesh(geometry, mptmaterial);
+		plane.rotation.x = Math.PI / 2;
+		plane.position.y -= 250;
+		scene.add(plane);
+
+		{
+			const color = 0x141414; // white
+			const near = 1000;
+			const far = 1800;
+			scene.fog = new THREE.Fog(color, near, far);
+		}
+
 		// shadow
 
 		const canvas = document.createElement('canvas');
@@ -105,8 +119,7 @@
 
 		const wireframeMaterial = new THREE.MeshBasicMaterial({
 			color: 0x606060,
-			wireframe: true,
-			transparent: false
+			wireframe: true
 		});
 
 		group = new THREE.Group();
@@ -139,16 +152,25 @@
 		gltfLoader.load('/bun.glb', (glb) => {
 			let bun = glb.scene.children[0];
 			bun.rotation.x -= Math.PI / 2;
-			bun.rotation.z = -1;
-			bun.position.x += 200;
+			bun.rotation.z = -Math.PI / 3;
+			// bun.rotation.z += 0.2;
+			// bun.position.z -= 100;
 			// bun.position.z += 100;
 			bun.material = new THREE.MeshLambertMaterial({ color: 0xf0f0f0 });
 
-			bun.position.y -= 900;
+			bun.position.y -= 80;
+			bun.position.x -= 50;
 
 			bun.scale.set(8, 8, 8);
 
-			bunGroup.add(bun);
+			let bun2 = bun.clone();
+			bun2.material = new THREE.MeshBasicMaterial({
+				color: 0x141414,
+				wireframe: true
+			});
+			bun2.scale.set(8.03, 8.03, 8.03);
+
+			bunGroup.add(bun, bun2);
 		});
 
 		gltfLoader.load('/mewtwo.glb', (glb) => {
