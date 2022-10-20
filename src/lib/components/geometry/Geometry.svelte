@@ -23,7 +23,7 @@
 	animate();
 
 	function init() {
-		camera = new THREE.PerspectiveCamera(22, window.innerWidth / window.innerHeight, 1, 10000);
+		camera = new THREE.PerspectiveCamera(22, window.innerWidth / window.innerHeight, 1, 3000);
 		camera.position.z = 1400;
 
 		scene = new THREE.Scene();
@@ -39,7 +39,7 @@
 			light.position.set(1, 1, 0);
 		}
 
-		let gridHelper = new THREE.GridHelper(10000, 50, 0x232323, 0x232323);
+		let gridHelper = new THREE.GridHelper(10000, 50, 0x141414, 0x141414);
 		gridHelper.position.y -= 240;
 		scene.add(gridHelper);
 
