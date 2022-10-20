@@ -132,48 +132,54 @@
 		// group.add(mesh3);
 
 		const gltfLoader = new GLTFLoader();
-		let dreadGroup = new THREE.Group();
+		let bunGroup = new THREE.Group();
 		let ratGroup = new THREE.Group();
-		let mechaGroup = new THREE.Group();
+		let skullGroup = new THREE.Group();
 
-		gltfLoader.load('/dreadnought.glb', (glb) => {
-			let dread = glb.scene.children[0];
-			dread.rotation.x -= Math.PI / 2;
-			dread.rotation.y = Math.PI / 1.5;
-			dread.material = new THREE.MeshLambertMaterial({ color: 0x171717 });
+		gltfLoader.load('/bun.glb', (glb) => {
+			let bun = glb.scene.children[0];
+			bun.rotation.x -= Math.PI / 2;
+			bun.rotation.z = -1;
+			bun.position.x += 200;
+			// bun.position.z += 100;
+			bun.material = new THREE.MeshLambertMaterial({ color: 0xf0f0f0 });
 
-			dread.position.y -= 180;
+			bun.position.y -= 900;
 
-			dread.scale.set(2.5, 2.5, 2.5);
+			bun.scale.set(8, 8, 8);
 
-			dreadGroup.add(dread);
+			bunGroup.add(bun);
+		});
+
+		gltfLoader.load('/mewtwo.glb', (glb) => {
+			let skull = glb.scene.children[0];
+			// skull.rotation.x -= Math.PI / 2;
+			skull.rotation.x -= Math.PI / 2;
+			skull.position.y -= 350;
+
+			skull.material = new THREE.MeshLambertMaterial({ color: 0xf0f0f0 });
+
+			skull.scale.set(4, 4, 4);
+			skullGroup.add(skull);
 		});
 
 		gltfLoader.load('/rat.glb', (glb) => {
 			let rat = glb.scene.children[0];
 			rat.rotation.x -= Math.PI / 2;
-			// rat.rotation.y = Math.PI / 1.5;
+			rat.rotation.z = -Math.PI / 1.5;
+			rat.position.x -= 100;
+			rat.position.y -= 20;
 			rat.material = wireframeMaterial;
 
 			rat.scale.set(15, 15, 15);
 			ratGroup.add(rat);
 		});
 
-		gltfLoader.load('/rat.glb', (glb) => {
-			let rat = glb.scene.children[0];
-			rat.rotation.x -= Math.PI / 2;
-			// rat.rotation.y = Math.PI / 1.5;
-			rat.material = wireframeMaterial;
-
-			rat.scale.set(15, 15, 15);
-			mechaGroup.add(rat);
-		});
-
+		group.add(skullGroup);
 		group.add(ratGroup);
-		group.add(dreadGroup);
-		group.add(mechaGroup);
+		group.add(bunGroup);
 
-		let meshes = [ratGroup, dreadGroup, mechaGroup];
+		let meshes = [skullGroup, bunGroup, ratGroup];
 
 		let totalObjects = meshes.length;
 		let r = 400;

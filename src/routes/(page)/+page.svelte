@@ -14,9 +14,9 @@
 	}
 
 	let textMap = {
-		1: 'print',
+		1: 'design',
 		2: 'scan',
-		3: 'repeat'
+		3: 'print'
 	};
 </script>
 
