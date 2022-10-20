@@ -19,6 +19,7 @@
 	<Logo />
 	{#if $screenType == 3}
 		<div />
+		<p>[wip]</p>
 		<div />
 		<Nav {navItems} />
 	{/if}
