@@ -3,12 +3,19 @@
 
 <main>
 	<div class="item flex">
-		<h1>CONTACT</h1>
-		<a href="/">
-			<h1 class="clickable">X</h1>
-		</a>
-		<a href="mailto: Replikamasterworks@gmail.com"><h2>EMAIL : Replikamasterworks@gmail.com</h2></a>
-		<h2>PHONE : +1 (503)-756-6252</h2>
+		<div class="full">
+			<h1>CONTACT</h1>
+			<a href="/">
+				<h1 class="clickable">X</h1>
+			</a>
+		</div>
+		<div class="items">
+			<h2>ADDRESS : 2020 SE Bush Street Portland</h2>
+			<a href="mailto: Replikamasterworks@gmail.com"
+				><h2>EMAIL : Replikamasterworks@gmail.com</h2></a
+			>
+			<h2>PHONE : +1 (503)-756-6252</h2>
+		</div>
 	</div>
 </main>
 
@@ -17,7 +24,7 @@
 		padding-top: 80px;
 		display: flex;
 		justify-content: space-between;
-		min-height: 100vh;
+		height: calc(100vh - 50px);
 		background: #121212aa;
 	}
 
@@ -34,21 +41,44 @@
 	}
 
 	h2 {
-		font-size: 72px;
+		font-size: 70px;
 	}
 
 	.item {
 		width: 100%;
 	}
 
+	.full {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+	}
+
 	.item.flex {
 		display: flex;
 		justify-content: space-between;
-		flex-flow: row wrap;
+		flex-flow: column nowrap;
 		padding: 0 40px;
 
 		word-break: break-all;
-		word-wrap: break-word;
 		text-align: justify;
+	}
+
+	.items {
+		height: 100%;
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: space-around;
+		margin-bottom: 40px;
+	}
+
+	@media only screen and (max-width: 1000px) {
+		.items {
+			height: 40%;
+			margin-bottom: auto;
+		}
+		h2 {
+			font-size: 34px;
+		}
 	}
 </style>
