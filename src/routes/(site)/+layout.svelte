@@ -1,5 +1,5 @@
 <script>
-	import '../app.css';
+	import '/src/app.css';
 	import { onMount } from 'svelte';
 	import { screenType } from '$lib/store/store';
 	let Geometry;
