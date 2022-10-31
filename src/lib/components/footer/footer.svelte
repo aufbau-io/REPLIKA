@@ -24,7 +24,7 @@
 				{#if $screenType == 1 || $screenType == 2}
 					<br />
 				{/if}
-				<a href="https://aufbau.io">ein aufbau ding</a>
+				<a href="https://aufbau.io" target="blank_">ein aufbau ding</a>
 			</div>
 		</section>
 	{/if}

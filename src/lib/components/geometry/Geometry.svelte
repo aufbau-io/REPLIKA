@@ -149,7 +149,7 @@
 		let ratGroup = new THREE.Group();
 		let skullGroup = new THREE.Group();
 
-		gltfLoader.load('/bun.glb', (glb) => {
+		gltfLoader.load('/assets/bun.glb', (glb) => {
 			let bun = glb.scene.children[0];
 			bun.rotation.x -= Math.PI / 2;
 			bun.rotation.z = -Math.PI / 3;
@@ -173,7 +173,7 @@
 			bunGroup.add(bun, bun2);
 		});
 
-		gltfLoader.load('/mewtwo.glb', (glb) => {
+		gltfLoader.load('/assets/mewtwo.glb', (glb) => {
 			let skull = glb.scene.children[0];
 			// skull.rotation.x -= Math.PI / 2;
 			skull.rotation.x -= Math.PI / 2;
@@ -185,7 +185,7 @@
 			skullGroup.add(skull);
 		});
 
-		gltfLoader.load('/rat.glb', (glb) => {
+		gltfLoader.load('/assets/rat.glb', (glb) => {
 			let rat = glb.scene.children[0];
 			rat.rotation.x -= Math.PI / 2;
 			rat.rotation.z = -Math.PI / 1.5;
