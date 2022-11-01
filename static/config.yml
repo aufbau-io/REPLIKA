@@ -1,3 +1,4 @@
+# NETLIFY CMS CONFIG
 backend:
   name: test-repo
 
