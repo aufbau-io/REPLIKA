@@ -5,5 +5,5 @@
 </body>
 
 <svelte:head>
-	<title>Content Manager</title>
+	<title>CONTENT MANAGER</title>
 </svelte:head>
