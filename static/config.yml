@@ -1,6 +1,7 @@
 # NETLIFY CMS CONFIG
 backend:
   name: git-gateway
+  branch: main
 
 site_url: https://replikamasterworks.com
 
