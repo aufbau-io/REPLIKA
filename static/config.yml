@@ -1,10 +1,10 @@
 # NETLIFY CMS CONFIG
 backend:
-  name: test-repo
+  name: git-gateway
 
-site_url: https://example.com
+site_url: https://replikamasterworks.com
 
-publish_mode: editorial_workflow
+# publish_mode: editorial_workflow
 media_folder: assets/uploads
 
 collections: # A list of collections the CMS should be able to edit
