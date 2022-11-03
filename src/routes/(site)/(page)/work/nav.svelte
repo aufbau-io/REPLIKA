@@ -13,7 +13,7 @@
 		};
 	}
 
-	const setSection = (section, name) => {
+	const setSection = (section) => {
 		absoluteIndex.update(() => section);
 	};
 </script>
@@ -29,15 +29,9 @@
 					{#if section === navItem.index}
 						<span class="arrow"> X </span>
 					{/if}
-					{#if navItem.href}
-						<a href={navItem.href} class:active={section === navItem.index} class="mono">
-							{navItem.name ? navItem.name : navItem.title}
-						</a>
-					{:else}
-						<p class:active={section === navItem.index} class="mono">
-							{navItem.name ? navItem.name : navItem.title}
-						</p>
-					{/if}
+					<p class:active={section === navItem.index} class="mono">
+						{navItem.name ? navItem.name : navItem.title}
+					</p>
 				</div>
 			</div>
 		{/each}

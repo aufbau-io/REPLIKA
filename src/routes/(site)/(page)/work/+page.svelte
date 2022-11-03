@@ -22,7 +22,7 @@
 </script>
 
 <main>
-	<Nav {navItems} pageName="studio" section={$index - 1} />
+	<Nav {navItems} section={$index - 1} />
 </main>
 
 <style>
