@@ -170,8 +170,8 @@
 		gltfLoader.load('/assets/mewtwo.glb', (glb) => {
 			let skull = glb.scene.children[0];
 			// skull.rotation.x -= Math.PI / 2;
-			skull.rotation.x -= Math.PI / 2;
-			skull.position.y -= 350;
+			// skull.rotation.x -= Math.PI / 2;
+			skull.position.y -= 50;
 
 			skull.material = new THREE.MeshLambertMaterial({ color: 0xf0f0f0 });
 
