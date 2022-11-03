@@ -20,7 +20,7 @@
 	let windowHalfX = window.innerWidth / 2;
 	let windowHalfY = window.innerHeight / 2;
 
-	if ($screenType == 3) {
+	if (screenType == 3) {
 		let controls = new OrbitControls(camera, renderer.domElement);
 		controls.maxDistance = 1400;
 		controls.minDistance = 1400;
