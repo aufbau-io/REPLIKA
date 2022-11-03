@@ -232,12 +232,10 @@
 		renderer.setPixelRatio(window.devicePixelRatio);
 		renderer.setSize(window.innerWidth, window.innerHeight);
 
-		if ($screenType != 3) {
-			let controls = new OrbitControls(camera, renderer.domElement);
-			controls.maxDistance = 1400;
-			controls.minDistance = 1400;
-			controls.enablePan = false;
-		}
+		let controls = new OrbitControls(camera, renderer.domElement);
+		controls.maxDistance = 1400;
+		controls.minDistance = 1400;
+		controls.enablePan = false;
 
 		onMount(() => {
 			container.appendChild(renderer.domElement);
