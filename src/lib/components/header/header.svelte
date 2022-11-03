@@ -15,7 +15,7 @@
 	];
 </script>
 
-<header>
+<header class={$screenType == 3 ? 'desktop' : ''}>
 	<Logo />
 	{#if $screenType == 3}
 		<div />
@@ -34,11 +34,15 @@
 		max-width: 100vw;
 
 		display: flex;
-		justify-content: space-between;
+		justify-content: space-around;
 		align-items: center;
 		padding: 0 20px;
 		height: 66px;
 		border-bottom: solid 1px var(--white);
 		user-select: none;
+	}
+
+	header.desktop {
+		justify-content: space-between;
 	}
 </style>
