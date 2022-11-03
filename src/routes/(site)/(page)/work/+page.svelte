@@ -25,7 +25,7 @@
 	<div class="nav">
 		<Nav {navItems} section={$index - 1} />
 	</div>
-
+	<div class="img">img placeholder</div>
 	<div class="body">
 		<div class="body__subtitle">
 			<h5>{navItems[$index - 1].name} Subtitle</h5>
@@ -54,7 +54,6 @@
 			</p>
 		</div>
 	</div>
-	<div class="img" />
 </main>
 
 <style>
@@ -95,6 +94,10 @@
 	.img {
 		width: 100%;
 		height: 100%;
-		background: var(--white);
+		border: solid 1px var(--white);
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 </style>
