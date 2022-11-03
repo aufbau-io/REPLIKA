@@ -20,13 +20,6 @@
 	let windowHalfX = window.innerWidth / 2;
 	let windowHalfY = window.innerHeight / 2;
 
-	if (screenType == 3) {
-		let controls = new OrbitControls(camera, renderer.domElement);
-		controls.maxDistance = 1400;
-		controls.minDistance = 1400;
-		controls.enablePan = false;
-	}
-
 	init();
 	animate();
 
@@ -239,6 +232,13 @@
 		renderer.setPixelRatio(window.devicePixelRatio);
 		renderer.setSize(window.innerWidth, window.innerHeight);
 
+		if ($screenType != 3) {
+			let controls = new OrbitControls(camera, renderer.domElement);
+			controls.maxDistance = 1400;
+			controls.minDistance = 1400;
+			controls.enablePan = false;
+		}
+
 		onMount(() => {
 			container.appendChild(renderer.domElement);
 		});
@@ -276,7 +276,7 @@
 	}
 
 	function render() {
-		if (screenType != 3) {
+		if ($screenType == 3) {
 			camera.position.x += (mouseX - camera.position.x * 4) * 0.01;
 			camera.position.y += (-mouseY - camera.position.y * 10) * 0.01;
 
