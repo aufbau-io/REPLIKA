@@ -42,7 +42,7 @@
 	}
 
 	h2 {
-		font-size: 3.6vw;
+		font-size: 3.4vw;
 	}
 
 	.item {
