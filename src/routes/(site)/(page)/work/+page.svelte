@@ -1,6 +1,7 @@
 <script>
 	import Nav from './nav.svelte';
 	import { index } from '$lib/store/store';
+	import { screenType } from '$lib/store/store';
 
 	const navItems = [
 		{
@@ -25,7 +26,9 @@
 	<div class="nav">
 		<Nav {navItems} section={$index - 1} />
 	</div>
-	<div class="img">img placeholder</div>
+	{#if $screenType == 3}
+		<div class="img">img placeholder</div>
+	{/if}
 	<div class="body">
 		<div class="body__subtitle">
 			<h5>{navItems[$index - 1].name} Subtitle</h5>
