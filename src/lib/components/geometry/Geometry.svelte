@@ -3,7 +3,6 @@
 	import * as THREE from 'three';
 	import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 	import { index } from '$lib/store/store.js';
-	import { screenType } from '$lib/store/store';
 
 	$: $index, lookAtIndex($index);
 
@@ -32,12 +31,6 @@
 		const light = new THREE.DirectionalLight(0xf0f0f0);
 		light.position.set(0, 1, 1);
 		scene.add(light);
-
-		if ($screenType == 1 || $screenType == 2) {
-			camera.position.z = 4000;
-			scene.rotation.z = Math.PI / 2;
-			light.position.set(1, 1, 0);
-		}
 
 		let gridHelper = new THREE.GridHelper(10000, 50, 0x141414, 0x141414);
 		gridHelper.position.y -= 240;

@@ -41,7 +41,7 @@
 	}
 
 	h2 {
-		font-size: 70px;
+		font-size: 3.6vw;
 	}
 
 	.item {
@@ -73,9 +73,6 @@
 		.items {
 			height: 40%;
 			margin-bottom: auto;
-		}
-		h2 {
-			font-size: 34px;
 		}
 	}
 </style>
