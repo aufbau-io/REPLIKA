@@ -6,10 +6,16 @@
 
 	import Header from '$lib/components/header/header.svelte';
 	import Footer from '$lib/components/footer/footer.svelte';
+	import { goto } from '$app/navigation';
 
 	onMount(async () => {
 		const module = await import('$lib/components/geometry/Geometry.svelte');
 		Geometry = module.default;
+
+		// TODO - NOT A LONG TERM SOLUTION
+		if ($screenType == 1 || $screenType == 2) {
+			goto(`/work`, { replaceState: false });
+		}
 	});
 
 	onMount(async () => {
