@@ -2,7 +2,9 @@
 	import { onMount } from 'svelte';
 	import * as THREE from 'three';
 	import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+	import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 	import { index } from '$lib/store/store.js';
+	import { screenType } from '$lib/store/store';
 
 	$: $index, lookAtIndex($index);
 
@@ -17,6 +19,13 @@
 
 	let windowHalfX = window.innerWidth / 2;
 	let windowHalfY = window.innerHeight / 2;
+
+	if ($screenType == 3) {
+		let controls = new OrbitControls(camera, renderer.domElement);
+		controls.maxDistance = 1400;
+		controls.minDistance = 1400;
+		controls.enablePan = false;
+	}
 
 	init();
 	animate();
