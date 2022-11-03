@@ -276,10 +276,12 @@
 	}
 
 	function render() {
-		camera.position.x += (mouseX - camera.position.x * 4) * 0.01;
-		camera.position.y += (-mouseY - camera.position.y * 10) * 0.01;
+		if (screenType != 3) {
+			camera.position.x += (mouseX - camera.position.x * 4) * 0.01;
+			camera.position.y += (-mouseY - camera.position.y * 10) * 0.01;
 
-		camera.lookAt(scene.position);
+			camera.lookAt(scene.position);
+		}
 
 		renderer.render(scene, camera);
 	}
