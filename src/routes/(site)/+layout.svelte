@@ -55,9 +55,7 @@
 	<div id="phoneBlock"><p class="sml">wip, use desktop</p></div>
 {:else}
 	<Header />
-	<main class="h-screen w-screen">
-		<slot />
-	</main>
+	<slot />
 	<Footer />
 {/if}
 
