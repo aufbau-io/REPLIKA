@@ -52,6 +52,10 @@
 		align-items: center;
 		user-select: none;
 		color: var(--white);
+
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
 	}
 
 	.arrows--mobile {
@@ -93,10 +97,6 @@
 	}
 
 	@media only screen and (max-width: 1000px) {
-		.arrows {
-			top: 50%;
-		}
-
 		.arrows h2 {
 			font-size: 130px;
 		}

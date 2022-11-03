@@ -5,6 +5,10 @@
 	// stub data out
 	const navItems = [
 		{
+			name: 'HOME',
+			href: '/'
+		},
+		{
 			name: 'WORK',
 			href: '/work'
 		},

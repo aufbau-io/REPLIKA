@@ -18,10 +18,7 @@
 
 <nav>
 	{#each navItems as navItem}
-		<a
-			class="lrg"
-			href={navItem.href}
-			class:active={navItem.href === activeMapping[$page.url.pathname]}
+		<a class="lrg" href={navItem.href} class:active={navItem.href === $page.url.pathname}
 			>[&nbsp;{navItem.name}&nbsp;]</a
 		>
 	{/each}
