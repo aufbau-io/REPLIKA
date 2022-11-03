@@ -49,18 +49,13 @@
 		align-items: center;
 	}
 
-	nav p,
-	nav a {
+	nav p {
 		font-style: normal;
 		font-weight: 300;
 		font-size: 20px;
 		line-height: 120%;
 		padding: 2px 16px 2px 30px;
 		opacity: 0.5;
-	}
-
-	nav p.tight {
-		padding-left: 16px;
 	}
 
 	.clickable {
@@ -75,21 +70,12 @@
 		opacity: 1;
 	}
 
-	.index {
-		padding-right: 0;
-	}
-
-	.index.active {
-		padding-left: 8px;
-	}
-
 	.arrow {
 		margin-right: 17px;
 	}
 
 	@media only screen and (max-width: 768px) {
-		nav p,
-		nav a {
+		nav p {
 			font-size: 16px;
 		}
 	}
