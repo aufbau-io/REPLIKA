@@ -21,10 +21,11 @@
 
 <style>
 	main {
-		padding-top: 80px;
+		margin-top: 65px;
+		padding-top: 2rem;
 		display: flex;
 		justify-content: space-between;
-		height: calc(100vh - 50px);
+		height: calc(100vh - 120px);
 		background: #121212aa;
 	}
 
