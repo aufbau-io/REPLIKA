@@ -14,7 +14,7 @@
 
 		// TODO - NOT A LONG TERM SOLUTION
 		if ($screenType == 1 || $screenType == 2) {
-			goto(`/work`, { replaceState: false });
+			// goto(`/work`, { replaceState: false });
 		}
 	});
 
@@ -57,7 +57,7 @@
 
 <svelte:component this={Geometry} />
 
-{#if false}
+{#if $screenType == 1 || $screenType == 2}
 	<div id="phoneBlock"><p class="sml">wip, use desktop</p></div>
 {:else}
 	<Header />

@@ -35,6 +35,9 @@
 				</div>
 			</div>
 		{/each}
+		<!--div class="clickable">
+			<a href="/contact">contact</a>
+		</div-->
 	{/key}
 </nav>
 
@@ -49,7 +52,8 @@
 		align-items: center;
 	}
 
-	nav p {
+	nav p,
+	nav a {
 		font-style: normal;
 		font-weight: 300;
 		font-size: 20px;
@@ -75,7 +79,8 @@
 	}
 
 	@media only screen and (max-width: 768px) {
-		nav p {
+		nav p,
+		nav a {
 			font-size: 16px;
 		}
 	}
