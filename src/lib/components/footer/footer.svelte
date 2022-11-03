@@ -20,7 +20,7 @@
 				<p>Copyright 2022</p>
 				<p>REPLIKA MASTERWORKS PDX</p>
 
-				<p>2020 SE Bush Street Portland</p>
+				<p>2020 SE Bush Street, Portland OR</p>
 				{#if $screenType == 1 || $screenType == 2}
 					<br />
 				{/if}

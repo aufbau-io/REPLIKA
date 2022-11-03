@@ -10,7 +10,7 @@
 			</a>
 		</div>
 		<div class="items">
-			<h2>ADDRESS : 2020 SE Bush Street, Portland</h2>
+			<h2>ADDRESS : 2020 SE Bush Street, Portland OR</h2>
 			<a href="mailto: Replikamasterworks@gmail.com"
 				><h2>EMAIL : Replikamasterworks@gmail.com</h2></a
 			>
