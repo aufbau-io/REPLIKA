@@ -2,7 +2,6 @@
 	import { onMount } from 'svelte';
 	import * as THREE from 'three';
 	import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-	import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 	import { index } from '$lib/store/store.js';
 	import { screenType } from '$lib/store/store';
 
@@ -232,11 +231,6 @@
 		renderer.setPixelRatio(window.devicePixelRatio);
 		renderer.setSize(window.innerWidth, window.innerHeight);
 
-		let controls = new OrbitControls(camera, renderer.domElement);
-		controls.maxDistance = 1400;
-		controls.minDistance = 1400;
-		controls.enablePan = false;
-
 		onMount(() => {
 			container.appendChild(renderer.domElement);
 		});
@@ -274,12 +268,10 @@
 	}
 
 	function render() {
-		if ($screenType == 3) {
-			camera.position.x += (mouseX - camera.position.x * 4) * 0.01;
-			camera.position.y += (-mouseY - camera.position.y * 10) * 0.01;
+		camera.position.x += (mouseX - camera.position.x * 4) * 0.01;
+		camera.position.y += (-mouseY - camera.position.y * 10) * 0.01;
 
-			camera.lookAt(scene.position);
-		}
+		camera.lookAt(scene.position);
 
 		renderer.render(scene, camera);
 	}
