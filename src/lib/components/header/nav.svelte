@@ -12,10 +12,7 @@
 
 	let activeMapping = {
 		'/contact': '/contact',
-		'/print': '/print',
-		'/scan': '/scan',
-		'/repeat': '/repeat',
-		'/': '/'
+		'/work': '/work'
 	};
 </script>
 

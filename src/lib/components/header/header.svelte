@@ -6,7 +6,7 @@
 	const navItems = [
 		{
 			name: 'WORK',
-			href: '/'
+			href: '/work'
 		},
 		{
 			name: 'CONTACT',

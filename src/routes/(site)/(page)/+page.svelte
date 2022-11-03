@@ -28,7 +28,7 @@
 	{#if $screenType == 3}
 		<div class="arrows">
 			<h3 on:click={turnLeft}>←</h3>
-			<a href="/{textMap[$index]}">
+			<a href="/work">
 				<h2>{textMap[$index]}</h2>
 			</a>
 			<h3 on:click={turnRight}>→</h3>

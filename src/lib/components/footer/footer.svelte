@@ -13,7 +13,7 @@
 		<section>
 			<div class="base">
 				{#if $screenType == 1 || $screenType == 2}
-					<p>Replikamasterworks@gmail.com</p>
+					<a href="mailto: replikamasterworks@gmail.com">Replikamasterworks@gmail.com</a>
 					<p>+1 (503)-756-6252</p>
 					<br />
 				{/if}
