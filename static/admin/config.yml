@@ -9,6 +9,40 @@ site_url: https://replikamasterworks.com
 media_folder: assets/uploads
 
 collections: # A list of collections the CMS should be able to edit
+
+
+  - name: 'siteCMS'
+    label: 'Site CMS'
+    description: >
+      Edit the Fields below to change the relevant info on the site
+    editor:
+      preview: true
+    files:
+      - name: 'contact'
+        label: 'Contact'
+        file: '_data/contact.json'
+        description: 'Contact Info'
+        fields:
+          - { label: 'Email', name: 'email', widget: 'string' }
+          - { label: 'Phone', name: 'phone', widget: 'string' }
+          - { label: 'Address', name: 'address', widget: 'string' }
+      - name: 'footer_misc'
+        label: 'Footer Misc'
+        file: '_data/misc.json'
+        description: 'Misc. Info'
+        fields:
+          - { label: 'Footer 1', name: 'footer_1', widget: 'string', default: 'Copyright 2022' }
+          - { label: 'Footer 2', name: 'footer_2', widget: 'string', default: 'REPLIKA MASTERWORKS PDX' }
+
+
+
+
+
+
+
+
+
+
   - name: 'posts' # Used in routes, ie.: /admin/collections/:slug/edit
     label: 'Posts' # Used in the UI
     label_singular: 'Post' # Used in the UI, ie: "New Post"
