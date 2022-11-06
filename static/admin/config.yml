@@ -28,7 +28,7 @@ collections: # A list of collections the CMS should be able to edit
           - { label: 'Address', name: 'address', widget: 'string' }
       - name: 'footer_misc'
         label: 'Footer Misc'
-        file: '_data/misc.json'
+        file: '/data/misc.json'
         description: 'Misc. Info'
         fields:
           - { label: 'Footer 1', name: 'footer_1', widget: 'string', default: 'Copyright 2022' }
