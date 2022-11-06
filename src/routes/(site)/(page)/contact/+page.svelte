@@ -1,79 +1,107 @@
 <script>
+	import { screenType } from '$lib/store/store';
 </script>
 
 <main>
-	<div class="item flex">
-		<div class="full">
-			<h1>CONTACT</h1>
-			<a href="/">
-				<h1 class="clickable">X</h1>
-			</a>
+	<div class="nav" />
+	{#if $screenType == 3}
+		<img src="/map.svg" alt="map" class="img" />
+	{/if}
+	<div class="body">
+		<div class="body__text">
+			<div>
+				<h5>ADDRESS:</h5>
+				<p>2020 SE Bush Street, Portland OR</p>
+			</div>
+			<div>
+				<h5>PHONE:</h5>
+				<p>+1 (503)-756-6252</p>
+			</div>
+			<div>
+				<h5>EMAIL:</h5>
+				<a href="mailto: replikamasterworks@gmail.com">replikamasterworks@gmail.com</a>
+			</div>
 		</div>
-		<div class="items">
-			<h2>ADDRESS : 2020 SE Bush Street, Portland OR</h2>
-			<a href="mailto: Replikamasterworks@gmail.com"
-				><h2>EMAIL : Replikamasterworks@gmail.com</h2></a
-			>
-			<h2>PHONE : +1 (503)-756-6252</h2>
+		<div class="body__footer">
+			<a href="/"><h5>HOME</h5></a>
+			<a href="/work"><h5>WORK</h5></a>
 		</div>
 	</div>
 </main>
 
 <style>
 	main {
-		margin-top: 65px;
-		padding-top: 2rem;
+		height: calc(100vh - 115px);
+
 		display: flex;
 		justify-content: space-between;
-		height: calc(100vh - 120px);
+		gap: 2rem;
+
+		margin-top: 65px;
+		padding: 2rem;
+		margin-bottom: 50px;
 		background: #121212aa;
 	}
 
-	h1 {
-		font-family: nb-television, sans-serif;
+	.body {
+		width: 100%;
+		height: 100%;
+
+		padding-bottom: 2rem;
 	}
 
-	h1.clickable {
+	.body__text {
+		height: calc(100% - 32px);
+		overflow: auto;
+	}
+
+	.body__text div {
+		padding: 8px 0;
+	}
+
+	.body__subtitle {
+		min-height: 60px;
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 16px;
+		border-bottom: solid 1px var(--white-50);
+	}
+
+	p,
+	a {
+		font-size: 2vw;
+	}
+
+	.body__footer {
+		min-height: 60px;
+		display: flex;
+		justify-content: space-between;
+		margin-top: 16px;
+		padding-top: 16px;
+		border-top: solid 1px var(--white-50);
+	}
+
+	.body__footer h5 {
+		font-family: nb-television;
 		cursor: pointer;
 	}
 
-	h1.clickable:hover {
-		font-family: nb-television-3d, sans-serif;
+	.body__footer h5:hover {
+		font-family: nb-television-2d, nb-television;
 	}
 
-	h2 {
-		font-size: 3.4vw;
-	}
-
-	.item {
+	.img {
 		width: 100%;
-	}
-
-	.full {
-		width: 100%;
-		display: flex;
-		justify-content: space-between;
-	}
-
-	.item.flex {
-		display: flex;
-		justify-content: space-between;
-		flex-flow: column nowrap;
-		padding: 0 40px;
-	}
-
-	.items {
 		height: 100%;
-		display: flex;
-		flex-flow: column nowrap;
-		justify-content: space-around;
-		margin-bottom: 40px;
+		border: solid 1px var(--white);
+		overflow: hidden;
+
+		object-fit: cover;
+		object-position: center; /* Center the image within the element */
 	}
 
-	@media only screen and (max-width: 1000px) {
-		.items {
-			height: 40%;
-			margin-bottom: auto;
-		}
+	.nav {
+		min-width: 120px;
+		height: auto;
 	}
 </style>

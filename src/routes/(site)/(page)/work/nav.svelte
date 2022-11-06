@@ -29,7 +29,7 @@
 					{#if section === navItem.index}
 						<span class="arrow"> X </span>
 					{/if}
-					<p class:active={section === navItem.index} class="mono">
+					<p class:active={section === navItem.index}>
 						{navItem.name ? navItem.name : navItem.title}
 					</p>
 				</div>
@@ -60,6 +60,7 @@
 		line-height: 120%;
 		padding: 2px 16px 2px 30px;
 		opacity: 0.5;
+		text-align: right;
 	}
 
 	.clickable {

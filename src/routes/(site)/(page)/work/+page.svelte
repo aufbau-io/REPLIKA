@@ -1,7 +1,17 @@
 <script>
 	import Nav from './nav.svelte';
-	import { index } from '$lib/store/store';
+	import { absoluteIndex, index } from '$lib/store/store';
 	import { screenType } from '$lib/store/store';
+
+	function turnLeft() {
+		console.log('left');
+		absoluteIndex.update((val) => val - 1);
+	}
+
+	function turnRight() {
+		console.log('right');
+		absoluteIndex.update((val) => val + 1);
+	}
 
 	const navItems = [
 		{
@@ -31,7 +41,9 @@
 	{/if}
 	<div class="body">
 		<div class="body__subtitle">
-			<h5>{navItems[$index - 1].name} Subtitle</h5>
+			<h4 class="arrows" on:click={turnLeft}>← ←</h4>
+			<h5>{navItems[$index - 1].name}</h5>
+			<h4 class="arrows" on:click={turnRight}>→ →</h4>
 		</div>
 		<div class="body__text">
 			<p>
@@ -56,6 +68,9 @@
 				luctus. Mauris volutpat porta turpis vel accumsan.
 			</p>
 		</div>
+		<div class="body__footer">
+			<a href="/contact"><h5>SAY HI</h5></a>
+		</div>
 	</div>
 </main>
 
@@ -74,7 +89,7 @@
 	}
 
 	.nav {
-		width: 200px;
+		min-width: 120px;
 		height: 100%;
 	}
 
@@ -86,12 +101,49 @@
 	}
 
 	.body__subtitle {
-		height: 60px;
+		min-height: 60px;
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 16px;
+		border-bottom: solid 1px var(--white-50);
+	}
+
+	.arrows {
+		font-family: nb-television;
+		cursor: pointer;
+		line-height: 44px;
+		user-select: none;
+	}
+
+	.arrows:hover {
+		font-family: nb-television-3d, nb-television;
 	}
 
 	.body__text {
-		height: calc(100% - 30px);
+		height: calc(100% - 108px);
 		overflow: auto;
+	}
+
+	.body__footer {
+		min-height: 60px;
+		display: flex;
+		justify-content: space-between;
+		margin-top: 16px;
+		padding-top: 16px;
+		border-top: solid 1px var(--white-50);
+
+		display: flex;
+
+		justify-content: end;
+	}
+
+	.body__footer h5 {
+		font-family: nb-television;
+		cursor: pointer;
+	}
+
+	.body__footer h5:hover {
+		font-family: nb-television-2d, nb-television;
 	}
 
 	.img {

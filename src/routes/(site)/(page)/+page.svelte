@@ -83,6 +83,7 @@
 		align-items: center;
 		color: var(--white);
 		padding: 2rem;
+		transform: translateY(-12.5px);
 		text-transform: uppercase;
 		font-family: nb-architekt, sans-serif;
 	}
