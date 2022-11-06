@@ -20,7 +20,7 @@ collections: # A list of collections the CMS should be able to edit
     files:
       - name: 'contact'
         label: 'Contact'
-        file: 'static/_data/contact.json'
+        file: '/src/lib/data/contact.json'
         description: 'Contact Info'
         fields:
           - { label: 'Email', name: 'email', widget: 'string' }
