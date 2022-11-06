@@ -1,7 +1,6 @@
 <script>
 	import { screenType } from '$lib/store/store';
-	import test from '$lib/data/contact.json';
-	console.log(test);
+	import { email, phone, address } from '$lib/data/contact.json';
 </script>
 
 <main>
@@ -13,15 +12,15 @@
 		<div class="body__text">
 			<div>
 				<h5>ADDRESS:</h5>
-				<p>2020 SE Bush Street, Portland OR</p>
+				<p>{address}</p>
 			</div>
 			<div>
 				<h5>PHONE:</h5>
-				<p>+1 (503)-756-6252</p>
+				<p>{phone}</p>
 			</div>
 			<div>
 				<h5>EMAIL:</h5>
-				<a href="mailto: replikamasterworks@gmail.com">replikamasterworks@gmail.com</a>
+				<a href="mailto: {email}">{email}</a>
 			</div>
 		</div>
 		<div class="body__footer">
