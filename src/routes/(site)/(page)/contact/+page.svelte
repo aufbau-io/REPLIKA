@@ -1,6 +1,6 @@
 <script>
 	import { screenType } from '$lib/store/store';
-	import test from '/data/misc.json';
+	import test from 'data/misc.json';
 	console.log(test);
 </script>
 
