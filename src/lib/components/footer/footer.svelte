@@ -1,5 +1,8 @@
 <script>
 	import { screenType } from '$lib/store/store';
+	import { email, phone, address } from '$lib/data/contact.json';
+	import { footer_1, footer_2 } from '$lib/data/misc.json';
+
 	let showFooter = false;
 	let toggleShowFooter = () => {
 		showFooter = !showFooter;
@@ -13,14 +16,14 @@
 		<section>
 			<div class="base">
 				{#if $screenType == 1 || $screenType == 2}
-					<a href="mailto: replikamasterworks@gmail.com">Replikamasterworks@gmail.com</a>
-					<p>+1 (503)-756-6252</p>
+					<a href="mailto: {email}">{email}</a>
+					<p>{phone}</p>
 					<br />
 				{/if}
-				<p>Copyright 2022</p>
-				<p>REPLIKA MASTERWORKS PDX</p>
+				<p>{footer_1}</p>
+				<p>{footer_2}</p>
 
-				<p>2020 SE Bush Street, Portland OR</p>
+				<p>{address}</p>
 				{#if $screenType == 1 || $screenType == 2}
 					<br />
 				{/if}
