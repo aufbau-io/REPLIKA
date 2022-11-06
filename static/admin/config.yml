@@ -28,8 +28,8 @@ collections: # A list of collections the CMS should be able to edit
           - { label: 'Address', name: 'address', widget: 'string' }
       - name: 'footer_misc'
         label: 'Footer Misc'
-        file: '/data/misc.json'
-        description: 'Misc. Info'
+        file: '/src/lib/data/misc.json'
+        description: 'Misc Footer Strings'
         fields:
           - { label: 'Footer 1', name: 'footer_1', widget: 'string', default: 'Copyright 2022' }
           - { label: 'Footer 2', name: 'footer_2', widget: 'string', default: 'REPLIKA MASTERWORKS PDX' }
