@@ -2,8 +2,7 @@
 	import { onMount } from 'svelte';
 	import * as THREE from 'three';
 	import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-	import { index } from '$lib/store/store.js';
-	import { screenType } from '$lib/store/store';
+	import { index, loaded } from '$lib/store/store';
 
 	$: $index, lookAtIndex($index);
 
@@ -18,6 +17,9 @@
 
 	let windowHalfX = window.innerWidth / 2;
 	let windowHalfY = window.innerHeight / 2;
+
+	let no_itemsLoaded = 0;
+	let no_itemsTotal = 6;
 
 	init();
 	animate();
@@ -57,60 +59,6 @@
 		canvas.width = 128;
 		canvas.height = 128;
 
-		const context = canvas.getContext('2d');
-		const gradient = context.createRadialGradient(
-			canvas.width / 2,
-			canvas.height / 2,
-			0,
-			canvas.width / 2,
-			canvas.height / 2,
-			canvas.width / 2
-		);
-		gradient.addColorStop(0.1, '#020202');
-		gradient.addColorStop(1, '#121212');
-
-		context.fillStyle = gradient;
-		context.fillRect(0, 0, canvas.width, canvas.height);
-
-		const radius = 200;
-
-		const geometry1 = new THREE.IcosahedronGeometry(radius, 1);
-
-		const count = geometry1.attributes.position.count;
-		geometry1.setAttribute('color', new THREE.BufferAttribute(new Float32Array(count * 3), 3));
-
-		const geometry2 = geometry1.clone();
-		const geometry3 = geometry1.clone();
-
-		const color = new THREE.Color();
-		const positions1 = geometry1.attributes.position;
-		const positions2 = geometry2.attributes.position;
-		const positions3 = geometry3.attributes.position;
-		const colors1 = geometry1.attributes.color;
-		const colors2 = geometry2.attributes.color;
-		const colors3 = geometry3.attributes.color;
-
-		for (let i = 0; i < count; i++) {
-			color.setRGB(1.5, (positions1.getY(i) / radius + 1) / 2, 1);
-			colors1.setXYZ(i, color.r, color.b, color.b);
-
-			color.setRGB(0.5, (positions2.getY(i) / radius + 1) / 2, 1);
-			colors2.setXYZ(i, color.g, color.b, color.g);
-
-			color.setRGB(1.5, 0.8 - (positions3.getY(i) / radius + 1) / 2, 0);
-			colors3.setXYZ(i, color.r, color.g, color.b);
-		}
-
-		const material = new THREE.MeshPhongMaterial({
-			color: 0xffffff,
-			flatShading: true,
-			vertexColors: true,
-			shininess: 0
-		});
-
-		// let texture = new THREE.TextureLoader().load(map);
-		// let material = new THREE.MeshBasicMaterial({ map: texture });
-
 		const wireframeMaterial = new THREE.MeshBasicMaterial({
 			color: 0x606060,
 			wireframe: true
@@ -119,26 +67,46 @@
 		group = new THREE.Group();
 		scene.add(group);
 
-		let mesh1 = new THREE.Mesh(geometry1, material);
-		let wireframe = new THREE.Mesh(geometry1, wireframeMaterial);
-		mesh1.add(wireframe);
-		mesh1.position.x = -400;
-		mesh1.rotation.x = -1.87;
+		// -------------------------------------------------------------------------
 
-		let mesh2 = new THREE.Mesh(geometry2, material);
-		wireframe = new THREE.Mesh(geometry2, wireframeMaterial);
-		mesh2.add(wireframe);
-		mesh2.position.x = 400;
-		mesh2.rotation.y = -0;
+		// LOADING MANAGER
+		const manager = new THREE.LoadingManager();
+		manager.onStart = function (url, itemsLoaded, itemsTotal) {
+			// console.log(
+			// 	'Started loading file: ' +
+			// 		url +
+			// 		'.\nLoaded ' +
+			// 		itemsLoaded +
+			// 		' of ' +
+			// 		itemsTotal +
+			// 		' files.'
+			// );
+		};
 
-		// let mesh3 = new THREE.Mesh(geometry3, material);
-		// wireframe = new THREE.Mesh(geometry3, wireframeMaterial);
-		// mesh3.add(wireframe);
-		// mesh3.rotation.y = +1.87;
-		// mesh3.rotation.x = -0.87;
-		// group.add(mesh3);
+		let setLoaded = () => {
+			loaded.update(() => true);
+		};
 
-		const gltfLoader = new GLTFLoader();
+		manager.onLoad = function () {
+			setTimeout(() => setLoaded(), 250);
+
+			// console.log('Loading complete!');
+		};
+
+		manager.onProgress = function (url, itemsLoaded, itemsTotal) {
+			no_itemsLoaded = itemsLoaded;
+			// console.log(
+			// 	'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.'
+			// );
+		};
+
+		manager.onError = function (url) {
+			// console.log('There was an error loading ' + url);
+		};
+
+		// -------------------------------------------------------------------------
+
+		const gltfLoader = new GLTFLoader(manager);
 		let bunGroup = new THREE.Group();
 		let ratGroup = new THREE.Group();
 		let skullGroup = new THREE.Group();
@@ -277,9 +245,15 @@
 	}
 </script>
 
-<div bind:this={container} class:geometry={true} />
+{#if !$loaded}
+	<div class="loader">Loaded {no_itemsLoaded} / {no_itemsTotal}</div>
+{/if}
+<div bind:this={container} class:geometry={$loaded} />
 
 <style>
+	div {
+		opacity: 0;
+	}
 	.geometry {
 		position: absolute;
 		top: 0;
@@ -287,5 +261,16 @@
 		overflow: hidden;
 		z-index: -10;
 		opacity: 0.9;
+		transition: opacity ease-out 1.5s;
+	}
+
+	.loader {
+		opacity: 1;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		color: VAR(--white);
+		z-index: 100;
 	}
 </style>

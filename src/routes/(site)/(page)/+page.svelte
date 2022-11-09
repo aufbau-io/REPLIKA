@@ -1,6 +1,6 @@
 <script>
 	import { index, absoluteIndex } from '$lib/store/store.js';
-	import { screenType } from '$lib/store/store';
+	import { screenType, loaded } from '$lib/store/store';
 	// absoluteIndex.update((val) => 0);
 
 	function turnLeft() {
@@ -24,7 +24,7 @@
 	<title>REPLIKA</title>
 </svelte:head>
 
-<main>
+<main class:show={$loaded}>
 	{#if $screenType == 3}
 		<div class="arrows">
 			<h3 on:click={turnLeft}>←</h3>
@@ -42,6 +42,12 @@
 		height: 100%;
 		align-items: center;
 		justify-content: center;
+		opacity: 0;
+	}
+
+	main.show {
+		transition: opacity ease-out 1.5s 1s;
+		opacity: 1;
 	}
 
 	.arrows {
