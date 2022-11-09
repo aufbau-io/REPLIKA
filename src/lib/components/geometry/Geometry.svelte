@@ -266,7 +266,7 @@
 		overflow: hidden;
 		z-index: -10;
 		opacity: 0.9;
-		transition: opacity ease-in 2s;
+		transition: opacity ease-in 1.5s;
 	}
 
 	.loader {

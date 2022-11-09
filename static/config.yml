@@ -83,3 +83,16 @@ collections: # A list of collections the CMS should be able to edit
                 media_library:
                   config:
                     multiple: false
+
+
+          - label: 'Contact'
+            name: 'contact'
+            widget: 'object'
+            fields:
+              - label: "Contact Image"
+                name: "contact_image"
+                widget: "image"
+                choose_url: false
+                media_library:
+                  config:
+                    multiple: false
