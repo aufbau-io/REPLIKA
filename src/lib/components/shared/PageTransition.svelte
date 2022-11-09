@@ -18,7 +18,7 @@
 
 {#key transitioning}
 	{#key url}
-		<div class="test" :class={transitioning} transition:fade={{ duration: 500, easing: quintOut }}>
+		<div class="test" :class={transitioning} transition:fade={{ duration: 200, easing: quintOut }}>
 			<slot />
 		</div>
 	{/key}
