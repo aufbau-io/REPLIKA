@@ -92,6 +92,7 @@ collections: # A list of collections the CMS should be able to edit
               - label: "Contact Image"
                 name: "contact_image"
                 widget: "image"
+                media_folder: "/static/assets/netlifycms/contact"
                 choose_url: false
                 media_library:
                   config:
