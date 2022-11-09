@@ -59,7 +59,7 @@
 
 {#if $screenType == 1 || $screenType == 2}
 	<div id="phoneBlock"><p class="sml">wip, use desktop</p></div>
-{:else}
+{:else if $screenType == 3}
 	<Header />
 	<slot />
 	<Footer />
