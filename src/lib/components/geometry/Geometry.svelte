@@ -249,7 +249,7 @@
 
 {#if !$loaded && $page.url.pathname == '/' && $screenType == 3}
 	<div class="loader">
-		<p>Loaded {no_itemsLoaded} / {no_itemsTotal}</p>
+		<p>Loading {no_itemsLoaded} / {no_itemsTotal}</p>
 		<a href="/work">skip</a>
 	</div>
 {/if}
