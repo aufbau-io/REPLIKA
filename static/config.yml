@@ -89,7 +89,6 @@ collections: # A list of collections the CMS should be able to edit
             name: 'contact'
             widget: 'object'
             fields:
-              - { label: 'Image File Name', name: filename, widget: string }
               - label: "Contact Image"
                 name: "contact_image"
                 widget: "image"
