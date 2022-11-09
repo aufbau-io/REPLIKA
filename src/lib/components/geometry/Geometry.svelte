@@ -2,6 +2,8 @@
 	import { onMount } from 'svelte';
 	import * as THREE from 'three';
 	import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+
+	import { page } from '$app/stores';
 	import { index, loaded } from '$lib/store/store';
 
 	$: $index, lookAtIndex($index);
@@ -245,7 +247,7 @@
 	}
 </script>
 
-{#if !$loaded}
+{#if !$loaded && $page.url.pathname == '/'}
 	<div class="loader">
 		<p>Loaded {no_itemsLoaded} / {no_itemsTotal}</p>
 		<a href="/work">skip</a>
