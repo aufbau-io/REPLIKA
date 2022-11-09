@@ -274,7 +274,6 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 		color: VAR(--white);
-		z-index: 100;
 
 		display: flex;
 		flex-flow: column nowrap;

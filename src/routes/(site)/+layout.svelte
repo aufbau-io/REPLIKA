@@ -66,11 +66,6 @@
 {/if}
 
 <style>
-	main {
-		height: 100px;
-		height: calc(var(--vh, 1vh) * 100);
-	}
-
 	#phoneBlock {
 		position: absolute;
 		top: 0;

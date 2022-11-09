@@ -32,6 +32,8 @@
 
 <style>
 	main {
+		position: absolute;
+		top: 0;
 		height: calc(100vh - 115px);
 
 		display: flex;

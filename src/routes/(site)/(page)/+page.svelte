@@ -39,7 +39,6 @@
 <style>
 	main {
 		display: flex;
-		height: 100%;
 		align-items: center;
 		justify-content: center;
 		opacity: 0;
@@ -62,11 +61,6 @@
 		position: absolute;
 		top: 50%;
 		transform: translateY(-50%);
-	}
-
-	.arrows--mobile {
-		opacity: 0;
-		pointer-events: none;
 	}
 
 	h3,
