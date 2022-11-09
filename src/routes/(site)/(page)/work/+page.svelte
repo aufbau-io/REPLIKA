@@ -3,6 +3,8 @@
 	import { absoluteIndex, index } from '$lib/store/store';
 	import { screenType } from '$lib/store/store';
 
+	import content from '$lib/data/page_content.json';
+
 	function turnLeft() {
 		// console.log('left');
 		absoluteIndex.update((val) => val - 1);
@@ -16,20 +18,19 @@
 	const navItems = [
 		{
 			index: 0,
-			name: 'DESIGN',
-			href: '#design'
+			name: 'design'
 		},
 		{
 			index: 1,
-			name: 'SCAN',
-			href: '#scan'
+			name: 'scan'
 		},
 		{
 			index: 2,
-			name: 'PRINT',
-			href: '#print'
+			name: 'print'
 		}
 	];
+
+	$: section_index = navItems[$index - 1].name;
 </script>
 
 <main>
@@ -37,36 +38,18 @@
 		<Nav {navItems} section={$index - 1} />
 	</div>
 	{#if $screenType == 3}
-		<div class="img">img placeholder</div>
+		<img src={content[section_index].img_src} alt="{section_index} image" class="img" />
 	{/if}
 	<div class="body">
-		<div class="body__subtitle">
+		<div class="body__header">
 			<h4 class="arrows" on:click={turnLeft}>← ←</h4>
-			<h5>{navItems[$index - 1].name}</h5>
+			<h5>{section_index}</h5>
 			<h4 class="arrows" on:click={turnRight}>→ →</h4>
 		</div>
 		<div class="body__text">
-			<h5>This is a {navItems[$index - 1].name} Subtitle</h5>
+			<h5>{content[section_index].subtitle}</h5>
 			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quam ante, ultrices quis
-				vehicula nec, faucibus pulvinar ex. Vestibulum at pretium massa. Proin vehicula tempus
-				augue, sed ornare nisi lobortis quis. Nulla ullamcorper ante arcu, in malesuada mi pharetra
-				nec. Nulla faucibus, ligula at fringilla mollis, urna lacus volutpat lorem, in dapibus est
-				risus sed ligula. Fusce finibus orci sed rutrum rhoncus. Donec efficitur viverra justo, a
-				tempus enim ornare eget. Aliquam eget consequat nisl. Nullam et ante vitae quam semper
-				euismod. Donec sit amet consectetur justo. Phasellus quis justo non leo tincidunt congue.
-				Etiam aliquam mauris ligula, ut mattis odio rhoncus ut. Sed dolor ex, consectetur eu ornare
-				vel, cursus et odio. Quisque ac tempus diam, at posuere est. Vestibulum ante ipsum primis in
-				faucibus orci luctus et ultrices posuere cubilia curae; Vestibulum mi risus, dapibus vitae
-				nulla et, sollicitudin lobortis nunc. Cras iaculis sapien sit amet ligula fringilla sodales.
-				Morbi purus dui, molestie nec sem eget, lacinia mattis dui. Integer consectetur ligula eu
-				quam venenatis, nec malesuada nisl blandit. Aenean tristique, neque vitae lobortis dictum,
-				odio quam iaculis tellus, a ullamcorper sapien velit et lectus. Suspendisse tincidunt
-				tincidunt leo, id posuere neque fermentum a. Donec et sapien a elit tempus porta. Aenean
-				pellentesque velit sed est hendrerit gravida. Aenean volutpat accumsan dui, eu fringilla
-				quam lobortis sit amet. Vestibulum placerat sapien a leo suscipit consectetur sed eu massa.
-				Curabitur quis velit auctor, volutpat nisi a, porttitor neque. Aliquam lacinia in mauris at
-				luctus. Mauris volutpat porta turpis vel accumsan.
+				{content[section_index].body}
 			</p>
 		</div>
 		<div class="body__footer">
@@ -104,12 +87,13 @@
 		padding-bottom: 2rem;
 	}
 
-	.body__subtitle {
+	.body__header {
 		min-height: 60px;
 		display: flex;
 		justify-content: space-between;
 		margin-bottom: 16px;
 		border-bottom: solid 1px var(--white-50);
+		text-transform: uppercase;
 	}
 
 	.arrows {
@@ -159,9 +143,9 @@
 		width: 100%;
 		height: 100%;
 		border: solid 1px var(--white);
+		overflow: hidden;
 
-		display: flex;
-		align-items: center;
-		justify-content: center;
+		object-fit: cover;
+		object-position: center; /* Center the image within the element */
 	}
 </style>

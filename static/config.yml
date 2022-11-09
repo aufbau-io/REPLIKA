@@ -47,7 +47,7 @@ collections: # A list of collections the CMS should be able to edit
             name: 'design'
             widget: 'object'
             fields:
-              - { label: 'Subheading', name: subheading, widget: string }
+              - { label: 'Subtitle', name: subtitle, widget: string }
               - { label: 'Body', name: body, widget: text }
               - label: "Design Image"
                 name: "img_src"
@@ -61,7 +61,7 @@ collections: # A list of collections the CMS should be able to edit
             name: 'scan'
             widget: 'object'
             fields:
-              - { label: 'Subheading', name: subheading, widget: string }
+              - { label: 'Subtitle', name: subtitle, widget: string }
               - { label: 'Body', name: body, widget: text }
               - label: "Scan Image"
                 name: "img_src"
@@ -75,7 +75,7 @@ collections: # A list of collections the CMS should be able to edit
             name: 'print'
             widget: 'object'
             fields:
-              - { label: 'Subheading', name: subheading, widget: string }
+              - { label: 'Subtitle', name: subtitle, widget: string }
               - { label: 'Body', name: body, widget: text }
               - label: "Print Image"
                 name: "img_src"
