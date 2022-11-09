@@ -108,7 +108,7 @@
 		min-height: 60px;
 		display: flex;
 		justify-content: space-between;
-		margin-bottom: 24px;
+		margin-bottom: 16px;
 		border-bottom: solid 1px var(--white-50);
 	}
 
@@ -126,6 +126,7 @@
 	.body__text {
 		height: calc(100% - 108px);
 		overflow: auto;
+		margin-top: 8px;
 
 		display: flex;
 		flex-flow: column nowrap;
