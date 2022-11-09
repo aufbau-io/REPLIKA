@@ -26,9 +26,12 @@
 	{/key}
 {/key}
 
-<!-- {#if transitioning}
-	<div class="cover" />
-{/if} -->
+{#if transitioning}
+	<div class="cover">
+		<div class="line" />
+	</div>
+{/if}
+
 <style>
 	.test {
 		opacity: 1;
@@ -47,6 +50,19 @@
 		background: var(--black);
 		z-index: 200;
 
-		transition: all 1s;
+		animation-name: example;
+		animation-duration: 0.5s;
+	}
+
+	@keyframes example {
+		0% {
+			background: var(--black);
+		}
+		50% {
+			background: var(--black);
+		}
+		100% {
+			background: #12121200;
+		}
 	}
 </style>
