@@ -12,13 +12,13 @@
 
 	function turnLeft() {
 		// console.log('left');
-		triggerTransition();
+		// triggerTransition();
 		absoluteIndex.update((val) => val - 1);
 	}
 
 	function turnRight() {
 		// console.log('right');
-		triggerTransition();
+		// triggerTransition();
 		absoluteIndex.update((val) => val + 1);
 	}
 
