@@ -7,6 +7,7 @@ site_url: https://replikamasterworks.com
 
 # publish_mode: editorial_workflow
 media_folder: /static/assets/netlifycms
+public_folder: assets/netlifycms
 
 collections: # A list of collections the CMS should be able to edit
 
