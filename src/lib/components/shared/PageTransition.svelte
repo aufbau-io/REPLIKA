@@ -45,8 +45,7 @@
 		left: 0;
 		height: calc(100vh - 121px);
 		width: 100vw;
-
-		z-index: 200;
+		background: none;
 
 		animation-name: example;
 		animation-duration: 0.8s;
