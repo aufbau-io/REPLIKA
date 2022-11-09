@@ -43,6 +43,7 @@
 		padding: 0 20px;
 		height: 66px;
 		border-bottom: solid 1px var(--white);
+		background: var(--black);
 		user-select: none;
 		z-index: 100;
 	}
