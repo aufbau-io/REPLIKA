@@ -6,7 +6,7 @@
 <main>
 	<div class="nav" />
 	{#if $screenType == 3}
-		<img src="/assets/map.png" alt="map" class="img" />
+		<img src="/assets/uploads/map.png" alt="map" class="img" />
 	{/if}
 	<div class="body">
 		<div class="body__text">
