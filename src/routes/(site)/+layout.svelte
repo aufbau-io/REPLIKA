@@ -6,7 +6,9 @@
 
 	import Header from '$lib/components/header/header.svelte';
 	import Footer from '$lib/components/footer/footer.svelte';
-	import { goto } from '$app/navigation';
+	import PageTransition from '$lib/components/shared/PageTransition.svelte';
+	import { page } from '$app/stores';
+	import { index } from '$lib/store/store';
 
 	onMount(async () => {
 		const module = await import('$lib/components/geometry/Geometry.svelte');
@@ -53,6 +55,8 @@
 			screenType.set(3);
 		}
 	});
+
+	$: url = $page.url.pathname + $index;
 </script>
 
 <svelte:component this={Geometry} />
@@ -61,7 +65,9 @@
 	<div id="phoneBlock"><p class="sml">wip, use desktop</p></div>
 {:else if $screenType == 3}
 	<Header />
-	<slot />
+	<PageTransition {url}>
+		<slot />
+	</PageTransition>
 	<Footer />
 {/if}
 

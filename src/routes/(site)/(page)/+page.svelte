@@ -38,9 +38,17 @@
 
 <style>
 	main {
+		position: absolute;
+		top: 0;
+		height: calc(100vh - 115px);
+		width: 100vw;
+
 		display: flex;
-		align-items: center;
-		justify-content: center;
+		justify-content: space-between;
+		gap: 2rem;
+
+		margin-top: 65px;
+		margin-bottom: 50px;
 		opacity: 0;
 	}
 

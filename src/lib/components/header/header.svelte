@@ -44,6 +44,7 @@
 		height: 66px;
 		border-bottom: solid 1px var(--white);
 		user-select: none;
+		z-index: 100;
 	}
 
 	header.desktop {

@@ -18,15 +18,18 @@
 	const navItems = [
 		{
 			index: 0,
-			name: 'design'
+			name: 'design',
+			href: '/work/design'
 		},
 		{
 			index: 1,
-			name: 'scan'
+			name: 'scan',
+			href: '/work/scan'
 		},
 		{
 			index: 2,
-			name: 'print'
+			name: 'print',
+			href: '/work/print'
 		}
 	];
 
