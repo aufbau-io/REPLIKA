@@ -35,6 +35,7 @@
 		position: absolute;
 		top: 0;
 		height: calc(100vh - 115px);
+		width: 100vw;
 
 		display: flex;
 		justify-content: space-between;
