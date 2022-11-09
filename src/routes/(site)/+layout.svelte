@@ -6,9 +6,17 @@
 
 	import Header from '$lib/components/header/header.svelte';
 	import Footer from '$lib/components/footer/footer.svelte';
-	import PageTransition from '$lib/components/shared/PageTransition.svelte';
 	import { page } from '$app/stores';
-	import { index } from '$lib/store/store';
+	import { index, transitioning } from '$lib/store/store';
+
+	import { beforeNavigate } from '$app/navigation';
+
+	beforeNavigate(({ from, to }) => {
+		transitioning.set(true);
+		setTimeout(() => {
+			transitioning.set(false);
+		}, 600);
+	});
 
 	onMount(async () => {
 		const module = await import('$lib/components/geometry/Geometry.svelte');
@@ -55,8 +63,6 @@
 			screenType.set(3);
 		}
 	});
-
-	$: url = $page.url.pathname + $index;
 </script>
 
 <svelte:component this={Geometry} />
@@ -65,10 +71,14 @@
 	<div id="phoneBlock"><p class="sml">wip, use desktop</p></div>
 {:else if $screenType == 3}
 	<Header />
-	<PageTransition {url}>
-		<slot />
-	</PageTransition>
+	<slot />
 	<Footer />
+{/if}
+
+{#if $transitioning}
+	<div class="cover">
+		<div class="line" />
+	</div>
 {/if}
 
 <style>
@@ -87,5 +97,29 @@
 		width: 100vw;
 		background: var(--background);
 		z-index: 1000;
+	}
+
+	.cover {
+		position: absolute;
+		top: 66px;
+		left: 0;
+		height: calc(100vh - 121px);
+		width: 100vw;
+		background: none;
+
+		animation-name: example;
+		animation-duration: 0.6s;
+	}
+
+	@keyframes example {
+		0% {
+			background: var(--black);
+		}
+		50% {
+			background: var(--black);
+		}
+		100% {
+			background: #12121200;
+		}
 	}
 </style>

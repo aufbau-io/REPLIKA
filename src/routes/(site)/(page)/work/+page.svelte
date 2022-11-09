@@ -1,19 +1,28 @@
 <script>
 	import Nav from './nav.svelte';
 	import { absoluteIndex, index } from '$lib/store/store';
-	import { screenType } from '$lib/store/store';
+	import { screenType, transitioning } from '$lib/store/store';
 
 	import content from '$lib/data/page_content.json';
 
 	function turnLeft() {
 		// console.log('left');
+		triggerTransition();
 		absoluteIndex.update((val) => val - 1);
 	}
 
 	function turnRight() {
 		// console.log('right');
+		triggerTransition();
 		absoluteIndex.update((val) => val + 1);
 	}
+
+	let triggerTransition = () => {
+		transitioning.set(true);
+		setTimeout(() => {
+			transitioning.set(false);
+		}, 600);
+	};
 
 	const navItems = [
 		{

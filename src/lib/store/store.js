@@ -4,6 +4,7 @@ export const animations = writable(true);
 export const absoluteIndex = writable(0);
 export const screenType = writable(null);
 export const loaded = writable(false);
+export const transitioning = writable(false);
 
 // javascript modulo doesn't work on negative numbers
 function mod(n, m) {
