@@ -6,7 +6,7 @@ backend:
 site_url: https://replikamasterworks.com
 
 # publish_mode: editorial_workflow
-media_folder: /static/assets/uploads
+media_folder: /static/assets/netlifycms
 
 collections: # A list of collections the CMS should be able to edit
 
@@ -89,10 +89,10 @@ collections: # A list of collections the CMS should be able to edit
             name: 'contact'
             widget: 'object'
             fields:
+              - { label: 'Image File Name', name: filename, widget: string }
               - label: "Contact Image"
                 name: "contact_image"
                 widget: "image"
-                media_folder: "/static/assets/netlifycms/contact"
                 choose_url: false
                 media_library:
                   config:

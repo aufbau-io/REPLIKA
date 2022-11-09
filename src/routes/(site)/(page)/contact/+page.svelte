@@ -1,12 +1,14 @@
 <script>
 	import { screenType } from '$lib/store/store';
 	import { email, phone, address } from '$lib/data/contact.json';
+
+	//import test from '/assets/netlifycms/contact/map.png';
 </script>
 
 <main>
 	<div class="nav" />
 	{#if $screenType == 3}
-		<img src="/assets/uploads/map.png" alt="map" class="img" />
+		<img src="/assets/netlifycms/contact/map.png" alt="map" class="img" />
 	{/if}
 	<div class="body">
 		<div class="body__text">
