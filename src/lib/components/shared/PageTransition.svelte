@@ -1,7 +1,5 @@
 <!-- src/component/PageTransitions.svelte -->
 <script>
-	import { blur } from 'svelte/transition';
-	import { quintOut } from 'svelte/easing';
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
 	export let url = '';
 
@@ -14,7 +12,7 @@
 	afterNavigate(() => {
 		setTimeout(() => {
 			transitioning = false;
-		}, 500);
+		}, 1000);
 	});
 </script>
 
@@ -47,18 +45,18 @@
 		left: 0;
 		height: calc(100vh - 121px);
 		width: 100vw;
-		background: var(--black);
+
 		z-index: 200;
 
 		animation-name: example;
-		animation-duration: 0.5s;
+		animation-duration: 0.8s;
 	}
 
 	@keyframes example {
 		0% {
 			background: var(--black);
 		}
-		50% {
+		66% {
 			background: var(--black);
 		}
 		100% {
