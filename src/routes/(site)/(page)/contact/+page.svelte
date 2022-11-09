@@ -1,6 +1,7 @@
 <script>
 	import { screenType } from '$lib/store/store';
 	import { email, phone, address } from '$lib/data/contact.json';
+	import { email, phone, address } from '$lib/data/contact.json';
 
 	//import test from '/assets/netlifycms/contact/map.png';
 </script>
