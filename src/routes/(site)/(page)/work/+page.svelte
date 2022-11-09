@@ -60,7 +60,7 @@
 		</div>
 		<div class="body__text">
 			<h5>{content[section_index].subtitle}</h5>
-			<p>
+			<p class="lrg">
 				{content[section_index].body}
 			</p>
 		</div>
