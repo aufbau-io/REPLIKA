@@ -33,6 +33,23 @@ collections: # A list of collections the CMS should be able to edit
         fields:
           - { label: 'Footer 1', name: 'footer_1', widget: 'string', default: 'Copyright 2022' }
           - { label: 'Footer 2', name: 'footer_2', widget: 'string', default: 'REPLIKA MASTERWORKS PDX' }
+      - name: 'page_content'
+        label: 'Page Content'
+        file: '/src/lib/data/page_content.json'
+        description: 'Page Content - Text and Images'
+        fields:
+          - label: 'Design'
+            name: 'design'
+            widget: 'object'
+            fields:
+              - {
+                  label: 'Number of posts on frontpage',
+                  name: front_limit,
+                  widget: number,
+                  min: 1,
+                  max: 10,
+                }
+              - { label: 'Default Author', name: author, widget: string }
 
 
 
