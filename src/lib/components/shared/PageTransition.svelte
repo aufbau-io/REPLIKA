@@ -1,6 +1,6 @@
 <!-- src/component/PageTransitions.svelte -->
 <script>
-	import { fade } from 'svelte/transition';
+	import { blur } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
 	export let url = '';
@@ -12,18 +12,23 @@
 	});
 
 	afterNavigate(() => {
-		transitioning = false;
+		setTimeout(() => {
+			transitioning = false;
+		}, 500);
 	});
 </script>
 
 {#key transitioning}
 	{#key url}
-		<div class="test" :class={transitioning} transition:fade={{ duration: 200, easing: quintOut }}>
+		<div class="test" :class={transitioning}>
 			<slot />
 		</div>
 	{/key}
 {/key}
 
+<!-- {#if transitioning}
+	<div class="cover" />
+{/if} -->
 <style>
 	.test {
 		opacity: 1;
@@ -31,5 +36,17 @@
 
 	.test.transitioning {
 		opacity: 0;
+	}
+
+	.cover {
+		position: absolute;
+		top: 66px;
+		left: 0;
+		height: calc(100vh - 121px);
+		width: 100vw;
+		background: var(--black);
+		z-index: 200;
+
+		transition: all 1s;
 	}
 </style>
