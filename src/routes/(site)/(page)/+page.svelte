@@ -4,12 +4,12 @@
 	// absoluteIndex.update((val) => 0);
 
 	function turnLeft() {
-		console.log('left');
+		// console.log('left');
 		absoluteIndex.update((val) => val - 1);
 	}
 
 	function turnRight() {
-		console.log('right');
+		// console.log('right');
 		absoluteIndex.update((val) => val + 1);
 	}
 

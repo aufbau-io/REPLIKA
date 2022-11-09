@@ -4,12 +4,12 @@
 	import { screenType } from '$lib/store/store';
 
 	function turnLeft() {
-		console.log('left');
+		// console.log('left');
 		absoluteIndex.update((val) => val - 1);
 	}
 
 	function turnRight() {
-		console.log('right');
+		// console.log('right');
 		absoluteIndex.update((val) => val + 1);
 	}
 
