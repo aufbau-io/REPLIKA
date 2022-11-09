@@ -6,7 +6,7 @@ backend:
 site_url: https://replikamasterworks.com
 
 # publish_mode: editorial_workflow
-media_folder: assets/uploads
+media_folder: /static/assets/uploads
 
 collections: # A list of collections the CMS should be able to edit
 
