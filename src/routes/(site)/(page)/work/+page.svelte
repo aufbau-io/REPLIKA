@@ -46,6 +46,7 @@
 			<h4 class="arrows" on:click={turnRight}>→ →</h4>
 		</div>
 		<div class="body__text">
+			<h5>This is a {navItems[$index - 1].name} Subtitle</h5>
 			<p>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quam ante, ultrices quis
 				vehicula nec, faucibus pulvinar ex. Vestibulum at pretium massa. Proin vehicula tempus
@@ -125,6 +126,10 @@
 	.body__text {
 		height: calc(100% - 108px);
 		overflow: auto;
+
+		display: flex;
+		flex-flow: column nowrap;
+		gap: 8px;
 	}
 
 	.body__footer {
