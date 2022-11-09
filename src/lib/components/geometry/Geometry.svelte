@@ -88,7 +88,7 @@
 		};
 
 		manager.onLoad = function () {
-			setTimeout(() => setLoaded(), 250);
+			setTimeout(() => setLoaded(), 500);
 
 			// console.log('Loading complete!');
 		};
