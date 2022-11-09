@@ -45,7 +45,7 @@
 	}
 
 	main.show {
-		transition: opacity ease-out 1.5s 1s;
+		transition: opacity ease-in 0.5s 2s;
 		opacity: 1;
 	}
 
