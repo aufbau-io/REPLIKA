@@ -246,7 +246,10 @@
 </script>
 
 {#if !$loaded}
-	<div class="loader">Loaded {no_itemsLoaded} / {no_itemsTotal}</div>
+	<div class="loader">
+		<p>Loaded {no_itemsLoaded} / {no_itemsTotal}</p>
+		<a href="/work">skip</a>
+	</div>
 {/if}
 <div bind:this={container} class:geometry={$loaded} />
 
@@ -272,5 +275,14 @@
 		transform: translate(-50%, -50%);
 		color: VAR(--white);
 		z-index: 100;
+
+		display: flex;
+		flex-flow: column nowrap;
+		align-items: center;
+		justify-content: center;
+	}
+
+	a {
+		color: var(--accent);
 	}
 </style>
