@@ -15,7 +15,7 @@
 		transitioning.set(true);
 		setTimeout(() => {
 			transitioning.set(false);
-		}, 600);
+		}, 800);
 	});
 
 	onMount(async () => {
@@ -108,7 +108,7 @@
 		background: none;
 
 		animation-name: example;
-		animation-duration: 0.6s;
+		animation-duration: 0.8s;
 	}
 
 	@keyframes example {

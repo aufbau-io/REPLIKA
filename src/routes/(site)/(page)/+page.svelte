@@ -7,7 +7,7 @@
 		transitioning.set(true);
 		setTimeout(() => {
 			transitioning.set(false);
-		}, 600);
+		}, 800);
 	};
 
 	function turnLeft() {
