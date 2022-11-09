@@ -4,7 +4,7 @@
 	import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 	import { page } from '$app/stores';
-	import { index, loaded } from '$lib/store/store';
+	import { index, loaded, screenType } from '$lib/store/store';
 
 	$: $index, lookAtIndex($index);
 
@@ -247,7 +247,7 @@
 	}
 </script>
 
-{#if !$loaded && $page.url.pathname == '/'}
+{#if !$loaded && $page.url.pathname == '/' && $screenType == 3}
 	<div class="loader">
 		<p>Loaded {no_itemsLoaded} / {no_itemsTotal}</p>
 		<a href="/work">skip</a>
