@@ -1,6 +1,6 @@
 # replika
 
-replika studio website \
+Replika Masterworks Website \
 www.replikamasterworks.com
 
 ### Build / Serve
