@@ -7,5 +7,5 @@ www.replikamasterworks.com
 
 ```
 $ yarn
-$ yarn start
+$ yarn build || yarn dev
 ```
