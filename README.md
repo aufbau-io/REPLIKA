@@ -3,9 +3,9 @@
 Replika Masterworks Website \
 www.replikamasterworks.com
 
-### Build / Serve
+### Serve / Build
 
 ```
 $ yarn
-$ yarn build || yarn dev
+$ yarn dev || yarn build
 ```
