@@ -116,7 +116,7 @@
 			background: var(--black);
 			opacity: 1;
 		}
-		25% {
+		33% {
 			background: var(--black);
 			opacity: 1;
 		}
