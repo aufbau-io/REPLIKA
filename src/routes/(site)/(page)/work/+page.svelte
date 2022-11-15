@@ -21,7 +21,7 @@
 		transitioning.set(true);
 		setTimeout(() => {
 			transitioning.set(false);
-		}, 800);
+		}, 500);
 	};
 
 	const navItems = [
@@ -84,7 +84,7 @@
 		margin-top: 65px;
 		padding: 2rem;
 		margin-bottom: 50px;
-		background: #121212aa;
+		background: #171717aa;
 	}
 
 	.nav {

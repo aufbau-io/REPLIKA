@@ -15,7 +15,7 @@
 		transitioning.set(true);
 		setTimeout(() => {
 			transitioning.set(false);
-		}, 800);
+		}, 500);
 	});
 
 	onMount(async () => {
@@ -108,18 +108,21 @@
 		background: none;
 
 		animation-name: example;
-		animation-duration: 0.8s;
+		animation-duration: 0.5s;
 	}
 
 	@keyframes example {
 		0% {
 			background: var(--black);
+			opacity: 1;
 		}
-		50% {
+		25% {
 			background: var(--black);
+			opacity: 1;
 		}
 		100% {
-			background: #12121200;
+			background: var(--black);
+			opacity: 0;
 		}
 	}
 </style>

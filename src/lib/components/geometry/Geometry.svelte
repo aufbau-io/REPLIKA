@@ -31,13 +31,13 @@
 		camera.position.z = 1400;
 
 		scene = new THREE.Scene();
-		scene.background = new THREE.Color(0x121212);
+		scene.background = new THREE.Color(0x171717);
 
 		const light = new THREE.DirectionalLight(0xf0f0f0);
 		light.position.set(0, 1, 1);
 		scene.add(light);
 
-		let gridHelper = new THREE.GridHelper(10000, 50, 0x141414, 0x141414);
+		let gridHelper = new THREE.GridHelper(10000, 50, 0x171717, 0x171717);
 		gridHelper.position.y -= 240;
 		scene.add(gridHelper);
 
@@ -49,7 +49,7 @@
 		scene.add(plane);
 
 		{
-			const color = 0x141414; // white
+			const color = 0x171717; // white
 			const near = 1000;
 			const far = 1800;
 			scene.fog = new THREE.Fog(color, near, far);

@@ -22,7 +22,7 @@
 		transitioning.set(true);
 		setTimeout(() => {
 			transitioning.set(false);
-		}, 800);
+		}, 500);
 	};
 </script>
 
