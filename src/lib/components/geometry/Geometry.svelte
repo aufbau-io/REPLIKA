@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import * as THREE from 'three';
 	import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+	import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 
 	import { page } from '$app/stores';
 	import { index, loaded, screenType } from '$lib/store/store';
@@ -108,12 +109,17 @@
 
 		// -------------------------------------------------------------------------
 
+		const dracoLoader = new DRACOLoader();
+		dracoLoader.setDecoderPath('/draco/');
+
 		const gltfLoader = new GLTFLoader(manager);
+		gltfLoader.setDRACOLoader(dracoLoader);
+
 		let bunGroup = new THREE.Group();
 		let ratGroup = new THREE.Group();
-		let skullGroup = new THREE.Group();
+		let mewtwoGroup = new THREE.Group();
 
-		gltfLoader.load('/assets/bun.glb', (glb) => {
+		gltfLoader.load('/assets/bun_compressed.glb', (glb) => {
 			let bun = glb.scene.children[0];
 			bun.rotation.x -= Math.PI / 2;
 			bun.rotation.z = -Math.PI / 3;
@@ -137,19 +143,17 @@
 			bunGroup.add(bun, bun2);
 		});
 
-		gltfLoader.load('/assets/mewtwo.glb', (glb) => {
-			let skull = glb.scene.children[0];
-			// skull.rotation.x -= Math.PI / 2;
-			// skull.rotation.x -= Math.PI / 2;
-			skull.position.y -= 50;
+		gltfLoader.load('/assets/mewtwo_compressed.glb', (glb) => {
+			let mewtwo = glb.scene.children[0];
+			mewtwo.position.y -= 50;
 
-			skull.material = new THREE.MeshLambertMaterial({ color: 0xf0f0f0 });
+			mewtwo.material = new THREE.MeshLambertMaterial({ color: 0xf0f0f0 });
 
-			skull.scale.set(4, 4, 4);
-			skullGroup.add(skull);
+			mewtwo.scale.set(4, 4, 4);
+			mewtwoGroup.add(mewtwo);
 		});
 
-		gltfLoader.load('/assets/rat.glb', (glb) => {
+		gltfLoader.load('/assets/rat_compressed.glb', (glb) => {
 			let rat = glb.scene.children[0];
 			rat.rotation.x -= Math.PI / 2;
 			rat.rotation.z = -Math.PI / 1.5;
@@ -161,11 +165,11 @@
 			ratGroup.add(rat);
 		});
 
-		group.add(skullGroup);
+		group.add(mewtwoGroup);
 		group.add(ratGroup);
 		group.add(bunGroup);
 
-		let meshes = [skullGroup, bunGroup, ratGroup];
+		let meshes = [mewtwoGroup, bunGroup, ratGroup];
 
 		let totalObjects = meshes.length;
 		let r = 400;
