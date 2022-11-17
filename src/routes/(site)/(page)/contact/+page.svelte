@@ -105,7 +105,7 @@
 
 		object-fit: cover;
 		object-position: 60% 100%;
-		opacity: 1;
+		opacity: 0;
 		transition: opacity 0.5s ease-out;
 	}
 
