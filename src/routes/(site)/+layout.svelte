@@ -6,17 +6,6 @@
 
 	import Header from '$lib/components/header/header.svelte';
 	import Footer from '$lib/components/footer/footer.svelte';
-	import { page } from '$app/stores';
-	import { index, transitioning } from '$lib/store/store';
-
-	import { beforeNavigate } from '$app/navigation';
-
-	beforeNavigate(({ from, to }) => {
-		transitioning.set(true);
-		setTimeout(() => {
-			transitioning.set(false);
-		}, 500);
-	});
 
 	onMount(async () => {
 		const module = await import('$lib/components/geometry/Geometry.svelte');
@@ -75,12 +64,6 @@
 	<Footer />
 {/if}
 
-{#if $transitioning}
-	<div class="cover">
-		<div class="line" />
-	</div>
-{/if}
-
 <style>
 	#phoneBlock {
 		position: absolute;
@@ -98,31 +81,4 @@
 		background: var(--background);
 		z-index: 1000;
 	}
-
-	.cover {
-		position: absolute;
-		top: 66px;
-		left: 0;
-		height: calc(100vh - 121px);
-		width: 100vw;
-		background: none;
-
-		/* animation-name: reveal;
-		animation-duration: 0.5s; */
-	}
-
-	/* @keyframes reveal {
-		0% {
-			background: var(--black);
-			opacity: 1;
-		}
-		33% {
-			background: var(--black);
-			opacity: 1;
-		}
-		100% {
-			background: var(--black);
-			opacity: 0;
-		}
-	} */
 </style>

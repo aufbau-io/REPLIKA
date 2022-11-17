@@ -1,7 +1,7 @@
 <script>
 	// import { goto } from '$app/navigation'
 
-	import { index, absoluteIndex, transitioning } from '$lib/store/store';
+	import { index, absoluteIndex } from '$lib/store/store';
 
 	export let section;
 	export let navItems = [];
@@ -14,15 +14,7 @@
 	}
 
 	const setSection = (section) => {
-		triggerTransition();
 		absoluteIndex.update(() => section);
-	};
-
-	let triggerTransition = () => {
-		transitioning.set(true);
-		setTimeout(() => {
-			transitioning.set(false);
-		}, 500);
 	};
 </script>
 

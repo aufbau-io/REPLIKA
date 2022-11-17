@@ -1,24 +1,12 @@
 <script>
-	import { index, absoluteIndex, transitioning } from '$lib/store/store.js';
+	import { index, absoluteIndex } from '$lib/store/store.js';
 	import { screenType, loaded } from '$lib/store/store';
-	// absoluteIndex.update((val) => 0);
-
-	let triggerTransition = () => {
-		transitioning.set(true);
-		setTimeout(() => {
-			transitioning.set(false);
-		}, 800);
-	};
 
 	function turnLeft() {
-		// console.log('left');
-		// triggerTransition();
 		absoluteIndex.update((val) => val - 1);
 	}
 
 	function turnRight() {
-		// console.log('right');
-		// triggerTransition();
 		absoluteIndex.update((val) => val + 1);
 	}
 
