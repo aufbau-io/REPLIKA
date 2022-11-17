@@ -7,6 +7,8 @@
 	import Header from '$lib/components/header/header.svelte';
 	import Footer from '$lib/components/footer/footer.svelte';
 
+	import content from '$lib/data/page_content.json';
+
 	onMount(async () => {
 		const module = await import('$lib/components/geometry/Geometry.svelte');
 		Geometry = module.default;
@@ -52,10 +54,20 @@
 			screenType.set(3);
 		}
 	});
+
+	let img1_src = content.design.img_src;
+	let img2_src = content.scan.img_src;
+	let img3_src = content.print.img_src;
+	let img4_src = content.contact.img_src;
 </script>
 
 <svelte:head>
 	<title>REPLIKA</title>
+
+	<link rel="preload" href={img1_src} as="image" />
+	<link rel="preload" href={img2_src} as="image" />
+	<link rel="preload" href={img3_src} as="image" />
+	<link rel="preload" href={img4_src} as="image" />
 
 	<link
 		rel="preload"
