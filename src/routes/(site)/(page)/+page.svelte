@@ -70,7 +70,7 @@
 	}
 
 	.arrows h3 {
-		font-family: nb-television-2d, sans-serif;
+		font-family: nb-television-2d, nb-architekt, sans-serif;
 		font-size: 250px;
 	}
 
