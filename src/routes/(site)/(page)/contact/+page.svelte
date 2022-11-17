@@ -103,7 +103,7 @@
 		overflow: hidden;
 
 		object-fit: cover;
-		object-position: center; /* Center the image within the element */
+		object-position: 60% 100%;
 	}
 
 	.nav {
