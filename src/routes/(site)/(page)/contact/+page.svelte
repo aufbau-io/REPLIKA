@@ -104,6 +104,7 @@
 		height: 100%;
 		border: solid 1px var(--white);
 		overflow: hidden;
+		background: var(--black);
 	}
 
 	img {
