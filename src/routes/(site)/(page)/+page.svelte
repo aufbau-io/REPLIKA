@@ -17,10 +17,6 @@
 	};
 </script>
 
-<svelte:head>
-	<title>REPLIKA</title>
-</svelte:head>
-
 <main class:show={$loaded}>
 	{#if $screenType == 3}
 		<div class="arrows">

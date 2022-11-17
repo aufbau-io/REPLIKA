@@ -54,6 +54,54 @@
 	});
 </script>
 
+<svelte:head>
+	<title>REPLIKA</title>
+
+	<link
+		rel="preload"
+		as="font"
+		href="/fonts/NB-Architekt-Pro-Bold.woff"
+		type="font/woff"
+		crossorigin="anonymous"
+	/>
+	<link
+		rel="preload"
+		as="font"
+		href="/fonts/NB-Architekt-Pro-Regular.woff"
+		type="font/woff"
+		crossorigin="anonymous"
+	/>
+	<link
+		rel="preload"
+		as="font"
+		href="/fonts/NB-Architekt-Pro-Light.woff"
+		type="font/woff"
+		crossorigin="anonymous"
+	/>
+
+	<link
+		rel="preload"
+		as="font"
+		href="/fonts/NB-Television-Pro-Mono-2D.woff"
+		type="font/woff"
+		crossorigin="anonymous"
+	/>
+	<link
+		rel="preload"
+		as="font"
+		href="/fonts/NB-Television-Pro-Mono-3D.woff"
+		type="font/woff"
+		crossorigin="anonymous"
+	/>
+	<link
+		rel="preload"
+		as="font"
+		href="/fonts/NB-Television-Pro-Mono.woff"
+		type="font/woff"
+		crossorigin="anonymous"
+	/>
+</svelte:head>
+
 <svelte:component this={Geometry} />
 
 {#if $screenType == 1 || $screenType == 2}
