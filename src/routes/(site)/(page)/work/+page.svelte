@@ -2,6 +2,7 @@
 	import Nav from './nav.svelte';
 	import { absoluteIndex, index } from '$lib/store/store';
 	import { screenType, transitioning } from '$lib/store/store';
+	import { lazyLoad } from '$lib/functions/lazyLoad.js';
 
 	import content from '$lib/data/page_content.json';
 
@@ -50,7 +51,9 @@
 		<Nav {navItems} section={$index - 1} />
 	</div>
 	{#if $screenType == 3}
-		<img src={content[section_index].img_src} alt="{section_index} image" class="img" />
+		{#key section_index}
+			<img use:lazyLoad={content[section_index].img_src} alt="{section_index} image" />
+		{/key}
 	{/if}
 	<div class="body">
 		<div class="body__header">
@@ -151,11 +154,13 @@
 		font-family: nb-television-2d, nb-television;
 	}
 
-	.img {
+	img {
 		width: 100%;
 		height: 100%;
 		border: solid 1px var(--white);
 		overflow: hidden;
+		opacity: 0;
+		transition: opacity 0.7s ease-out;
 
 		object-fit: cover;
 		object-position: center; /* Center the image within the element */

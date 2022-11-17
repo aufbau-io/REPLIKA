@@ -107,11 +107,11 @@
 		width: 100vw;
 		background: none;
 
-		animation-name: example;
-		animation-duration: 0.5s;
+		/* animation-name: reveal;
+		animation-duration: 0.5s; */
 	}
 
-	@keyframes example {
+	/* @keyframes reveal {
 		0% {
 			background: var(--black);
 			opacity: 1;
@@ -124,5 +124,5 @@
 			background: var(--black);
 			opacity: 0;
 		}
-	}
+	} */
 </style>

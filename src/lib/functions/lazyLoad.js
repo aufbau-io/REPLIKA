@@ -6,6 +6,7 @@ let options = {
 };
 
 export const lazyLoad = (image, src) => {
+	image.style.opacity = '0';
 	const loaded = () => {
 		// image.classList.add('visible'); // doesn't work in REPL
 		image.style.opacity = '1'; // REPL hack to apply loading animation

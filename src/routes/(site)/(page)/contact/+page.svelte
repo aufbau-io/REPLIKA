@@ -1,6 +1,7 @@
 <script>
 	import { screenType } from '$lib/store/store';
 	import { email, phone, address } from '$lib/data/contact.json';
+	import { lazyLoad } from '$lib/functions/lazyLoad.js';
 
 	import { contact } from '$lib/data/page_content.json';
 </script>
@@ -8,7 +9,7 @@
 <main>
 	<div class="nav" />
 	{#if $screenType == 3}
-		<img src={contact.img_src} alt="map" class="img" />
+		<img use:lazyLoad={contact.img_src} alt="map" />
 	{/if}
 	<div class="body">
 		<div class="body__text">
@@ -96,7 +97,7 @@
 		font-family: nb-television-2d, nb-television;
 	}
 
-	.img {
+	img {
 		width: 100%;
 		height: 100%;
 		border: solid 1px var(--white);
@@ -104,6 +105,8 @@
 
 		object-fit: cover;
 		object-position: 60% 100%;
+		opacity: 1;
+		transition: opacity 0.5s ease-out;
 	}
 
 	.nav {
