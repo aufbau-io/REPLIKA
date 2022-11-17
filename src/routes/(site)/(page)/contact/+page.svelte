@@ -9,7 +9,9 @@
 <main>
 	<div class="nav" />
 	{#if $screenType == 3}
-		<img use:lazyLoad={contact.img_src} alt="map" />
+		<figure>
+			<img use:lazyLoad={contact.img_src} alt="map" />
+		</figure>
 	{/if}
 	<div class="body">
 		<div class="body__text">
@@ -97,11 +99,16 @@
 		font-family: nb-television-2d, nb-television;
 	}
 
-	img {
+	figure {
 		width: 100%;
 		height: 100%;
 		border: solid 1px var(--white);
 		overflow: hidden;
+	}
+
+	img {
+		width: 100%;
+		height: 100%;
 
 		object-fit: cover;
 		object-position: 60% 100%;

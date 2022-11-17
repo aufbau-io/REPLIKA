@@ -40,9 +40,11 @@
 		<Nav {navItems} section={$index - 1} />
 	</div>
 	{#if $screenType == 3}
-		{#key section_index}
-			<img use:lazyLoad={content[section_index].img_src} alt="{section_index} image" />
-		{/key}
+		<figure>
+			{#key section_index}
+				<img use:lazyLoad={content[section_index].img_src} alt="{section_index} image" />
+			{/key}
+		</figure>
 	{/if}
 	<div class="body">
 		<div class="body__header">
@@ -143,12 +145,19 @@
 		font-family: nb-television-2d, nb-television;
 	}
 
-	img {
+	figure {
 		width: 100%;
 		height: 100%;
 		border: solid 1px var(--white);
 		overflow: hidden;
-		opacity: 0;
+	}
+
+	img {
+		width: 100%;
+		height: 100%;
+
+		overflow: hidden;
+
 		transition: opacity 0.7s ease-out;
 
 		object-fit: cover;
