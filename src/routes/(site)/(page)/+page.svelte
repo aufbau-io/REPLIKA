@@ -79,7 +79,7 @@
 	}
 
 	.arrows h2 {
-		font-size: 180px;
+		font-size: 200px;
 		display: flex;
 		align-items: center;
 		color: var(--white);
@@ -100,7 +100,7 @@
 
 	@media only screen and (max-width: 1000px) {
 		.arrows h2 {
-			font-size: 130px;
+			font-size: 120px;
 		}
 	}
 
