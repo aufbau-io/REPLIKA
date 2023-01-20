@@ -10,7 +10,7 @@
 	<div class="nav" />
 	{#if $screenType == 3}
 		<figure>
-			<img use:lazyLoad={contact.img_src} alt="map" />
+			<!-- <img use:lazyLoad={contact.img_src} alt="map" /> -->
 		</figure>
 	{/if}
 	<div class="body">
@@ -104,7 +104,7 @@
 		height: 100%;
 		border: solid 1px var(--white);
 		overflow: hidden;
-		background: var(--black);
+		background: transparent;
 	}
 
 	img {
