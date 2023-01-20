@@ -79,7 +79,7 @@
 	}
 
 	.arrows h2 {
-		font-size: 200px;
+		font-size: 180px;
 		display: flex;
 		align-items: center;
 		color: var(--white);
