@@ -43,11 +43,12 @@
 		position: absolute;
 		bottom: 0;
 		left: 0;
-		padding: 10px 20px;
+		padding: 5px 20px;
+		padding-top: 10px;
 		width: 100vw;
 		max-width: 100vw;
-		border-top: solid 1px var(--white);
-		background: var(--black);
+		border-top: solid 1px var(--white-50);
+		background: var(--black-50);
 		color: var(--white);
 	}
 

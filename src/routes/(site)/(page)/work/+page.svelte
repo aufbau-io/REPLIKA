@@ -68,14 +68,14 @@
 	main {
 		position: absolute;
 		top: 0;
-		height: calc(100vh - 115px);
+		height: calc(100vh - 100px);
 		width: 100vw;
 
 		display: flex;
 		justify-content: space-between;
 		gap: 2rem;
 
-		margin-top: 65px;
+		margin-top: 50px;
 		padding: 2rem;
 		margin-bottom: 50px;
 		background: #171717aa;

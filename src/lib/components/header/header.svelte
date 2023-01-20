@@ -22,9 +22,6 @@
 <header class={$screenType == 3 ? 'desktop' : ''}>
 	<Logo />
 	{#if $screenType == 3}
-		<div />
-		<p>[wip]</p>
-		<div />
 		<Nav {navItems} />
 	{/if}
 </header>
@@ -40,9 +37,9 @@
 		display: flex;
 		justify-content: space-around;
 		align-items: center;
-		padding: 0 20px;
-		height: 66px;
-		border-bottom: solid 1px var(--white);
+		padding: 0px 20px;
+		height: 50px;
+		border-bottom: solid 1px var(--white-50);
 		/* background: var(--black); */
 		user-select: none;
 		z-index: 100;

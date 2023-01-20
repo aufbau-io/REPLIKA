@@ -3,5 +3,7 @@
 <style>
 	h5 {
 		letter-spacing: 0.08em;
+		font-size: 22px;
+		padding-top: 4px;
 	}
 </style>
