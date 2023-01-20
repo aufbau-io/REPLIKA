@@ -1,7 +1,7 @@
 <script>
 	import Nav from './nav.svelte';
 	import Logo from './logo.svelte';
-	import { screenType } from '$lib/store/store';
+	import { screenType, iframe } from '$lib/store/store';
 	// stub data out
 	const navItems = [
 		{
@@ -21,7 +21,7 @@
 
 <header class={$screenType == 3 ? 'desktop' : ''}>
 	<Logo />
-	{#if $screenType == 3}
+	{#if $screenType == 3 && !$iframe}
 		<Nav {navItems} />
 	{/if}
 </header>
