@@ -100,7 +100,7 @@
 
 	@media only screen and (max-width: 1000px) {
 		.arrows h2 {
-			font-size: 110px;
+			font-size: 100px;
 		}
 	}
 
