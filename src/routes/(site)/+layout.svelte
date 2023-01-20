@@ -126,12 +126,10 @@
 
 {#if $screenType == 1 || $screenType == 2}
 	<div id="phoneBlock"><p class="sml">wip, use desktop</p></div>
-{:else if $screenType == 3 && !$iframe}
+{:else if $screenType == 3}
 	<Header />
 	<slot />
 	<Footer />
-{:else if $iframe}
-	<slot />
 {/if}
 
 <style>
