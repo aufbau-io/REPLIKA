@@ -1,5 +1,5 @@
 <script>
-	import { index, absoluteIndex } from '$lib/store/store.js';
+	import { index, absoluteIndex, iframe } from '$lib/store/store.js';
 	import { screenType, loaded } from '$lib/store/store';
 
 	function turnLeft() {
@@ -21,9 +21,13 @@
 	{#if $screenType == 3}
 		<div class="arrows">
 			<h3 on:click={turnLeft}>←</h3>
-			<a href="/work">
+			{#if !$iframe}
+				<a href="/work">
+					<h2>{textMap[$index]}</h2>
+				</a>
+			{:else}
 				<h2>{textMap[$index]}</h2>
-			</a>
+			{/if}
 			<h3 on:click={turnRight}>→</h3>
 		</div>
 	{/if}

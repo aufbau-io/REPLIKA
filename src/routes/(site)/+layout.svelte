@@ -1,7 +1,7 @@
 <script>
 	// import '/src/app.css';
 	import { onMount } from 'svelte';
-	import { screenType } from '$lib/store/store';
+	import { screenType, iframe } from '$lib/store/store';
 	let Geometry;
 
 	import Header from '$lib/components/header/header.svelte';
@@ -41,8 +41,10 @@
 		const ua = navigator.userAgent;
 		if (window.location !== window.parent.location) {
 			// The page is in an iframe
-			screenType.set(3);
-		} else if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
+			iframe.set(true);
+		}
+
+		if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
 			// The page is not in an iframe
 			// tablet
 			screenType.set(2);
@@ -124,10 +126,12 @@
 
 {#if $screenType == 1 || $screenType == 2}
 	<div id="phoneBlock"><p class="sml">wip, use desktop</p></div>
-{:else if $screenType == 3}
+{:else if $screenType == 3 && !$iframe}
 	<Header />
 	<slot />
 	<Footer />
+{:else if $iframe}
+	<slot />
 {/if}
 
 <style>
