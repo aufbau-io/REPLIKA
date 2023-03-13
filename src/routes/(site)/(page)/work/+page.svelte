@@ -66,18 +66,16 @@
 
 <style>
 	main {
-		position: absolute;
-		top: 0;
-		height: calc(100vh - 100px);
+		height: calc(100vh);
 		width: 100vw;
 
 		display: flex;
 		justify-content: space-between;
 		gap: 2rem;
 
-		margin-top: 50px;
 		padding: 2rem;
-		margin-bottom: 50px;
+		padding-top: 100px;
+		padding-bottom: 100px;
 		background: #171717aa;
 	}
 

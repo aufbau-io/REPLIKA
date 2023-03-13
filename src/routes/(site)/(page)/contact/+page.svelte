@@ -39,16 +39,17 @@
 	main {
 		position: absolute;
 		top: 0;
-		height: calc(100vh - 100px);
 		width: 100vw;
+		height: 100vh;
 
 		display: flex;
 		justify-content: space-between;
 		gap: 2rem;
 
-		margin-top: 50px;
 		padding: 2rem;
-		margin-bottom: 50px;
+		padding-top: 100px;
+		padding-bottom: 100px;
+
 		background: #171717aa;
 	}
 

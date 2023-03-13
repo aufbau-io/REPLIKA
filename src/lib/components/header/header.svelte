@@ -39,7 +39,7 @@
 		align-items: center;
 		padding: 0px 20px;
 		height: 50px;
-		border-bottom: solid 1px var(--white-50);
+		/* border-bottom: solid 1px var(--white-50); */
 		/* background: var(--black); */
 		user-select: none;
 		z-index: 100;
