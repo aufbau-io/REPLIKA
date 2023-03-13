@@ -76,6 +76,7 @@
 		padding: 2rem;
 		padding-top: 100px;
 		padding-bottom: 100px;
+
 		background: #171717aa;
 	}
 

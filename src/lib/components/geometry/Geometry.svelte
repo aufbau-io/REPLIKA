@@ -254,7 +254,7 @@
 {#if !$loaded && $page.url.pathname == '/' && $screenType == 3}
 	<div class="loader">
 		<p>Loading {no_itemsLoaded} / {no_itemsTotal}</p>
-		<a href="/work">skip</a>
+		<!-- <a href="/work">skip</a> -->
 	</div>
 {/if}
 <div bind:this={container} class:geometry={$loaded} />
