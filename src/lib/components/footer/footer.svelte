@@ -20,7 +20,7 @@
 					<p>{phone}</p>
 					<br />
 				{/if}
-				<!-- <p>{footer_1}</p> -->
+				<p>{footer_1}</p>
 				<p>{footer_2}</p>
 
 				<p>{address}</p>
