@@ -38,7 +38,7 @@
 		justify-content: space-around;
 		align-items: center;
 		padding: 0px 20px;
-		height: 50px;
+		height: 60px;
 		/* border-bottom: solid 1px var(--white-50); */
 		/* background: var(--black); */
 		user-select: none;

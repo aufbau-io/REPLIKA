@@ -30,9 +30,9 @@
 		font-size: 16px;
 		font-weight: 400;
 		letter-spacing: 0.05em;
-		padding: 10px;
 		cursor: pointer;
 		opacity: 0.3;
+		padding-left: 15px;
 	}
 
 	.active {
