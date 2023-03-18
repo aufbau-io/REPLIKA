@@ -33,7 +33,7 @@
 	let charSet = 'REPLIKAMASTERWORKS';
 
 	// Setting up the renderer. This will be called later to render scene with the camera setup above
-	let renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+	let renderer = new THREE.WebGLRenderer({ antialias: false, alpha: false });
 	renderer.setClearColor(0x1b1b1b, 1);
 
 	onMount(() => {
@@ -41,8 +41,8 @@
 
 		asciiRenderer = new AsciiRenderer(renderer, {
 			charSet: charSet,
-			fontSize: 4,
-			opacity: 0.5
+			fontSize: 6,
+			opacity: 0.7
 		});
 
 		asciiRenderer.setSize(width, height);
