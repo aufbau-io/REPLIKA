@@ -21,13 +21,13 @@
 	{#if $screenType == 3}
 		<div class="arrows">
 			<h3 on:click={turnLeft}>←</h3>
-			{#if !$iframe}
+			<!-- {#if !$iframe}
 				<a href="/work">
 					<h2>{textMap[$index]}</h2>
 				</a>
 			{:else}
 				<h2>{textMap[$index]}</h2>
-			{/if}
+			{/if} -->
 			<h3 on:click={turnRight}>→</h3>
 		</div>
 	{/if}
@@ -50,7 +50,7 @@
 	}
 
 	main.show {
-		transition: opacity ease-in 0.5s 1.5s;
+		transition: opacity ease-in 1.5s 0s;
 		opacity: 1;
 	}
 

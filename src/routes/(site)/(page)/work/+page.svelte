@@ -42,7 +42,7 @@
 	{#if $screenType == 3}
 		<figure>
 			{#key section_index}
-				<img use:lazyLoad={content[section_index].img_src} alt="{section_index} image" />
+				<!-- <img use:lazyLoad={content[section_index].img_src} alt="{section_index} image" /> -->
 			{/key}
 		</figure>
 	{/if}
@@ -149,7 +149,7 @@
 		height: 100%;
 		border: solid 1px var(--white);
 		overflow: hidden;
-		background: var(--black);
+		/* background: var(--black); */
 	}
 
 	img {

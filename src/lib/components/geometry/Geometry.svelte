@@ -1,5 +1,5 @@
 <script>
-	import { onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
 	import * as THREE from 'three';
 	import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 	import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
@@ -7,223 +7,260 @@
 	import { page } from '$app/stores';
 	import { index, loaded, screenType } from '$lib/store/store';
 
+	import AsciiRenderer from '$lib/components/effects/ascii-renderer.js';
+
 	$: $index, lookAtIndex($index);
+	let id;
+
+	onDestroy(() => cancelAnimationFrame(id));
 
 	let group;
 
 	let container;
-
-	let camera, scene, renderer;
+	let asciiRenderer;
 
 	let mouseX = 0,
 		mouseY = 0;
 
-	let windowHalfX = window.innerWidth / 2;
-	let windowHalfY = window.innerHeight / 2;
+	let width = window.innerWidth;
+	let height = window.innerHeight;
 
+	let windowHalfX = width / 2;
+	let windowHalfY = height / 2;
 	let no_itemsLoaded = 0;
 	let no_itemsTotal = 6;
 
-	init();
-	animate();
+	let charSet = ':';
 
-	function init() {
-		camera = new THREE.PerspectiveCamera(22, window.innerWidth / window.innerHeight, 1, 3000);
-		camera.position.z = 1400;
+	// Setting up the renderer. This will be called later to render scene with the camera setup above
+	let renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+	renderer.setClearColor(0x232323, 1);
 
-		scene = new THREE.Scene();
-		scene.background = new THREE.Color(0x171717);
+	onMount(() => {
+		container.appendChild(renderer.domElement);
 
-		const light = new THREE.DirectionalLight(0xf0f0f0);
-		light.position.set(0, 1, 1);
-		scene.add(light);
-
-		let gridHelper = new THREE.GridHelper(10000, 50, 0x171717, 0x171717);
-		gridHelper.position.y -= 240;
-		scene.add(gridHelper);
-
-		const geometry = new THREE.PlaneGeometry(10000, 10000);
-		const mptmaterial = new THREE.MeshBasicMaterial({ color: 0xf0f0f0, side: THREE.DoubleSide });
-		const plane = new THREE.Mesh(geometry, mptmaterial);
-		plane.rotation.x = Math.PI / 2;
-		plane.position.y -= 250;
-		scene.add(plane);
-
-		{
-			const color = 0x171717; // white
-			const near = 1000;
-			const far = 1800;
-			scene.fog = new THREE.Fog(color, near, far);
-		}
-
-		// shadow
-
-		const canvas = document.createElement('canvas');
-		canvas.width = 128;
-		canvas.height = 128;
-
-		const wireframeMaterial = new THREE.MeshBasicMaterial({
-			color: 0x606060,
-			wireframe: true
+		asciiRenderer = new AsciiRenderer(renderer, {
+			charSet: charSet,
+			fontSize: 8,
+			opacity: 0.5
 		});
 
-		group = new THREE.Group();
-		scene.add(group);
-
-		// -------------------------------------------------------------------------
-
-		// LOADING MANAGER
-		const manager = new THREE.LoadingManager();
-		manager.onStart = function (url, itemsLoaded, itemsTotal) {
-			// console.log(
-			// 	'Started loading file: ' +
-			// 		url +
-			// 		'.\nLoaded ' +
-			// 		itemsLoaded +
-			// 		' of ' +
-			// 		itemsTotal +
-			// 		' files.'
-			// );
-		};
-
-		let setLoaded = () => {
-			loaded.update(() => true);
-		};
-
-		manager.onLoad = function () {
-			setTimeout(() => setLoaded(), 500);
-
-			// console.log('Loading complete!');
-		};
-
-		manager.onProgress = function (url, itemsLoaded, itemsTotal) {
-			no_itemsLoaded = itemsLoaded;
-			// console.log(
-			// 	'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.'
-			// );
-		};
-
-		manager.onError = function (url) {
-			// console.log('There was an error loading ' + url);
-		};
-
-		// -------------------------------------------------------------------------
-
-		const dracoLoader = new DRACOLoader();
-		dracoLoader.setDecoderPath('/draco/');
-
-		const gltfLoader = new GLTFLoader(manager);
-		gltfLoader.setDRACOLoader(dracoLoader);
-
-		let bunGroup = new THREE.Group();
-		let ratGroup = new THREE.Group();
-		let mewtwoGroup = new THREE.Group();
-
-		gltfLoader.load('/assets/bun_compressed.glb', (glb) => {
-			let bun = glb.scene.children[0];
-			bun.rotation.x -= Math.PI / 2;
-			bun.rotation.z = -Math.PI / 3;
-			// bun.rotation.z += 0.2;
-			// bun.position.z -= 100;
-			// bun.position.z += 100;
-			bun.material = new THREE.MeshLambertMaterial({ color: 0xf0f0f0 });
-
-			bun.position.y -= 80;
-			bun.position.x -= 50;
-
-			bun.scale.set(8, 8, 8);
-
-			let bun2 = bun.clone();
-			bun2.material = new THREE.MeshBasicMaterial({
-				color: 0x141414,
-				wireframe: true
-			});
-			bun2.scale.set(8.03, 8.03, 8.03);
-
-			bunGroup.add(bun, bun2);
-		});
-
-		gltfLoader.load('/assets/mewtwo_compressed.glb', (glb) => {
-			let mewtwo = glb.scene.children[0];
-			mewtwo.position.y -= 50;
-
-			mewtwo.material = new THREE.MeshLambertMaterial({ color: 0xf0f0f0 });
-
-			mewtwo.scale.set(4, 4, 4);
-			mewtwoGroup.add(mewtwo);
-		});
-
-		gltfLoader.load('/assets/rat_compressed.glb', (glb) => {
-			let rat = glb.scene.children[0];
-			rat.rotation.x -= Math.PI / 2;
-			rat.rotation.z = -Math.PI / 1.5;
-			rat.position.x -= 100;
-			rat.position.y -= 20;
-			rat.material = wireframeMaterial;
-
-			rat.scale.set(15, 15, 15);
-			ratGroup.add(rat);
-		});
-
-		group.add(mewtwoGroup);
-		group.add(ratGroup);
-		group.add(bunGroup);
-
-		let meshes = [mewtwoGroup, bunGroup, ratGroup];
-
-		let totalObjects = meshes.length;
-		let r = 400;
-
-		const shadowTexture = new THREE.CanvasTexture(canvas);
-
-		const shadowMaterial = new THREE.MeshBasicMaterial({ map: shadowTexture });
-		const shadowGeo = new THREE.PlaneGeometry(300, 300, 1, 1);
-
-		let shadowMesh;
-
-		for (let i = 0, len = totalObjects; i < len; i++) {
-			var theta = (Math.PI * 2) / totalObjects;
-			var angle = theta * i;
-
-			let x = r * Math.sin(angle);
-			let z = r * Math.cos(angle);
-
-			meshes[i].position.x = x;
-			meshes[i].position.z = z;
-
-			shadowMesh = new THREE.Mesh(shadowGeo, shadowMaterial);
-			shadowMesh.position.x = x;
-			shadowMesh.position.y = -250;
-			shadowMesh.position.z = z;
-			shadowMesh.rotation.x = -Math.PI / 2;
-			// if ($screenType == 3) {
-			// 	scene.add(shadowMesh);
-			// }
-		}
-
-		renderer = new THREE.WebGLRenderer({ antialias: false });
 		renderer.setPixelRatio(window.devicePixelRatio);
-		renderer.setSize(window.innerWidth, window.innerHeight);
+		asciiRenderer.setSize(width, height);
 
-		onMount(() => {
-			container.appendChild(renderer.domElement);
-		});
+		//renderer.setSize(width, height);
+	});
 
-		document.addEventListener('mousemove', onDocumentMouseMove);
+	let camera = new THREE.PerspectiveCamera(22, width / height, 1, 3000);
+	camera.position.z = 1400;
 
-		//
+	let scene = new THREE.Scene();
+	// scene.background = new THREE.Color(0x171717);
 
-		window.addEventListener('resize', onWindowResize);
+	const light = new THREE.DirectionalLight(0x171717);
+	light.position.set(0, 1, 1);
+	scene.add(light);
+
+	let gridHelper = new THREE.GridHelper(10000, 50, 0x171717, 0x171717);
+	gridHelper.position.y -= 240;
+	scene.add(gridHelper);
+
+	const geometry = new THREE.PlaneGeometry(10000, 10000);
+	const mptmaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00, side: THREE.DoubleSide });
+	const plane = new THREE.Mesh(geometry, mptmaterial);
+	plane.rotation.x = Math.PI / 2;
+	plane.position.y -= 250;
+	scene.add(plane);
+
+	{
+		const color = 0x232323; // white
+		const near = 100;
+		const far = 1800;
+		scene.fog = new THREE.Fog(color, near, far);
 	}
 
+	// shadow
+
+	const canvas = document.createElement('canvas');
+	canvas.width = 128;
+	canvas.height = 128;
+
+	const wireframeMaterial = new THREE.MeshBasicMaterial({
+		color: 0x232323,
+		wireframe: true
+	});
+
+	group = new THREE.Group();
+	scene.add(group);
+
+	// -------------------------------------------------------------------------
+
+	// LOADING MANAGER
+	const manager = new THREE.LoadingManager();
+	manager.onStart = function (url, itemsLoaded, itemsTotal) {
+		// console.log(
+		// 	'Started loading file: ' +
+		// 		url +
+		// 		'.\nLoaded ' +
+		// 		itemsLoaded +
+		// 		' of ' +
+		// 		itemsTotal +
+		// 		' files.'
+		// );
+	};
+
+	let setLoaded = () => {
+		loaded.update(() => true);
+	};
+
+	manager.onLoad = function () {
+		setTimeout(() => setLoaded(), 500);
+
+		// console.log('Loading complete!');
+	};
+
+	manager.onProgress = function (url, itemsLoaded, itemsTotal) {
+		no_itemsLoaded = itemsLoaded;
+		// console.log(
+		// 	'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.'
+		// );
+	};
+
+	manager.onError = function (url) {
+		// console.log('There was an error loading ' + url);
+	};
+
+	// -------------------------------------------------------------------------
+
+	const dracoLoader = new DRACOLoader();
+	dracoLoader.setDecoderPath('/draco/');
+
+	const gltfLoader = new GLTFLoader(manager);
+	gltfLoader.setDRACOLoader(dracoLoader);
+
+	let bunGroup = new THREE.Group();
+	let ratGroup = new THREE.Group();
+	let mewtwoGroup = new THREE.Group();
+
+	gltfLoader.load('/assets/bun_compressed.glb', (glb) => {
+		let bun = glb.scene.children[0];
+		bun.rotation.x -= Math.PI / 2;
+		bun.rotation.z = -Math.PI / 3;
+		// bun.rotation.z += 0.2;
+		// bun.position.z -= 100;
+		// bun.position.z += 100;
+		bun.material = new THREE.MeshLambertMaterial({ color: 0xf0f0f0 });
+
+		bun.position.y -= 80;
+		bun.position.x -= 50;
+
+		bun.scale.set(8, 8, 8);
+
+		let bun2 = bun.clone();
+		bun2.material = new THREE.MeshBasicMaterial({
+			color: 0x00bb00,
+			wireframe: true
+		});
+		bun2.scale.set(8.03, 8.03, 8.03);
+
+		bunGroup.add(bun);
+		bunGroup.add(bun2);
+	});
+
+	gltfLoader.load('/assets/mewtwo_compressed.glb', (glb) => {
+		let mewtwo = glb.scene.children[0];
+		mewtwo.position.y -= 50;
+
+		mewtwo.material = new THREE.MeshLambertMaterial({ color: 0xf0f0f0 });
+
+		mewtwo.scale.set(4, 4, 4);
+		mewtwoGroup.add(mewtwo);
+
+		let mewtwo2 = mewtwo.clone();
+		mewtwo2.material = new THREE.MeshBasicMaterial({
+			color: 0x00bb00,
+			wireframe: true
+		});
+		mewtwo2.scale.set(4.03, 4.03, 4.03);
+
+		mewtwoGroup.add(mewtwo2);
+	});
+
+	gltfLoader.load('/assets/rat_compressed.glb', (glb) => {
+		let rat = glb.scene.children[0];
+		rat.rotation.x -= Math.PI / 2;
+		rat.rotation.z = -Math.PI / 1.5;
+		rat.position.x -= 100;
+		rat.position.y -= 20;
+		// rat.material = wireframeMaterial;
+		rat.material = new THREE.MeshLambertMaterial({ color: 0xf0f0f0 });
+		// rat.material = new THREE.MeshLambertMaterial({ color: 0xf0f0f0 });
+
+		rat.scale.set(15, 15, 15);
+		ratGroup.add(rat);
+
+		let rat2 = rat.clone();
+		rat2.material = new THREE.MeshBasicMaterial({
+			color: 0x00bb00,
+			wireframe: true
+		});
+		rat2.scale.set(15.03, 15.03, 15.03);
+
+		ratGroup.add(rat2);
+	});
+
+	group.add(mewtwoGroup);
+	group.add(ratGroup);
+	group.add(bunGroup);
+
+	let meshes = [mewtwoGroup, bunGroup, ratGroup];
+
+	let totalObjects = meshes.length;
+	let r = 400;
+
+	// const shadowTexture = new THREE.CanvasTexture(canvas);
+
+	// const shadowMaterial = new THREE.MeshBasicMaterial({ map: shadowTexture });
+	// const shadowGeo = new THREE.PlaneGeometry(300, 300, 1, 1);
+
+	// let shadowMesh;
+
+	for (let i = 0, len = totalObjects; i < len; i++) {
+		let theta = (Math.PI * 2) / totalObjects;
+		let angle = theta * i;
+
+		let x = r * Math.sin(angle);
+		let z = r * Math.cos(angle);
+
+		meshes[i].position.x = x;
+		meshes[i].position.z = z;
+
+		// shadowMesh = new THREE.Mesh(shadowGeo, shadowMaterial);
+		// shadowMesh.position.x = x;
+		// shadowMesh.position.y = -250;
+		// shadowMesh.position.z = z;
+		// shadowMesh.rotation.x = -Math.PI / 2;
+
+		// renderer = new THREE.WebGLRenderer({ antialias: false });
+		// renderer.setPixelRatio(window.devicePixelRatio);
+		// renderer.setSize(window.innerWidth, window.innerHeight);
+	}
+	document.addEventListener('mousemove', onDocumentMouseMove);
+	window.addEventListener('resize', onWindowResize);
+
 	function onWindowResize() {
-		windowHalfX = window.innerWidth / 2;
-		windowHalfY = window.innerHeight / 2;
+		width = window.innerWidth;
+		height = window.innerHeight;
+
+		windowHalfX = width / 2;
+		windowHalfY = height / 2;
 
 		camera.aspect = window.innerWidth / window.innerHeight;
 		camera.updateProjectionMatrix();
 
-		renderer.setSize(window.innerWidth, window.innerHeight);
+		renderer.setPixelRatio(window.devicePixelRatio);
+		// renderer.setSize(window.innerWidth, window.innerHeight);
+		asciiRenderer.setSize(window.innerWidth, window.innerHeight);
 	}
 
 	function onDocumentMouseMove(event) {
@@ -236,19 +273,24 @@
 		group.rotation.y = ((Math.PI * 2) / 3) * -index;
 	}
 
-	function animate() {
-		requestAnimationFrame(animate);
-		render();
-	}
+	// function animate() {
+	// 	requestAnimationFrame(animate);
+	// 	render();
+	// }
 
-	function render() {
+	let render = function () {
+		renderer.render(scene, camera);
+		id = requestAnimationFrame(render);
+
 		camera.position.x += (mouseX - camera.position.x * 4) * 0.01;
 		camera.position.y += (-mouseY - camera.position.y * 10) * 0.01;
 
 		camera.lookAt(scene.position);
 
-		renderer.render(scene, camera);
-	}
+		// renderer.render(scene, camera);
+	};
+
+	render();
 </script>
 
 {#if !$loaded && $page.url.pathname == '/' && $screenType == 3}
@@ -270,7 +312,11 @@
 		overflow: hidden;
 		z-index: -10;
 		opacity: 0.9;
-		transition: opacity ease-in 1.8s;
+		transition: opacity ease-in 1.5s;
+
+		width: 100%;
+		height: 100%;
+		/* height: calc(var(--vh, 1vh) * 100); */
 	}
 
 	.loader {
@@ -279,7 +325,7 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		color: VAR(--white);
+		color: var(--white);
 
 		display: flex;
 		flex-flow: column nowrap;
