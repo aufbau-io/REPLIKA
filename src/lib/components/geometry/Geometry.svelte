@@ -45,7 +45,6 @@
 			opacity: 0.5
 		});
 
-		renderer.setPixelRatio(window.devicePixelRatio);
 		asciiRenderer.setSize(width, height);
 
 		//renderer.setSize(width, height);
