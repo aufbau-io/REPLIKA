@@ -30,18 +30,18 @@
 	let no_itemsLoaded = 0;
 	let no_itemsTotal = 6;
 
-	let charSet = ':';
+	let charSet = 'REPLIKAMASTERWORKS';
 
 	// Setting up the renderer. This will be called later to render scene with the camera setup above
 	let renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
-	renderer.setClearColor(0x232323, 1);
+	renderer.setClearColor(0x1b1b1b, 1);
 
 	onMount(() => {
 		container.appendChild(renderer.domElement);
 
 		asciiRenderer = new AsciiRenderer(renderer, {
 			charSet: charSet,
-			fontSize: 8,
+			fontSize: 4,
 			opacity: 0.5
 		});
 
@@ -57,7 +57,7 @@
 	let scene = new THREE.Scene();
 	// scene.background = new THREE.Color(0x171717);
 
-	const light = new THREE.DirectionalLight(0x171717);
+	const light = new THREE.DirectionalLight(0x1b1b1b);
 	light.position.set(0, 1, 1);
 	scene.add(light);
 
@@ -73,7 +73,7 @@
 	scene.add(plane);
 
 	{
-		const color = 0x232323; // white
+		const color = 0x1b1b1b; // white
 		const near = 100;
 		const far = 1800;
 		scene.fog = new THREE.Fog(color, near, far);
