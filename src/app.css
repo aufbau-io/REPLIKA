@@ -3,11 +3,11 @@
 
 /* APP */
 :root {
-	--black: #1b1b1b;
-	--white: #00bb00;
-	--white-30: #00bb004d;
-	--white-50: #00bb0080;
-	--black-50: #17171780;
+	--black: #e3dac9;
+	--white: #232323;
+	--white-30: #2323234d;
+	--white-50: #23232380;
+	--black-50: #e3dac980;
 	--accent: #dfff00;
 	--error: #be4040;
 }

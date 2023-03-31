@@ -34,7 +34,7 @@
 
 	// Setting up the renderer. This will be called later to render scene with the camera setup above
 	let renderer = new THREE.WebGLRenderer({ antialias: false, alpha: false });
-	renderer.setClearColor(0x1b1b1b, 1);
+	renderer.setClearColor(0x1b1b1b, 0);
 
 	onMount(() => {
 		container.appendChild(renderer.domElement);
@@ -42,10 +42,10 @@
 		asciiRenderer = new AsciiRenderer(renderer, {
 			charSet: charSet,
 			fontSize: 6,
-			opacity: 0.7
+			opacity: 0
 		});
 
-		asciiRenderer.setSize(width, height);
+		renderer.setSize(width, height);
 
 		//renderer.setSize(width, height);
 	});
@@ -56,7 +56,7 @@
 	let scene = new THREE.Scene();
 	// scene.background = new THREE.Color(0x171717);
 
-	const light = new THREE.DirectionalLight(0x1b1b1b);
+	const light = new THREE.DirectionalLight(0xe3dac9);
 	light.position.set(0, 1, 1);
 	scene.add(light);
 
@@ -65,16 +65,16 @@
 	scene.add(gridHelper);
 
 	const geometry = new THREE.PlaneGeometry(10000, 10000);
-	const mptmaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00, side: THREE.DoubleSide });
+	const mptmaterial = new THREE.MeshBasicMaterial({ color: 0xe3dac9, side: THREE.DoubleSide });
 	const plane = new THREE.Mesh(geometry, mptmaterial);
 	plane.rotation.x = Math.PI / 2;
 	plane.position.y -= 250;
 	scene.add(plane);
 
 	{
-		const color = 0x1b1b1b; // white
-		const near = 100;
-		const far = 1800;
+		const color = 0xe3dac9; // white
+		const near = 10;
+		const far = 2800;
 		scene.fog = new THREE.Fog(color, near, far);
 	}
 
@@ -157,7 +157,7 @@
 
 		let bun2 = bun.clone();
 		bun2.material = new THREE.MeshBasicMaterial({
-			color: 0x00bb00,
+			color: 0x232323,
 			wireframe: true
 		});
 		bun2.scale.set(8.03, 8.03, 8.03);
@@ -177,7 +177,7 @@
 
 		let mewtwo2 = mewtwo.clone();
 		mewtwo2.material = new THREE.MeshBasicMaterial({
-			color: 0x00bb00,
+			color: 0x232323,
 			wireframe: true
 		});
 		mewtwo2.scale.set(4.03, 4.03, 4.03);
@@ -200,7 +200,7 @@
 
 		let rat2 = rat.clone();
 		rat2.material = new THREE.MeshBasicMaterial({
-			color: 0x00bb00,
+			color: 0x232323,
 			wireframe: true
 		});
 		rat2.scale.set(15.03, 15.03, 15.03);
@@ -285,8 +285,6 @@
 		camera.position.y += (-mouseY - camera.position.y * 10) * 0.01;
 
 		camera.lookAt(scene.position);
-
-		// renderer.render(scene, camera);
 	};
 
 	render();
