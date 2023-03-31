@@ -7,7 +7,7 @@
 	import { page } from '$app/stores';
 	import { index, loaded, screenType } from '$lib/store/store';
 
-	import AsciiRenderer from '$lib/components/effects/ascii-renderer.js';
+	// import AsciiRenderer from '$lib/components/effects/ascii-renderer.js';
 
 	$: $index, lookAtIndex($index);
 	let id;
@@ -39,11 +39,11 @@
 	onMount(() => {
 		container.appendChild(renderer.domElement);
 
-		asciiRenderer = new AsciiRenderer(renderer, {
-			charSet: charSet,
-			fontSize: 6,
-			opacity: 0
-		});
+		// asciiRenderer = new AsciiRenderer(renderer, {
+		// 	charSet: charSet,
+		// 	fontSize: 6,
+		// 	opacity: 0
+		// });
 
 		renderer.setSize(width, height);
 
@@ -258,8 +258,8 @@
 		camera.updateProjectionMatrix();
 
 		renderer.setPixelRatio(window.devicePixelRatio);
-		// renderer.setSize(window.innerWidth, window.innerHeight);
-		asciiRenderer.setSize(window.innerWidth, window.innerHeight);
+		renderer.setSize(window.innerWidth, window.innerHeight);
+		// asciiRenderer.setSize(window.innerWidth, window.innerHeight);
 	}
 
 	function onDocumentMouseMove(event) {
