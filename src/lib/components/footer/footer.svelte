@@ -47,9 +47,9 @@
 		padding-top: 10px;
 		width: 100vw;
 		max-width: 100vw;
-		/* border-top: solid 1px var(--white-50);
-		background: var(--black-50); */
-		color: var(--white);
+		/* border-top: solid 1px var(--primary-50);
+		background: var(--background-50); */
+		color: var(--primary);
 	}
 
 	p,
@@ -67,8 +67,8 @@
 
 	@media only screen and (max-width: 768px) {
 		footer {
-			background: var(--accent);
-			color: var(--black);
+			background: var(--primary);
+			color: var(--background);
 			padding: 15px 20px;
 			padding-bottom: 10px;
 		}

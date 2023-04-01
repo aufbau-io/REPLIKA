@@ -3,11 +3,11 @@
 
 /* APP */
 :root {
-	--black: #e3dac9;
-	--white: #232323;
-	--white-30: #2323234d;
-	--white-50: #23232380;
-	--black-50: #e3dac980;
+	--background: #e3dac9;
+	--primary: #232323;
+	--primary-30: #2323234d;
+	--primary-50: #23232380;
+	--background-50: #e3dac980;
 	--accent: #dfff00;
 	--error: #be4040;
 }
@@ -63,7 +63,7 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-	background: var(--black);
+	background: var(--background);
 	border-radius: 0;
 }
 
@@ -71,8 +71,8 @@
 
 body {
 	font-family: nb-architekt, sans-serif;
-	background: var(--black);
-	color: var(--white);
+	background: var(--background);
+	color: var(--primary);
 }
 
 h2,
@@ -91,8 +91,8 @@ h3,
 h4,
 h5,
 h6 {
-	background: var(--white);
-	color: var(--black) !important;
+	background: var(--primary);
+	color: var(--background) !important;
 
 	display: flex;
 	align-items: center;
@@ -112,7 +112,7 @@ h2 {
 }
 
 h2 {
-	font-size: 64px;
+	font-size: 4vw;
 }
 
 h3 {
@@ -180,65 +180,4 @@ a.lrg {
 p.btn.sml,
 a.sml {
 	font-size: 15px;
-}
-
-/* MOBILE SCREENS */
-@media only screen and (max-width: 768px) {
-	/* HEADING */
-	h1 {
-		font-size: 56px;
-	}
-
-	h2 {
-		font-size: 38px;
-	}
-
-	h3 {
-		font-size: 32px;
-	}
-
-	h4 {
-		font-size: 28px;
-	}
-
-	h5 {
-		font-size: 24px;
-		font-weight: 300;
-	}
-
-	h6 {
-		font-size: 16px;
-		font-weight: 300;
-	}
-
-	/* BODY */
-	p {
-		font-size: 14px;
-	}
-
-	p.lrg {
-		font-size: 15px;
-	}
-
-	p.sml {
-		font-size: 12px;
-	}
-
-	/* MONO */
-	p.lrg.mono {
-		font-size: 14px;
-	}
-
-	p.sml.mono {
-		font-size: 14px;
-	}
-
-	/* BUTTON */
-	a.lrg {
-		font-size: 16px;
-	}
-
-	a.sml {
-		font-size: 14px;
-	}
 }

@@ -322,7 +322,7 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		color: var(--white);
+		color: var(--primary);
 
 		display: flex;
 		flex-flow: column nowrap;

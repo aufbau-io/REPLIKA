@@ -21,9 +21,9 @@
 
 <header class={$screenType == 3 ? 'desktop' : ''}>
 	<Logo />
-	{#if $screenType == 3 && !$iframe}
+	<!-- {#if $screenType == 3 && !$iframe}
 		<Nav {navItems} />
-	{/if}
+	{/if} -->
 </header>
 
 <style>
@@ -39,8 +39,8 @@
 		align-items: center;
 		padding: 0px 20px;
 		height: 60px;
-		/* border-bottom: solid 1px var(--white-50); */
-		/* background: var(--black); */
+		/* border-bottom: solid 1px var(--primary-50); */
+		/* background: var(--background); */
 		user-select: none;
 		z-index: 100;
 	}

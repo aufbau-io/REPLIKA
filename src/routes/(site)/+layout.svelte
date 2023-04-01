@@ -12,11 +12,6 @@
 	onMount(async () => {
 		const module = await import('$lib/components/geometry/Geometry.svelte');
 		Geometry = module.default;
-
-		// TODO - NOT A LONG TERM SOLUTION
-		if ($screenType == 1 || $screenType == 2) {
-			// goto(`/work`, { replaceState: false });
-		}
 	});
 
 	onMount(async () => {
@@ -63,10 +58,8 @@
 		}
 	});
 
-	let img1_src = content.design.img_src;
-	let img2_src = content.scan.img_src;
-	let img3_src = content.print.img_src;
-	let img4_src = content.contact.img_src;
+	let img1_src = content.img1.img_src;
+	let img2_src = content.img2.img_src;
 </script>
 
 <svelte:head>
@@ -74,8 +67,6 @@
 
 	<link rel="preload" href={img1_src} as="image" />
 	<link rel="preload" href={img2_src} as="image" />
-	<link rel="preload" href={img3_src} as="image" />
-	<link rel="preload" href={img4_src} as="image" />
 
 	<link
 		rel="preload"
@@ -124,13 +115,9 @@
 
 <svelte:component this={Geometry} />
 
-{#if $screenType == 1 || $screenType == 2}
-	<div id="phoneBlock"><p class="sml">wip, use desktop</p></div>
-{:else if $screenType == 3}
-	<Header />
-	<slot />
-	<Footer />
-{/if}
+<Header />
+<slot />
+<Footer />
 
 <style>
 	#phoneBlock {
@@ -146,7 +133,7 @@
 		height: calc(var(--vh, 1vh) * 100);
 
 		width: 100vw;
-		background: var(--background);
+		background: var(--primary);
 		z-index: 1000;
 	}
 </style>

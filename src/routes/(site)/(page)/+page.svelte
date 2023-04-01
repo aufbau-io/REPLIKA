@@ -2,6 +2,10 @@
 	import { index, absoluteIndex, iframe } from '$lib/store/store.js';
 	import { screenType, loaded } from '$lib/store/store';
 
+	import { email, phone, address } from '$lib/data/contact.json';
+	import { lazyLoad } from '$lib/functions/lazyLoad.js';
+	import content from '$lib/data/page_content.json';
+
 	function turnLeft() {
 		absoluteIndex.update((val) => val - 1);
 	}
@@ -18,18 +22,42 @@
 </script>
 
 <main class:show={$loaded}>
+	<div class="arrows">
+		<h3 on:click={turnLeft}>←</h3>
+		<h3 on:click={turnRight}>→</h3>
+	</div>
+
 	{#if $screenType == 3}
-		<div class="arrows">
-			<h3 on:click={turnLeft}>←</h3>
-			<!-- {#if !$iframe}
-				<a href="/work">
-					<h2>{textMap[$index]}</h2>
-				</a>
-			{:else}
-				<h2>{textMap[$index]}</h2>
-			{/if} -->
-			<h3 on:click={turnRight}>→</h3>
-		</div>
+		<section>
+			{#if $index == 1}
+				<h2>REPLIKA MASTERWORKS</h2>
+				<h5>Figurine making company based in Portland OR</h5>
+			{/if}
+			{#if $index == 2}
+				<div class="row">
+					<figure>
+						<img use:lazyLoad={'/assets/netlifycms/model.jpg'} alt="image" />
+					</figure>
+					<figure>
+						<img use:lazyLoad={'/assets/netlifycms/kit.jpg'} alt="image" />
+					</figure>
+				</div>
+			{/if}
+			{#if $index == 3}
+				<div>
+					<h5>ADDRESS:</h5>
+					<h2>{address}</h2>
+				</div>
+				<div>
+					<h5>PHONE:</h5>
+					<h2>{phone}</h2>
+				</div>
+				<div>
+					<h5>EMAIL:</h5>
+					<h2>{email}</h2>
+				</div>
+			{/if}
+		</section>
 	{/if}
 </main>
 
@@ -49,9 +77,34 @@
 		opacity: 0;
 	}
 
+	section {
+		position: absolute;
+		top: 0%;
+		left: 25%;
+		width: 50%;
+		height: 100%;
+
+		display: flex;
+
+		flex-flow: column nowrap;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	}
+
+	.row {
+		display: flex;
+		flex-flow: row nowrap;
+		gap: 20px;
+	}
+
 	main.show {
 		transition: opacity ease-in 1.5s 0s;
 		opacity: 1;
+	}
+
+	img {
+		width: 100%;
 	}
 
 	.arrows {
@@ -61,16 +114,21 @@
 		justify-content: space-between;
 		align-items: center;
 		user-select: none;
-		color: var(--white);
+		color: var(--primary);
 
 		position: absolute;
 		top: 50%;
 		transform: translateY(-50%);
+
+		z-index: 10;
 	}
 
-	h3,
-	h2 {
+	h3 {
 		cursor: pointer;
+	}
+
+	h2 {
+		letter-spacing: 0.03rem;
 	}
 
 	.arrows h3 {
@@ -80,34 +138,5 @@
 
 	.arrows h3:hover {
 		font-family: nb-television-3d, nb-television-2d, sans-serif;
-	}
-
-	.arrows h2 {
-		font-size: 200px;
-		display: flex;
-		align-items: center;
-		color: var(--white);
-		padding: 2rem;
-		transform: translateY(-12.5px);
-		text-transform: uppercase;
-		font-family: nb-architekt, sans-serif;
-	}
-
-	.arrows h2:hover {
-		color: var(--white);
-		font-family: nb-television, nb-architekt, sans-serif;
-	}
-
-	.arrows h2:active {
-		color: var(--white);
-	}
-
-	@media only screen and (max-width: 1000px) {
-		.arrows h2 {
-			font-size: 100px;
-		}
-	}
-
-	@media only screen and (max-width: 768px) {
 	}
 </style>

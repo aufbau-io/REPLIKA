@@ -1,8 +1,8 @@
 import { writable, derived } from 'svelte/store';
 
 export const animations = writable(true);
-export const absoluteIndex = writable(2);
-export const screenType = writable(null);
+export const absoluteIndex = writable(0);
+export const screenType = writable(3);
 export const iframe = writable(null);
 export const loaded = writable(false);
 
