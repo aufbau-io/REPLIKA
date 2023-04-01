@@ -139,4 +139,10 @@
 	.arrows h3:hover {
 		font-family: nb-television-3d, nb-television-2d, sans-serif;
 	}
+
+	@media (max-width: 800px) {
+		.arrows h3 {
+			font-size: 200px;
+		}
+	}
 </style>
