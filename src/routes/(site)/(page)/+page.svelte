@@ -30,8 +30,9 @@
 	{#if $screenType == 3}
 		<section>
 			{#if $index == 1}
+				<h5>- Hal Fackler -</h5>
 				<h2>REPLIKA MASTERWORKS</h2>
-				<h5>Figurine making company based in Portland OR</h5>
+				<h5>A figurine making company based in Portland OR</h5>
 			{/if}
 			{#if $index == 2}
 				<div class="row">
@@ -110,9 +111,6 @@
 		border: solid 2px var(--primary);
 	}
 
-	img {
-	}
-
 	.arrows {
 		display: flex;
 		min-width: 100%;
@@ -135,6 +133,10 @@
 
 	h2 {
 		letter-spacing: 0.03rem;
+	}
+
+	h5 {
+		letter-spacing: 0.05rem;
 	}
 
 	.arrows h3 {
