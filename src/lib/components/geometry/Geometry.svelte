@@ -110,6 +110,7 @@
 
 	let setLoaded = () => {
 		loaded.update(() => true);
+		render();
 	};
 
 	manager.onLoad = function () {
