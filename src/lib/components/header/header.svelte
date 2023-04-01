@@ -1,7 +1,7 @@
 <script>
 	import Nav from './nav.svelte';
 	import Logo from './logo.svelte';
-	import { screenType, iframe } from '$lib/store/store';
+	import { screenType, iframe, absoluteIndex } from '$lib/store/store';
 	// stub data out
 	const navItems = [
 		{
@@ -17,10 +17,20 @@
 			href: '/contact'
 		}
 	];
+
+	function goToContact() {
+		absoluteIndex.set(2);
+	}
+
+	function goHome() {
+		absoluteIndex.set(0);
+	}
 </script>
 
 <header class={$screenType == 3 ? 'desktop' : ''}>
-	<Logo />
+	<h5 on:click={() => goHome()}>REPLIKA</h5>
+	<h5 on:click={() => goToContact()}>CONTACT</h5>
+
 	<!-- {#if $screenType == 3 && !$iframe}
 		<Nav {navItems} />
 	{/if} -->
@@ -35,17 +45,24 @@
 		max-width: 100vw;
 
 		display: flex;
-		justify-content: space-around;
+		justify-content: space-between;
 		align-items: center;
 		padding: 0px 20px;
 		height: 60px;
 		/* border-bottom: solid 1px var(--primary-50); */
 		/* background: var(--background); */
 		user-select: none;
-		z-index: 100;
+	}
+
+	h5 {
+		letter-spacing: 0.08em;
+		font-size: 22px;
+		margin: 0 5px;
+		padding-top: 10px;
+
+		cursor: pointer;
 	}
 
 	header.desktop {
-		justify-content: space-between;
 	}
 </style>
