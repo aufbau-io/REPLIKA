@@ -30,7 +30,7 @@
 	{#if $screenType == 3}
 		<section>
 			{#if $index == 1}
-				<h5>- Hal Fackler -</h5>
+				<h5>- Hal Fackler's -</h5>
 				<h2>REPLIKA MASTERWORKS</h2>
 				<h5>A figurine making company based in Portland OR</h5>
 			{/if}

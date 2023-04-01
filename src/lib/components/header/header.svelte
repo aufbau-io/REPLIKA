@@ -27,9 +27,11 @@
 	}
 </script>
 
-<header class={$screenType == 3 ? 'desktop' : ''}>
+<header class={$screenType != 1 ? '' : 'desktop'}>
 	<h5 on:click={() => goHome()}>REPLIKA</h5>
-	<h5 on:click={() => goToContact()}>CONTACT</h5>
+	{#if $screenType == 2 || $screenType == 3}
+		<h5 on:click={() => goToContact()}>CONTACT</h5>
+	{/if}
 
 	<!-- {#if $screenType == 3 && !$iframe}
 		<Nav {navItems} />
@@ -64,5 +66,6 @@
 	}
 
 	header.desktop {
+		justify-content: space-around;
 	}
 </style>
