@@ -106,8 +106,11 @@
 		opacity: 1;
 	}
 
+	figure {
+		border: solid 2px var(--primary);
+	}
+
 	img {
-		width: 100%;
 	}
 
 	.arrows {
