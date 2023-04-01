@@ -12,7 +12,7 @@
 </script>
 
 <footer>
-	{#if showFooter && $screenType != 3}
+	{#if showFooter || $screenType == 3}
 		<section>
 			<div class="base">
 				{#if $screenType == 1 || $screenType == 2}
