@@ -31,7 +31,7 @@
 		<section>
 			{#if $index == 1}
 				<h5>- Hal Fackler -</h5>
-				<h2>REPLIKA MASTERWORKS</h2>
+				<h2 class="stayBig">REPLIKA MASTERWORKS</h2>
 				<h5>A figurine making company based in Portland OR</h5>
 			{/if}
 			{#if $index == 2}
@@ -151,6 +151,12 @@
 	@media (max-width: 800px) {
 		.arrows h3 {
 			font-size: 200px;
+		}
+	}
+
+	@media (max-width: 1200px) {
+		.stayBig {
+			font-size: 60px !important;
 		}
 	}
 </style>
