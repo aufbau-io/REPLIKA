@@ -75,6 +75,8 @@
 		margin-top: 50px;
 		margin-bottom: 50px;
 		opacity: 0;
+
+		overflow: hidden;
 	}
 
 	section {
