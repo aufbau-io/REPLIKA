@@ -66,6 +66,7 @@
 		position: absolute;
 		top: 0;
 		height: calc(100vh - 100px);
+		max-height: calc(var(--vh, 1vh) * 100);
 		width: 100vw;
 
 		display: flex;

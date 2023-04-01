@@ -118,22 +118,3 @@
 <Header />
 <slot />
 <Footer />
-
-<style>
-	#phoneBlock {
-		position: absolute;
-		top: 0;
-		left: 0;
-
-		display: flex;
-		align-items: center;
-		justify-content: center;
-
-		height: 100vh;
-		height: calc(var(--vh, 1vh) * 100);
-
-		width: 100vw;
-		background: var(--primary);
-		z-index: 1000;
-	}
-</style>
