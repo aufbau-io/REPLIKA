@@ -156,7 +156,7 @@
 
 	@media (max-width: 1200px) {
 		.stayBig {
-			font-size: 60px !important;
+			font-size: 62px !important;
 		}
 	}
 </style>
