@@ -291,12 +291,14 @@
 	render();
 </script>
 
-{#if !$loaded}
-	<div class="loader">
-		<p>Loading {no_itemsLoaded} / {no_itemsTotal}</p>
-		<!-- <a href="/work">skip</a> -->
-	</div>
-{/if}
+{#key loaded}
+	{#if !$loaded}
+		<div class="loader">
+			<p>Loading {no_itemsLoaded} / {no_itemsTotal}</p>
+			<!-- <a href="/work">skip</a> -->
+		</div>
+	{/if}
+{/key}
 <div bind:this={container} class:geometry={$loaded} />
 
 <style>
