@@ -290,7 +290,7 @@
 	render();
 </script>
 
-{#if !$loaded && $page.url.pathname == '/' && $screenType == 3}
+{#if !$loaded && $page.url.pathname == '/'}
 	<div class="loader">
 		<p>Loading {no_itemsLoaded} / {no_itemsTotal}</p>
 		<!-- <a href="/work">skip</a> -->
