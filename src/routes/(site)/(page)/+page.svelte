@@ -96,6 +96,7 @@
 		justify-content: center;
 		align-items: center;
 		text-align: center;
+		z-index: 10;
 	}
 
 	.row {
@@ -125,8 +126,6 @@
 		position: absolute;
 		top: 50%;
 		transform: translateY(-50%);
-
-		z-index: 10;
 	}
 
 	.contact {
