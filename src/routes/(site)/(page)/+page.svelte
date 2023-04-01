@@ -114,7 +114,7 @@
 	.arrows {
 		display: flex;
 		min-width: 100%;
-		padding: 0 40px;
+		padding: 0 5vw;
 		justify-content: space-between;
 		align-items: center;
 		user-select: none;
