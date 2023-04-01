@@ -45,17 +45,19 @@
 				</div>
 			{/if}
 			{#if $index == 3}
-				<div>
-					<h5>ADDRESS:</h5>
-					<h2>{address}</h2>
-				</div>
-				<div>
-					<h5>PHONE:</h5>
-					<h2>{phone}</h2>
-				</div>
-				<div>
-					<h5>EMAIL:</h5>
-					<h2>{email}</h2>
+				<div class="contact">
+					<div>
+						<h5>ADDRESS:</h5>
+						<h2>{address}</h2>
+					</div>
+					<div>
+						<h5>PHONE:</h5>
+						<h2>{phone}</h2>
+					</div>
+					<div>
+						<h5>EMAIL:</h5>
+						<h2>{email}</h2>
+					</div>
 				</div>
 			{/if}
 		</section>
@@ -127,6 +129,12 @@
 		z-index: 10;
 	}
 
+	.contact {
+		display: flex;
+		flex-flow: column nowrap;
+		gap: 40px;
+	}
+
 	h3 {
 		cursor: pointer;
 	}
@@ -157,6 +165,13 @@
 	@media (max-width: 1200px) {
 		.stayBig {
 			font-size: 62px !important;
+			margin: 10px 0;
+		}
+
+		.row {
+			display: flex;
+			flex-flow: column nowrap;
+			gap: 20px;
 		}
 	}
 </style>
