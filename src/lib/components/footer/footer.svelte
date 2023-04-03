@@ -88,11 +88,9 @@
 
 		.base {
 			flex-flow: column nowrap;
-			align-items: space-between;
-			text-align: center;
+			align-items: flex-start;
 
 			justify-content: center;
-			height: 100%;
 		}
 
 		.contactToggle {
