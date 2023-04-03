@@ -3,39 +3,52 @@
 	import { email, phone, address } from '$lib/data/contact.json';
 	import { footer_1, footer_2 } from '$lib/data/misc.json';
 
-	let showFooter = false;
-	let toggleShowFooter = () => {
-		showFooter = !showFooter;
-	};
+	let showFooter = true;
+	// let toggleShowFooter = () => {
+	// 	showFooter = !showFooter;
+	// };
 
-	$: contactText = showFooter ? 'HIDE CONACT' : 'CONTACT';
+	// $: contactText = showFooter ? 'HIDE CONACT' : 'CONTACT';
 </script>
 
 <footer>
-	{#if showFooter || $screenType == 3}
-		<section>
-			<div class="base">
-				{#if $screenType == 1 || $screenType == 2}
-					<a href="mailto: {email}">{email}</a>
-					<p>{phone}</p>
-					<br />
-				{/if}
+	<section>
+		<div class="base">
+			{#if $screenType == 1 || $screenType == 2}
+				<p>REPLIKA MASTERWORKS</p>
+				<p>-</p>
+				<p>A figurine making company based in Portland OR</p>
+				<p>Proudly Presented by Hal Fackler</p>
+				<p>-</p>
+				<br />
+			{/if}
+			{#if $screenType == 1 || $screenType == 2}
+				<a href="mailto: {email}">{email}</a>
+				<p>{phone}</p>
+				<br />
+			{/if}
+			{#if $screenType == 3}
 				<p>{footer_1}</p>
 				<p>{footer_2}</p>
+			{/if}
 
-				<p>{address}</p>
-				{#if $screenType == 1 || $screenType == 2}
-					<br />
-				{/if}
+			<p>{address}</p>
+
+			{#if $screenType == 1 || $screenType == 2}
+				<p>-</p>
+				<br />
+			{/if}
+			{#if $screenType == 3}
 				<a href="https://aufbau.io" target="blank_">ein aufbau ding</a>
-			</div>
-		</section>
-	{/if}
-	{#if $screenType == 1 || $screenType == 2}
+			{/if}
+		</div>
+	</section>
+	<!-- {#if $screenType == 1 || $screenType == 2}
 		<div class="contactToggle">
 			<h5 on:click={() => toggleShowFooter()}>{contactText}</h5>
+			<h5 on:click={() => toggleShowFooter()}>{contactText}</h5>
 		</div>
-	{/if}
+	{/if} -->
 </footer>
 
 <style>
@@ -75,7 +88,11 @@
 
 		.base {
 			flex-flow: column nowrap;
-			align-items: flex-start;
+			align-items: space-between;
+			text-align: center;
+
+			justify-content: center;
+			height: 100%;
 		}
 
 		.contactToggle {
@@ -86,7 +103,7 @@
 			justify-content: center;
 		}
 		section {
-			height: calc(50vh + 2px);
+			height: calc(var(--vh, 1vh) * 100 - 20px);
 		}
 
 		h5 {

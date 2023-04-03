@@ -10,8 +10,10 @@
 	import content from '$lib/data/page_content.json';
 
 	onMount(async () => {
-		const module = await import('$lib/components/geometry/Geometry.svelte');
-		Geometry = module.default;
+		if ($screenType == 3) {
+			const module = await import('$lib/components/geometry/Geometry.svelte');
+			Geometry = module.default;
+		}
 	});
 
 	onMount(async () => {
@@ -113,7 +115,9 @@
 	/>
 </svelte:head>
 
-<svelte:component this={Geometry} />
+{#if $screenType == 3}
+	<svelte:component this={Geometry} />
+{/if}
 
 <Header />
 <slot />
