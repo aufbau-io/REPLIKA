@@ -117,8 +117,8 @@
 
 {#if $screenType != 1}
 	<svelte:component this={Geometry} />
-{/if}
 
-<Header />
-<slot />
+	<Header />
+	<slot />
+{/if}
 <Footer />
