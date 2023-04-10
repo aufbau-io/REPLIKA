@@ -115,10 +115,11 @@
 	/>
 </svelte:head>
 
+<Header />
+
 {#if $screenType != 1}
 	<svelte:component this={Geometry} />
-
-	<Header />
 	<slot />
 {/if}
+
 <Footer />

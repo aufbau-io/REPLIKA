@@ -13,35 +13,37 @@
 
 <footer>
 	<section>
-		<div class="base">
-			{#if $screenType == 1 || $screenType == 2}
-				<p>REPLIKA MASTERWORKS</p>
-				<p>-</p>
-				<p>A figurine making company based in Portland OR</p>
-				<p>Proudly Presented by Hal Fackler</p>
-				<p>-</p>
-			{/if}
-			{#if $screenType == 1 || $screenType == 2}
-				<a href="mailto: {email}">{email}</a>
-				<p>{phone}</p>
-			{/if}
-			{#if $screenType == 3}
-				<p>{footer_1}</p>
-				<p>{footer_2}</p>
-			{/if}
+		{#if $screenType}
+			<div class="base">
+				{#if $screenType == 1 || $screenType == 2}
+					<p>REPLIKA MASTERWORKS.</p>
+					<p>-</p>
+					<p>A figurine making company based in Portland OR</p>
+					<p>Proudly Presented by Hal Fackler</p>
+					<p>-</p>
+				{/if}
+				{#if $screenType == 1 || $screenType == 2}
+					<a href="mailto: {email}">{email}</a>
+					<p>{phone}</p>
+				{/if}
+				{#if $screenType == 3}
+					<p>{footer_1}</p>
+					<p>{footer_2}</p>
+				{/if}
 
-			<p>{address}</p>
+				<p>{address}</p>
 
+				{#if $screenType == 1 || $screenType == 2}
+					<p>-</p>
+					<br />
+				{/if}
+				{#if $screenType == 3}
+					<a href="https://aufbau.io" target="blank_">ein aufbau ding</a>
+				{/if}
+			</div>
 			{#if $screenType == 1 || $screenType == 2}
-				<p>-</p>
-				<br />
+				<p>This website is fancier on desktop</p>
 			{/if}
-			{#if $screenType == 3}
-				<a href="https://aufbau.io" target="blank_">ein aufbau ding</a>
-			{/if}
-		</div>
-		{#if $screenType == 1 || $screenType == 2}
-			<p>This website is fancier on desktop</p>
 		{/if}
 	</section>
 	<!-- {#if $screenType == 1 || $screenType == 2}
